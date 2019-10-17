@@ -41,7 +41,7 @@ class Alumno
         fecha nacimiento;
         direccion domicilio;
         char religion[30];
-        seccion aula;
+        //seccion aula;
         notas items[100];
         cursos listaCursos[10];
         talleres listaTalleres[5];

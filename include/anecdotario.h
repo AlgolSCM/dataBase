@@ -11,7 +11,7 @@ class anecdotario
     protected:
 
     private:
-        vector <>;
+//        vector <>;
         char descripcion[100], titulo[40];
         fecha dia;
 
