@@ -9,6 +9,7 @@
 #include "talleres.h"
 #include "expedienteMedico.h"
 #include "Padres.h"
+#include "anecdotario.h"
 
 class Alumno
 {

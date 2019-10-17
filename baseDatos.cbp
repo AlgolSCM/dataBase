@@ -41,6 +41,8 @@
 		<Unit filename="include/direccion.h" />
 		<Unit filename="include/expedienteMedico.h" />
 		<Unit filename="include/fecha.h" />
+		<Unit filename="include/inventario.h" />
+		<Unit filename="include/matricula.h" />
 		<Unit filename="include/notas.h" />
 		<Unit filename="include/seccion.h" />
 		<Unit filename="include/talleres.h" />
@@ -52,6 +54,8 @@
 		<Unit filename="src/direccion.cpp" />
 		<Unit filename="src/expedienteMedico.cpp" />
 		<Unit filename="src/fecha.cpp" />
+		<Unit filename="src/inventario.cpp" />
+		<Unit filename="src/matricula.cpp" />
 		<Unit filename="src/notas.cpp" />
 		<Unit filename="src/seccion.cpp" />
 		<Unit filename="src/talleres.cpp" />
