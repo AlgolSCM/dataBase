@@ -13,12 +13,40 @@ bool acceder(string a="",string b=""){
     cin>>b;
     return (a==usuario&&b==contra);
 }
+void imprimirOpciones(){
+    cout << "1. Ver listado de alumnos";
 
+
+}
+
+void verListado();
+void verNotas();
+void seleccionAlumno();
+void salir();
 
 int main()
 {
-    if (acceder())
+    bool usuarioActivo=false;
+    if (acceder()){
         cout << "Bienvenido al Sistema del jardin Gaspare Mariotti" << endl;
+        usuarioActivo=true;
+    }
+    /**while (usuarioActivo){
+        switch (getline){
+            case '1':
+                verListado();
+                seleccionAlumno();
+                break;
+            case '2':
+                verNotas();
+                break;
+
+            case default:
+                salir();
+        }
+    }
+    */
+
 
     return 0;
 }
