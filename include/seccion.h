@@ -11,7 +11,7 @@ class seccion
     protected:
 
     private:
-        char exploradoras[20], creativas[20],reflexivas[20];
+        char exploradoras2[20],creativas3[20],constructivas4[20],reflexivas5[20];
 
 
 };

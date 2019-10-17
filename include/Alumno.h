@@ -5,6 +5,11 @@
 #include "direccion.h"
 #include "seccion.h"
 #include "notas.h"
+#include "cursos.h"
+#include "talleres.h"
+#include "expedienteMedico.h"
+#include "Padres.h"
+
 class Alumno
 {
     public:
@@ -37,6 +42,9 @@ class Alumno
         char religion[30];
         seccion aula;
         notas items[100];
+        cursos listaCursos[10];
+        talleres listaTalleres[5];
+        Padres nombrePadres[2];
 
 };
 

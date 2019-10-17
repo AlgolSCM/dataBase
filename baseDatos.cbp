@@ -36,21 +36,25 @@
 		</Compiler>
 		<Unit filename="include/Alumno.h" />
 		<Unit filename="include/Padres.h" />
+		<Unit filename="include/anecdotario.h" />
 		<Unit filename="include/cursos.h" />
 		<Unit filename="include/direccion.h" />
 		<Unit filename="include/expedienteMedico.h" />
 		<Unit filename="include/fecha.h" />
 		<Unit filename="include/notas.h" />
 		<Unit filename="include/seccion.h" />
+		<Unit filename="include/talleres.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Alumno.cpp" />
 		<Unit filename="src/Padres.cpp" />
+		<Unit filename="src/anecdotario.cpp" />
 		<Unit filename="src/cursos.cpp" />
 		<Unit filename="src/direccion.cpp" />
 		<Unit filename="src/expedienteMedico.cpp" />
 		<Unit filename="src/fecha.cpp" />
 		<Unit filename="src/notas.cpp" />
 		<Unit filename="src/seccion.cpp" />
+		<Unit filename="src/talleres.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
