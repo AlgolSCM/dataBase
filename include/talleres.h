@@ -7,12 +7,12 @@ class talleres
     public:
         talleres();
         virtual ~talleres();
+        void setNombreProfe(char nombreTaller,char nombreProfesor);
 
     protected:
 
     private:
-        char nombreTaller[40];
-        char nombreProfesor[40];
+        char nombreTaller[40],nombreProfesor[40];
         notas notaAlumno;
 };
 

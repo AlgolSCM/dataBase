@@ -23,6 +23,7 @@ void verListado();
 void verNotas();
 void seleccionAlumno();
 void salir();
+void estadoMaterial();
 
 int main()
 {
@@ -40,7 +41,9 @@ int main()
             case '2':
                 verNotas();
                 break;
-
+            case '3':
+                estadoMaterial();
+                break;
             case default:
                 salir();
         }
