@@ -1,6 +1,6 @@
 #ifndef FECHA_H
 #define FECHA_H
-
+#include <string>
 
 class fecha
 {
