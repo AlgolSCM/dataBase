@@ -1,6 +1,7 @@
 #ifndef MATRICULA_H
 #define MATRICULA_H
 #include "fecha.h"
+#include <string>
 
 class matricula
 {
