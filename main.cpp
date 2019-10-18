@@ -15,15 +15,29 @@ bool acceder(string a="",string b=""){
 }
 void imprimirOpciones(){
     cout << "1. Ver listado de alumnos";
-
-
+    cout << "2. Ver inventario"
+    cout << "3. Salir"
 }
 
 void verListado();
-void verNotas();
-void seleccionAlumno();
+void seleccionAlumno(){
+    cout << "1. Ver notas";
+    cout << "2. Ver seccion";
+    cout << "3. Ver expediente medico";
+    cout << "4. Ver cursos";
+    cout << "5. Ver talleres";
+    cout << "6. Ver anecdotario";
+}
 void salir();
-void estadoMaterial();
+void estadoMaterial(){
+    cout << ""
+}
+void VerNotas();
+void VerSeccion();
+void VerExpediente();
+void VerCurso();
+void VerTaller();
+void VerAnecdotario();
 
 int main()
 {
@@ -36,13 +50,26 @@ int main()
         switch (getline){
             case '1':
                 verListado();
-                seleccionAlumno();
+                seleccionAlumno(){
+                    case '1':
+                        VerNotas();
+                    case '2':
+                        VerSeccion();
+                    case '3':
+                        VerExpediente();
+                    case '4':
+                        VerCurso();
+                    case '5':
+                        VerTaller();
+                    case '6':
+                        VerAnecdotario();
+                }
                 break;
             case '2':
-                verNotas();
-                break;
-            case '3':
-                estadoMaterial();
+                verInventario();
+                estadoMaterial(){
+                    case '1':
+
                 break;
             case default:
                 salir();
