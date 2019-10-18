@@ -6,7 +6,7 @@
 using namespace std;
 
 bool acceder(string a="",string b=""){
-    string usuario="GMariotti",contra="cuarteto";
+    string usuario="GMariotti",contra="gaspare";
     cout << "Ingrese su nombre de usuario: " << endl;
     cin>>a;
     cout << "Ingrese su contrasena: " << endl;
@@ -15,8 +15,8 @@ bool acceder(string a="",string b=""){
 }
 void imprimirOpciones(){
     cout << "1. Ver listado de alumnos";
-    cout << "2. Ver inventario"
-    cout << "3. Salir"
+    cout << "2. Ver inventario";
+    cout << "3. Salir";
 }
 
 void verListado();
@@ -29,9 +29,7 @@ void seleccionAlumno(){
     cout << "6. Ver anecdotario";
 }
 void salir();
-void estadoMaterial(){
-    cout << ""
-}
+void estadoMaterial();
 void VerNotas();
 void VerSeccion();
 void VerExpediente();
@@ -67,16 +65,13 @@ int main()
                 break;
             case '2':
                 verInventario();
-                estadoMaterial(){
-                    case '1':
-
+                estadoMaterial();
                 break;
             case default:
                 salir();
         }
     }
-    */
 
-
+*/
     return 0;
 }
