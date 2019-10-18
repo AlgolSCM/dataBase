@@ -1,6 +1,7 @@
 #ifndef TALLERES_H
 #define TALLERES_H
 #include "notas.h"
+#include <string>
 
 class talleres
 {
