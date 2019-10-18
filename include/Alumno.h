@@ -10,6 +10,7 @@
 #include "expedienteMedico.h"
 #include "Padres.h"
 #include "anecdotario.h"
+#include <string>
 
 class Alumno
 {
