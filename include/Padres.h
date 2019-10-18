@@ -3,6 +3,7 @@
 
 #include "fecha.h"
 #include "direccion.h"
+#include <string>
 
 class Padres
 {
