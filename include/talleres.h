@@ -13,6 +13,7 @@ class talleres
 
     private:
         char nombreTaller[40],nombreProfesor[40];
+        //lista de materiales que se necesita para cada taller, vector de char.
         notas notaAlumno;
 };
 
