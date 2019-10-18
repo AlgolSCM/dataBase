@@ -4,16 +4,18 @@
 
 class talleres
 {
-    public:
+   public:
         talleres();
         virtual ~talleres();
         void setNombreProfe(char nombreTaller,char nombreProfesor);
+        void LlenarListadeMateriales(std :: string materiales);
+        void getNombreProfe(char nombreTaller,char nombreProfesor);
 
     protected:
 
     private:
         char nombreTaller[40],nombreProfesor[40];
-        //lista de materiales que se necesita para cada taller, vector de char.
+        std :: string materiales[7];
         notas notaAlumno;
 };
 
