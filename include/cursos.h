@@ -1,6 +1,7 @@
 #ifndef CURSOS_H
 #define CURSOS_H
 #include "notas.h"
+#include <string>
 
 class cursos : public notas
 {
