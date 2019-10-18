@@ -1,7 +1,7 @@
 #ifndef EXPEDIENTEMEDICO_H
 #define EXPEDIENTEMEDICO_H
-
 #include "fecha.h"
+#include <string>
 
 class expedienteMedico
 {
