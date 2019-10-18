@@ -7,6 +7,10 @@ class fecha
     public:
         fecha();
         virtual ~fecha();
+       void FechaAlumno(int dia, int mes, int anio);
+       void FechaMatricula(int dia, int mes, int anio);
+       void FechaInventario(int dia, int mes, int anio);
+       void FechaPadre(int dia, int mes, int anio);
 
     protected:
 
