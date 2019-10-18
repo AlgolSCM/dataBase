@@ -28,7 +28,7 @@ int main()
 {
     bool usuarioActivo=false;
     if (acceder()){
-        cout << "Bienvenido al Sistema del jardin Gaspare Mariotti" << endl;
+        cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;
         usuarioActivo=true;
     }
     /**while (usuarioActivo){

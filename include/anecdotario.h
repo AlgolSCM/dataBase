@@ -7,6 +7,9 @@ class anecdotario
     public:
         anecdotario();
         virtual ~anecdotario();
+        void setAnecdota(char descripcion[100],char titulo[40]);
+
+        void getAnecdota();
 
     protected:
 

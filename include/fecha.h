@@ -11,6 +11,7 @@ class fecha
     protected:
 
     private:
+        int dia, mes, anio;
 };
 
 #endif // FECHA_H

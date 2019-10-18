@@ -7,7 +7,9 @@ class cursos : public notas
     public:
         cursos();
         virtual ~cursos();
+        void setCursoProfeComp(char nombreCurso,char nombreProfesor,char competencias);
 
+        void getCursoProfeComp();
     protected:
 
     private:
