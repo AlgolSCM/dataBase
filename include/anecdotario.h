@@ -2,6 +2,8 @@
 #define ANECDOTARIO_H
 #include <vector>
 #include "fecha.h"
+#include <string>
+
 class anecdotario
 {
     public:
