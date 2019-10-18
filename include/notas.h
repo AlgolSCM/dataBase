@@ -1,6 +1,6 @@
 #ifndef NOTAS_H
 #define NOTAS_H
-
+#include <string>
 
 class notas
 {
