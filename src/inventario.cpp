@@ -1,19 +1,19 @@
-#include "objetoInventario.h"
 
-objetoInventario::objetoInventario()
+#include "inventario.h"
+
+inventario::inventario()
 {
     //ctor
 }
-
-objetoInventario::~objetoInventario()
+inventario::~inventario()
 {
     //dtor
 }
 
-void setEstanteSillaMesa(int s,int m,int e){
+/*void setEstanteSillaMesa(int s,int m,int e){
     sillas.clear();
     mesas.clear();
     sillas.clear();
     for (int i=0;i<(s+m+e);i++)
         sillas.push_back(objetoInventario);
-}
+}*/

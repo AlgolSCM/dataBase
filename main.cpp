@@ -14,28 +14,51 @@ bool acceder(string a="",string b=""){
     return (a==usuario&&b==contra);
 }
 void imprimirOpciones(){
-    cout << "1. Ver listado de alumnos";
-    cout << "2. Ver inventario";
-    cout << "3. Salir";
+    cout << "Elija una opcion"<< endl;
+    cout << "1. Ver listado de alumnos"<< endl;
+    cout << "2. Ver inventario"<< endl;
+    cout << "3. Salir"<< endl;
 }
 
-void verListado();
 void seleccionAlumno(){
-    cout << "1. Ver notas";
-    cout << "2. Ver seccion";
-    cout << "3. Ver expediente medico";
-    cout << "4. Ver cursos";
-    cout << "5. Ver talleres";
-    cout << "6. Ver anecdotario";
+    cout << "Elija una opcion"<< endl;
+    cout << "1. Ver notas"<< endl;
+    cout << "2. Ver seccion"<< endl;
+    cout << "3. Ver expediente medico"<< endl;
+    cout << "4. Ver cursos"<< endl;
+    cout << "5. Ver talleres"<< endl;
+    cout << "6. Ver anecdotario"<< endl;
 }
-void salir();
-void estadoMaterial();
-void VerNotas();
-void VerSeccion();
-void VerExpediente();
-void VerCurso();
-void VerTaller();
-void VerAnecdotario();
+void salir(){
+cout<<"saliendo de la plataforma"<< endl;
+}
+void estadoMaterial(){
+cout<<" estadoMaterial"<< endl;
+}
+void VerNotas(){
+cout<<"VerNotas"<< endl;
+}
+void VerSeccion(){
+cout<<"VerSeccion"<< endl;
+}
+void VerExpediente(){
+cout<<"VerExpediente"<< endl;
+}
+void VerCurso(){
+cout<<"VerCurso"<< endl;
+}
+void VerTaller(){
+cout<<"VerTaller"<< endl;
+}
+void VerAnecdotario(){
+cout<<"VerAnecdotario"<< endl;
+}
+void verInvent(){
+cout<<"verInvent"<< endl;
+}
+void verListado(){
+cout<<"verListado"<< endl;
+}
 
 int main()
 {
@@ -44,34 +67,46 @@ int main()
         cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;
         usuarioActivo=true;
     }
-    /**while (usuarioActivo){
-        switch (getline){
-            case '1':
-                verListado();
-                seleccionAlumno(){
-                    case '1':
+    int n;
+    while (usuarioActivo){
+        imprimirOpciones();
+        cin>>n;
+        switch (n){
+            case 1:
+                seleccionAlumno();
+                cin>> n;
+                switch (n){
+                    case 1:
                         VerNotas();
-                    case '2':
+                        break;
+                    case 2:
                         VerSeccion();
-                    case '3':
+                        break;
+                    case 3:
                         VerExpediente();
-                    case '4':
+                        break;
+                    case 4:
                         VerCurso();
-                    case '5':
+                        break;
+                    case 5:
                         VerTaller();
-                    case '6':
+                        break;
+                    case 6:
                         VerAnecdotario();
+                        break;
                 }
                 break;
-            case '2':
-                verInventario();
+            case 2:
+                verInvent();
                 estadoMaterial();
                 break;
-            case default:
+            default:
                 salir();
+                usuarioActivo=false;
+
+                break;
         }
     }
 
-*/
     return 0;
 }

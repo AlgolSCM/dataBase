@@ -44,6 +44,7 @@
 		<Unit filename="include/inventario.h" />
 		<Unit filename="include/matricula.h" />
 		<Unit filename="include/notas.h" />
+		<Unit filename="include/objetoInventario.h" />
 		<Unit filename="include/seccion.h" />
 		<Unit filename="include/talleres.h" />
 		<Unit filename="main.cpp" />
@@ -57,6 +58,7 @@
 		<Unit filename="src/inventario.cpp" />
 		<Unit filename="src/matricula.cpp" />
 		<Unit filename="src/notas.cpp" />
+		<Unit filename="src/objetoInventario.cpp" />
 		<Unit filename="src/seccion.cpp" />
 		<Unit filename="src/talleres.cpp" />
 		<Extensions>
