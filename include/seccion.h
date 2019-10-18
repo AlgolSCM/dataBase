@@ -1,7 +1,7 @@
 #ifndef SECCION_H
 #define SECCION_H
 #include "Alumno.h"
-
+#include <string>
 class seccion
 {
     public:
