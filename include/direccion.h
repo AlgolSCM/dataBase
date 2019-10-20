@@ -1,13 +1,13 @@
 #ifndef DIRECCION_H
 #define DIRECCION_H
 #include <string>
-
+using namespace std;
 class direccion
 {
     public:
         direccion();
         virtual ~direccion();
-        void setNombreLugar(char nombre[25],char lugar[25]);
+        void setNombreLugar(string nombre,string lugar);
         void setNumero(int numero);
         //void escogerVivienda
         void getNombreLugar();
@@ -15,7 +15,7 @@ class direccion
     protected:
 
     private:
-        char nombre[25],lugar[25];
+        string nombre,lugar;
         int numero;
 };
 

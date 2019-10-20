@@ -2,7 +2,7 @@
 #define TALLERES_H
 #include "notas.h"
 #include <string>
-
+using namespace std;
 class talleres
 {
    public:
@@ -11,7 +11,7 @@ class talleres
         void setNombreProfe(char nombreTaller,char nombreProfesor);
         void LlenarListadeMateriales(std :: string materiales);
         void getNombreProfe(char nombreTaller,char nombreProfesor);
-
+        void getLlenarListadeMateriales(std :: string materiales);
     protected:
 
     private:

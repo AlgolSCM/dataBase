@@ -2,7 +2,7 @@
 #define EXPEDIENTEMEDICO_H
 #include "fecha.h"
 #include <string>
-
+using namespace std;
 class expedienteMedico
 {
     public:
@@ -15,7 +15,7 @@ class expedienteMedico
         int sento, paro, camino, palabra, hablo, gateo, esfinteres;
         char tipoSangre[4];
         bool controlaEsfinteres;
-        char alergias[150], vacunas[100], enfermedades[150], traumas[100];
+        string alergias, vacunas], enfermedades, traumas;
 };
 
 #endif // EXPEDIENTEMEDICO_H

@@ -3,13 +3,13 @@
 #include <vector>
 #include "fecha.h"
 #include <string>
-
+usinf namespace std;
 class anecdotario
 {
     public:
         anecdotario();
         virtual ~anecdotario();
-        void setAnecdota(char descripcion[100],char titulo[40]);
+        void setAnecdota(string descripcion,string titulo);
 
         void getAnecdota();
 
@@ -17,7 +17,7 @@ class anecdotario
 
     private:
 //        vector <>;
-        char descripcion[100], titulo[40];
+        string descripcion, titulo;
         fecha dia;
 
 };

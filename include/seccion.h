@@ -7,6 +7,11 @@ class seccion
     public:
         seccion();
         virtual ~seccion();
+        void asignarSeccion(fecha fechaNacimiento);
+        void llenarExploradoras(char *exploradoras2);
+        void llenaCreativas(char *creativas3);
+        void llenarConstructivas(char *constructivas4);
+        void llenarReflexivas(char *reflexivas5);
         void getNinosNinas();
     protected:
 
