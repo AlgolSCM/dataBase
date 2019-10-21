@@ -22,7 +22,7 @@ bool setDiaMesAnio(int a,int b,int c){
 }
 
 
-bool validarFecha(int a,int b,int c){
+bool validarFecha(int a,int b,int c){//no verifica el anio
     if (mes>=1&&mes<=12){//ve si el mes es valido
         if (mes==2){//verifica el valor del dia febrero se evalua tambien si el anio fue bisiesto
             if (dia>=1&&dia>=28)
@@ -32,9 +32,12 @@ bool validarFecha(int a,int b,int c){
         }
         else if (dia<=30&&dia>=1)//evalua si el dia es valido
             return 1;
-        else if (mes<=7&&!(mes%2)&&dia=31){//evalua los meses hasta julio, los impares tienen 31 dias
-            return 1;
-        else if (mes%2&&)
-     }
+        else if (dia==31){//evalua si tiene 31 dias
+            if (mes<=7&&(mes%2))//evalua los meses hasta julio, los impares tienen 31 dias
+                return 1;
+            else if(!(mes%2))//si es un mes par y tiene 31 dias es valido
+                return 1;
+        }
     }
+    return 0;
 }
