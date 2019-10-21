@@ -2,7 +2,8 @@
 
 talleres::talleres()
 {
-    //ctor
+   talleres :: nombreTaller="Ingles";
+   talleres ::nombreProfesor="Rosa Perez";
 }
 
 talleres::~talleres()
