@@ -8,15 +8,16 @@ class talleres
    public:
         talleres();
         virtual ~talleres();
-        void setNombreProfe(char nombreTaller,char nombreProfesor);
-        void LlenarListadeMateriales(std :: string materiales);
-        void getNombreProfe(char nombreTaller,char nombreProfesor);
-        void getLlenarListadeMateriales(std :: string materiales);
+        void setNombreProfe(string nombreTaller,string nombreProfesor, notas notaAlumno);
+        //void LlenarListadeMateriales(string  materiales);
+        void getNombreProfe(string nombreTaller,string nombreProfesor);
+        //void getLlenarListadeMateriales(string materiales);
+   
     protected:
 
     private:
-        char nombreTaller[40],nombreProfesor[40];
-        std :: string materiales[7];
+        stringn nombreTaller,nombreProfesor;
+        //string materiales[7];
         notas notaAlumno;
 };
 
