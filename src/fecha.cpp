@@ -13,8 +13,8 @@ fecha::~fecha(){
     //dtor
 }
 
-/**
-bool setDiaMesAnio(int a,int b,int c){
+
+bool fecha :: setDiaMesAnio(int a,int b,int c){
     if (validarFecha(a,b,c)){
         fecha::dia=a;
         fecha::mes=b;
@@ -23,9 +23,9 @@ bool setDiaMesAnio(int a,int b,int c){
     }
     return 0;//retorna si se modifico la fecha
 }
-*/
 
-bool validarFecha(int a,int b,int c){//verifica si la fecha es real, no verifica el anio
+
+bool fecha :: validarFecha(int a,int b,int c){//verifica si la fecha es real, no verifica el anio
     if (fecha::mes>=1&&fecha::mes<=12){//ve si el mes es valido
         if (fecha::mes==2){//verifica el valor del dia febrero se evalua tambien si el anio fue bisiesto
             if (fecha::dia>=1&&fecha::dia>=28)
