@@ -17,13 +17,13 @@ class Alumno
     public:
         Alumno();//Matriccula
         virtual ~Alumno();
-        Alumno(string apellidos[40],string nombres[40]);
+        Alumno(string apellidos,string nombres);
 
-        void setNombresApellidos(string apellidos[40], string nombres[40],char genero, fecha nacimiento);
+        void setNombresApellidos(string apellidos, string nombres,char genero, fecha nacimiento);
         void setDocumentos(int dni,int partidaNacimiento);
         void setTelefonoDireccion(int telefono, direccion domicilio);
         void setcodigoEstudiante(int codigo);
-        void setReligion(string religion[30]);
+        void setReligion(string religion);
 
         void getSeccion();
         void getNombres();
@@ -35,7 +35,7 @@ class Alumno
     //protected:
 
     private:
-        string nombres, apellidos;
+        string nombre, apellido;
         int dni, partidaNacimiento, telefonoEmergencia[2];
         long long codigoEstudiante;
         char genero;
