@@ -14,13 +14,20 @@ class Padres
         void setDocumentos(int dni);
         void setTelefonoDireccion(int telefono, direccion domicilio, direccion trabajo);
         void setTrabsjo(string ocupacion,string centroDeTrabajo, string gradoEstudios);
-        void setReligion(string religion[30]);
-
+        void setReligion(string religion);
+        void setVivecon(bool viveCon);
+        
+        void getDatosImportantes();
+        void getDocumentos();
+        void getTelefonoDireccion();
+        void getTrabajo();
+        void getReligion();
+        void getVivecon();
 
 //    protected:
 
     private:
-        string nombresApellidos[80], parentesco[11], ocupacion[30], correo[50], religion[30],gradoEstudios[25], centroDeTrabajo[40];
+        string nombresApellidos, parentesco, ocupacion, correo, religion,gradoEstudios, centroDeTrabajo;
         bool viveCon;
         int dni,telefono;
         direccion domicilio;
