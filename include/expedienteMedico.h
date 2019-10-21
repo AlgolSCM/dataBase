@@ -15,7 +15,7 @@ class expedienteMedico
         int sento, paro, camino, palabra, hablo, gateo, esfinteres;
         char tipoSangre[4];
         bool controlaEsfinteres;
-        string alergias, vacunas], enfermedades, traumas;
+        string alergias, vacunas, enfermedades, traumas;
 };
 
 #endif // EXPEDIENTEMEDICO_H

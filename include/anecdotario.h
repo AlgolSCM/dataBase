@@ -3,7 +3,7 @@
 #include <vector>
 #include "fecha.h"
 #include <string>
-usinf namespace std;
+using namespace std;
 class anecdotario
 {
     public:

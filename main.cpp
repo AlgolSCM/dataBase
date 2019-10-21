@@ -69,7 +69,7 @@ int main()
     }
     int n;
     while (usuarioActivo){
-        imprimirOpciones();
+        imprimirOpciones();//Imprime las opciones del sistema: ver listado de alumnos, ver inventario y salir
         cin>>n;
         switch (n){
             case 1:
@@ -103,7 +103,6 @@ int main()
             default:
                 salir();
                 usuarioActivo=false;
-
                 break;
         }
     }
