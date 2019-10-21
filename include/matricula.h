@@ -8,11 +8,11 @@ class matricula
     public:
         matricula();
         virtual ~matricula();
-        void getDeuda();
+        void getDeuda(int pago,int deuda);
     protected:
 
     private:
-        int codigo, pago, deuda;
+        int  pago, deuda;
         fecha dia;
 };
 
