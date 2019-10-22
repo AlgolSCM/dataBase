@@ -47,7 +47,6 @@
 		<Unit filename="include/objetoInventario.h" />
 		<Unit filename="include/seccion.h" />
 		<Unit filename="include/talleres.h" />
-		<Unit filename="listaPrueba.txt" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Alumno.cpp" />
 		<Unit filename="src/Padres.cpp" />

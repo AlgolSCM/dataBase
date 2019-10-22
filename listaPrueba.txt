@@ -1,3 +1,0 @@
-name,last,dni,part,tel,tel2,cod,genero,naci
-Pepito,Peres,17715695,986657123,,789456123,m,220812
-Rosita,Gonzales,28715695,989999923,,299456123,m,191211
