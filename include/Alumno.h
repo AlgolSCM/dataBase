@@ -28,10 +28,13 @@ class Alumno
         void getSeccion();
         void getNombres();
         void getApellidos();
-        void getDocumentos();
-        void getTelefonoDireccion();
+        void getDNI();
+        void getPartida();
+        void getTelefono();
+        void getDireccion();
         void getcodigoEstudiante();
         void getReligion();
+        void getNotas();
     //protected:
 
     private:
@@ -42,11 +45,12 @@ class Alumno
         fecha nacimiento;
         direccion domicilio;
         string religion;
-        //seccion aula;
         notas items[100];
         cursos listaCursos[10];
         talleres listaTalleres[5];
         Padres nombrePadres[2];
+        vector <notas> calificaciones(0);
+        
 
 };
 
