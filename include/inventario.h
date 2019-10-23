@@ -4,8 +4,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
-
-#include "objetoInventario.h"
+#include "Alumno.h"
+using namespace std;
 
 class inventario
 {
@@ -19,6 +19,7 @@ class inventario
         //Imprime una lista numerada de sillas a manera de tabla y permite modificarla, las primeras opciones de varias a la vez
         //cambiarNumero, cambiarEstado
         //El resto permita selecionar una sola y permita cambiar modelo, estado y demas caracteristicas
+        objetoInventario();
 
     protected:
 
@@ -30,6 +31,8 @@ class inventario
         void cambiarNumeroObjeto(int s,int m,int e);//puede ser negativo o positivo
         void cambiarEstadoObjeto(int s,int m,int e,bool anadirS,bool anadirM,bool anadirE);
         //cambia n objetos en el estado del bool
+        string descripcion;
+        vector <Alumno> responsable;
 
 };
 
