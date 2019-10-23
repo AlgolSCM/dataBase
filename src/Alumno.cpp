@@ -1,4 +1,7 @@
 #include "Alumno.h"
+#include <iostream>
+
+using namespace std;
 
 Alumno::Alumno()
 {
@@ -13,4 +16,9 @@ Alumno :: Alumno(string apellidos,string nombres){
 Alumno::~Alumno()
 {
     //dtor
+}
+
+void Alumno::menuSeleccion(){
+    cout<<"Menu seleccion alumno";
+
 }
