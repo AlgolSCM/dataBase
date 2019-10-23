@@ -31,9 +31,10 @@ void imprimirOpcionesSeleccion(bool ver,bool anadir,bool eliminar,bool modificar
 }
 
 void seccion::menuSeleccion(){
+
     string opcion[]=
-    {"ALUMNO (Seleccionar, anadir, eliminar)",
-    "ASISTENCIAS (Ver y anadir)",
+    {"ALUMNO (Seleccionar, anadir, eliminar)",//funciones propias de alumno
+    "ASISTENCIAS (Ver y anadir)",//funciones propias de seccion
     "NOTAS",//Sol
     "CURSOS",//Sol
     "ANECDOTARIO",//Camila
@@ -49,4 +50,11 @@ void seccion::menuSeleccion(){
             cout<<"Comida"<<endl;
             break;
     }
+}
+
+void seccion::verCursosTalleres(){
+    cout<<"Cursos Asignados"<<endl;
+    for (int i=0;i<sizeof(cursos);i++)
+        cout << cursos[i].getNombreCurso()<<endl;
+
 }
