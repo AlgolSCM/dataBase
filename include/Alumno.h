@@ -1,16 +1,16 @@
 #ifndef ALUMNO_H
 #define ALUMNO_H
 
+#include <string>
+#include <vector>
+
 #include "fecha.h"
 #include "direccion.h"
-#include "seccion.h"
 #include "notas.h"
 #include "cursos.h"
-#include "talleres.h"
 #include "expedienteMedico.h"
 #include "Padres.h"
 #include "anecdotario.h"
-#include <string>
 
 class Alumno
 {
@@ -19,11 +19,15 @@ class Alumno
         virtual ~Alumno();
         Alumno(string apellidos,string nombres);
 
+        void visualizarInformacion();//visualiza la informacion y pregunta si desea modificar algo
+        void seleccionarDatoModificar();
+
         void setNombresApellidos(string apellidos, string nombres,char genero, fecha nacimiento);
         void setDocumentos(int dni,int partidaNacimiento);
         void setTelefonoDireccion(int telefono, direccion domicilio);
         void setcodigoEstudiante(int codigo);
         void setReligion(string religion);
+        void setPagoDeuda(int n);//restar el saldo pendiente en n unidades
 
         void getSeccion();
         void getNombres();
@@ -35,44 +39,19 @@ class Alumno
         void getcodigoEstudiante();
         void getReligion();
         void getNotas();
-    //protected:
 
     private:
         string nombre, apellido;
         int dni, partidaNacimiento, telefonoEmergencia[2];
-        long long codigoEstudiante;
-        char genero;
+        long long codigoEstudiante;//codigo otorgado por el siagie
+        char genero;//M o F
         fecha nacimiento;
         direccion domicilio;
         string religion;
-        notas items[100];
-        cursos listaCursos[10];
-        talleres listaTalleres[5];
-        Padres nombrePadres[2];
-        vector <notas> calificaciones(0);
-        matricula::matricula()
-        {
-            matricula :: pago=0;
-            matricula :: deuda=150;
-
-        }
-
-        matricula::~matricula()
-        {
-            //dtor
-        }
-
-        void matricula :: getDeuda(int pago, int deuda){
-        if (pago<150){
-            deuda=150-pago;
-            cout<<"Su deuda es de "<<deuda<<endl;
-        }
-        else
-        deuda=0;
-        cout<<"No tiene deuda"<<endl;
-        }
-
-
+        cursos listaCursos[10];//cursos y talleres
+        Padres nombrePadres[2];//padre/madre/apoderado
+        int codigoMatricula,saldoPendiente=150;
+        vector <char> asistencias;
 };
 
 #endif // ALUMNO_H
