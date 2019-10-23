@@ -3,9 +3,10 @@
 #include "Alumno.h"
 #include <string>
 #include <vector>
+#include <conio.h>
 using namespace std;
 
-bool acceder(string a="",string b=""){
+bool acceder(string a="",char b[10]){
     string usuario="GMariotti",contra="gaspare";
     cout << "Ingrese su nombre de usuario: " << endl;
     cin>>a;
@@ -39,7 +40,7 @@ void seleccionAlumno(){
     imprimirSeleccionAlumno();
     char n;
     cin>> n;
-    switch (n){//comentado porque las funciones no estan definidas y vota error
+    switch (n){//comentado porque las funciones no estan definidas y bota error
         /**
         case 1:
             VerNotas();
