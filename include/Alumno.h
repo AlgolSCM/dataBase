@@ -19,6 +19,7 @@ class Alumno
         virtual ~Alumno();
         Alumno(string apellidos,string nombres);
 
+        void menuSeleccion();
         void visualizarInformacion();//visualiza la informacion y pregunta si desea modificar algo
         void seleccionarDatoModificar();
 
