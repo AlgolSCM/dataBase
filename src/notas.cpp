@@ -1,4 +1,8 @@
 #include "notas.h"
+#include<iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
 
 notas::notas()
 {
@@ -16,13 +20,7 @@ if( tam>=10 && tam<=350)
 else
     return false;
 }
-bool notas :: CantidadCaracteres(string comentario){
-unsigned int tam=comentario.length();
-if( tam>=10 && tam<=350)
-    return true;
-else
-    return false;
-}
+
 
 void notas :: NotaporItem(string nombreItem,char nota, string comentario){
 if (CantidadCaracteres(comentario)== true){
