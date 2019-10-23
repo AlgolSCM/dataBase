@@ -10,7 +10,6 @@ class anecdotario
         anecdotario();
         virtual ~anecdotario();
         void setAnecdota(string descripcion,string titulo);
-
         void getAnecdota();
 
     protected:
