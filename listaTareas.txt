@@ -1,0 +1,17 @@
+SOL:
+Encargada de:
+
+Pedidos para Sol:
+-string getNombreCurso
+
+CAMILA:
+Encargada de:
+
+Pedidos para Camila:
+
+
+MARIA:
+Encargada de:
+
+Pedidos para Maria:
+
