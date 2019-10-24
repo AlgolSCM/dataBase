@@ -1,7 +1,12 @@
 #ifndef SECCION_H
 #define SECCION_H
-#include "Alumno.h"
+
 #include <string>
+#include <vector>
+
+#include "cursos.h"
+#include "Alumno.h"
+
 class seccion
 {
     public:
@@ -10,10 +15,10 @@ class seccion
         void getNinosNinas();
         int ingreseSeleccion();
 
-        void menuSeleccion();//mostrara el menu de las opciones
+
+        void menuSeleccion(bool inSeleccion=1);//mostrara el menu de las opciones
         void imprimirOpcionesSeleccion(bool ver,bool anadir=1,bool eliminar=1,bool modificar=0);
 
-        void seleccionarAlumno(int n);//abre el menu de opciones alumno segun ubicacion en la lista
         void verListadoAlumnos();
         void addAlumno();
         void deleteAlumno(int n);//solicita el numero de lista del alumno
@@ -48,6 +53,9 @@ class seccion
     protected:
 
     private:
+        //vector <Alumno> Listado;
+        vector <cursos> cursillos;
+
         /**vector <objetoInventario> sillas;//son arrays dinamicos de diferentes objetos
         vector <objetoInventario> estantes;
         vector <objetoInventario> mesas;
