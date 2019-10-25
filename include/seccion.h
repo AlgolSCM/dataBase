@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-
+#include "anecdotario.h"
 #include "cursos.h"
 #include "Alumno.h"
 
@@ -65,7 +65,8 @@ class seccion
         void cambiarEstadoObjeto(int s,int m,int e,bool anadirS,bool anadirM,bool anadirE);
         //cambia n objetos en el estado del bool*/
 
-
+        vector <anecdotario> sucesos;
+    
 };
 
 #endif // SECCION_H
