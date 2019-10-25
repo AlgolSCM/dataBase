@@ -18,7 +18,15 @@ Alumno::~Alumno()
     //dtor
 }
 
-void Alumno::menuSeleccion(){
-    cout<<"Menu seleccion alumno";
+void Alumno::menuSeleccionAlumno(){
+    cout<<"Menu seleccion alumno "<<getNombres()<<" "<<getApellidos()<<endl;
 
 }
+
+
+
+
+
+
+string Alumno::getNombres(){return nombre;}
+string Alumno::getApellidos(){return apellido;}
