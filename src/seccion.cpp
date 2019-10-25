@@ -2,15 +2,13 @@
 #include "Alumno.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
-seccion::seccion()
-{
+seccion::seccion(){
     //ctor
 }
-
-seccion::~seccion()
-{
+seccion::~seccion(){
     //dtor
 }
 
@@ -28,7 +26,6 @@ void seccion::imprimirOpcionesSeleccion(bool ver,bool anadir,bool eliminar,bool 
     if (eliminar) cout<<"3. "<<opcion[2]<<endl;
     if (modificar) cout<<"4. "<<opcion[3]<<endl;
 }
-
 void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de seccion
     string opcion[]={"ALUMNO (Visualizar, Seleccionar, anadir, eliminar)",//funciones propias de alumno
         "ASISTENCIAS (Ver y anadir)",//funciones propias de seccion
@@ -43,32 +40,17 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
         switch(ingreseSeleccion()){
             int actualSeleccion;
             case 1://Alumno
-                imprimirOpcionesSeleccion(1,1,1,1);
-                switch (ingreseSeleccion()){//ver,anadir,eliminar,modificar
-                    case 1:
-                        verListadoAlumnos();
-                        break;
-                    case 2:
-                        addAlumno();
-                        break;
-                    case 3:
-                        cout<<"in";
-                        deleteAlumno();
-                        break;
-                    case 4:
-                        //listado[ingreseSeleccion()].menuSeleccion();
-                        break;
-                }
+                menuAlumnos();
                 break;
             case 2://Asistencias
                 imprimirOpcionesSeleccion(1,1,0);
                 actualSeleccion=ingreseSeleccion();
-                if (actualSeleccion==1){
+                if (actualSeleccion==1){//Visualizar asistencia
                     cout<<"Visualizando Asistencias"<<endl;
                     //for (int i=0;i<sizeof(Listado);i++)
                     //    Listado[i].coutAsistencia;
                 }
-                else if (actualSeleccion==2){
+                else if (actualSeleccion==2){//Llenado de Asistencias
                     cout<<"Llenado de Asistencias"<<endl;
                     //for (int i=0;i<sizeof(Listado);i++)
                     //    Listado[i].llenarAsistencia;
@@ -113,25 +95,65 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
         }
     }
 }
+
+void seccion::menuAlumnos(bool in){
+    while (in){
+        imprimirOpcionesSeleccion(1,1,1,1);
+        switch (ingreseSeleccion()){//ver,anadir,eliminar,modificar
+            case 1:
+                verListadoAlumnos();
+                break;
+            case 2:
+                addAlumno();
+                break;
+            case 3:
+                deleteAlumno();
+                break;
+            case 4:
+                verListadoAlumnos();
+                int index=ingreseSeleccion()-1;
+                //Listado[index].menuSeleccionAlumno;
+                break;
+        }
+    }
+}
 void seccion::verListadoAlumnos(){
-    cout<<"visualizando listado"<<endl;
+    cout<<"Visualizando listado"<<endl;
+    int j=0;
+    for(int i=0;i<Listado.size();i++)
+        cout<<i+1<<". "<<Listado[i].getApellidos()<<", "<<Listado[i].getNombres()<<endl;
 }
-void seccion::addAlumno(){
-    cout<<"anadir alumno"<<endl;
+void seccion::addAlumno(string nombre,string apellido){
+    cout<<"Ingrese solo nombres: ";
+    cin>>nombre;
+    cout<<"Ingrese solo apellidos: ";
+    cin>>apellido;
+    Listado.push_back(Alumno(nombre,apellido));
 }
-void seccion::deleteAlumno(){
+void seccion::deleteAlumno(int n){
     verListadoAlumnos();
     cout<<"Ingrese el numero del alumno a eliminar"<<endl;
-    int x=ingreseSeleccion();
+    //Listado.erase(vec.begin()+(ingreseSeleccion()-1));
 }
 
+void seccion::verAsistencias(){}
+void seccion::tomarAsistencias(){}
 
+void seccion::verNotas(){}
+void seccion::addNotas(){}
 
-
-/*void seccion::verCursosTalleres(){
+void seccion::verCursosTalleres(){
     cout<<"Cursos Asignados"<<endl;
-    for (int i=0;i<sizeof(cursos);i++)
-        cout << cursillos[i].getNombreCurso()<<endl;
-
+    //for (int i=0;i<cursosTalleres.size();i++)
+        //cout << cursosTalleres[i].getNombreCurso()<<endl;
 }
-*/
+void seccion::asignarCursosTalleres(){}
+
+void seccion::verAnecdotario(){}
+void seccion::addAnecdotario(){}
+
+void seccion::verInventario(){}
+void seccion::addInventario(){}
+void seccion::modificarEstadoInventario(int n){//posicion n del vector inventario
+}
+void seccion::deleteInventario(){}
