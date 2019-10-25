@@ -12,16 +12,17 @@ class seccion
     public:
         seccion();
         virtual ~seccion();
-        void getNinosNinas();
+
+
         int ingreseSeleccion();
-
-
-        void menuSeleccion(bool inSeleccion=1);//mostrara el menu de las opciones
         void imprimirOpcionesSeleccion(bool ver,bool anadir=1,bool eliminar=1,bool modificar=0);
+        void menuSeleccion(bool inSeleccion=1);//mostrara el menu de las opciones
 
+        void menuAlumnos(bool in=1);
         void verListadoAlumnos();
-        void addAlumno();
-        void deleteAlumno(int n);//solicita el numero de lista del alumno
+        void addAlumno(string nombre="",string apellido="");
+        void deleteAlumno(int n=0);//solicita el numero de lista del alumno
+
 
         void verAsistencias();
         void tomarAsistencias();
@@ -53,8 +54,8 @@ class seccion
     protected:
 
     private:
-        //vector <Alumno> Listado;
-        vector <cursos> cursillos;
+        vector <Alumno> Listado;
+        vector <cursos> cursosTalleres;
 
         /**vector <objetoInventario> sillas;//son arrays dinamicos de diferentes objetos
         vector <objetoInventario> estantes;
