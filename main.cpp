@@ -1,12 +1,13 @@
 #include <iostream>
 #include "fecha.h"
 #include "Alumno.h"
+#include "seccion.h"
 #include <string>
 #include <vector>
 #include <conio.h>
 using namespace std;
 
-bool acceder(string a="",char b[10]){
+bool acceder(string a="",string b=""){
     string usuario="GMariotti",contra="gaspare";
     cout << "Ingrese su nombre de usuario: " << endl;
     cin>>a;
@@ -118,10 +119,8 @@ void ordenarListaOpciones(char n){
 
 int main()
 {
-    vector<Alumno> seccion1(0);
-    seccion1.push_back(Alumno("Juarez","Camila"));
-    seccion1.push_back(Alumno("Velasquez","Solcito"));
-
+    seccion cabecitas;
+    //cabecitas.menuSeleccion();
     bool usuarioActivo=true;
     if (!usuarioActivo&&acceder()){
         cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;
