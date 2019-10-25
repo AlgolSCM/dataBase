@@ -19,7 +19,7 @@ class Alumno
         virtual ~Alumno();
         Alumno(string apellidos,string nombres);
 
-        void menuSeleccion();
+        void menuSeleccionAlumno();
         void visualizarInformacion();//visualiza la informacion y pregunta si desea modificar algo
         void seleccionarDatoModificar();
 
@@ -31,8 +31,8 @@ class Alumno
         void setPagoDeuda(int n);//restar el saldo pendiente en n unidades
 
         void getSeccion();
-        void getNombres();
-        void getApellidos();
+        string getNombres();
+        string getApellidos();
         void getDNI();
         void getPartida();
         void getTelefono();
@@ -51,7 +51,7 @@ class Alumno
         string religion;
         cursos listaCursos[10];//cursos y talleres
         Padres nombrePadres[2];//padre/madre/apoderado
-        int codigoMatricula,saldoPendiente=150;
+        int codigoMatricula,saldoPendiente;
         vector <char> asistencias;
 };
 
