@@ -1,0 +1,60 @@
+#include<fstream>
+leer archivos
+#<stdlib.h>
+para salir del programa exit();
+
+clases amigas.-
+Alumno:
+-anecdotario
+-cursos
+-notas
+-exp medico
+-fecha
+-direccion
+-padres
+Inventario:
+-fecha
+Anecdotario:
+-Alumno
+-Fecha
+Cursos:
+-notas
+Notas:
+-cursos
+Padres:
+-fecha
+-direccion
+Seccion
+-Alumno
+-Inventario
+Inventario
+Seccion
+Implementacion de las clases
+alumno---------10%
+anecdotario----30% *
+cursos---------20%
+direccion------10% *
+expe medico----50% *
+fecha----------90% *
+inventario-----25% *
+notas----------20%
+padres---------20% *
+seccion--------30%
+main-----------10%
+
+Documentos : guardar en el los datos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
