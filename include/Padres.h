@@ -1,3 +1,8 @@
+#ifndef PADRES_H
+#define PADRES_H
+
+#include "fecha.h"
+#include "direccion.h"
 #include <string>
 using namespace std;
 class Padres
@@ -14,7 +19,7 @@ class Padres
 
         int ingresesuSeleccion();
         void getDatosdeContacto();
-        void ModificarDatosPadres();
+        void MenuDatosPadres();
         void DatosPadres();
 
 //    protected:
