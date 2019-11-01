@@ -18,32 +18,40 @@ seccion::~seccion(){
 void seccion::setNombreSeccion(string nombre){this->nombreSeccion=nombre;}
 
 void seccion::texto(string label,string texto[],int tam,bool prompt,bool numeracion){
+    cout<<endl<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
     cout<<label<<": "<<endl;
     for (int i=0;i<tam;i++){
         if (numeracion) cout<<i+1<<". ";
         cout<<texto[i]<<endl;}
-    if(prompt) cout<<"Ingrese su seleccion: "<<endl;
+    if(prompt) cout<<"Ingrese su seleccion: ";
 }
 
 void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de seccion
     string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","NOTAS","CURSOS","ANECDOTARIO","INVENTARIO","Salir"};
-    string opcionCases[]={"ver","anadir","modificar","eliminar"};
-    cout<<"Estas en la seccion: "<<nombreSeccion<<endl;
+    string opcionCases[]={"ver","anadir","modificar","eliminar","Salir"};
     while (inSeccion){
+        cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
+        cout<<"Estas en la seccion: "<<nombreSeccion<<endl;
+        char inCaseSelection;bool inSubcase=1;
         texto("Opciones de Seccion",opcionSeleccion,7);
         switch(cin.get()){
             case '1':
-                texto("Alumnos",opcionCases,4);
-                switch (cin.get()){
-                    case '1':verListadoAlumnos();break;
-                    case '2':addAlumno();break;
-                    case '3':deleteAlumno();break;//seleccion alumnos
-                    case '4':deleteAlumno();break;
+                while(inSubcase){
+                    texto("Listado de Alumnos",opcionCases,5);
+                    cin>>inCaseSelection;
+                    switch (inCaseSelection){
+                        case '1':verListadoAlumnos();break;
+                        case '2':addAlumno();break;
+                        case '3':seleccionAlumno();break;
+                        case '4':deleteAlumno();break;
+                        case '5':inSubcase=false;break;
                     }
+                }
                 break;
             case '2':
                 texto("Asistencias",opcionCases,2);
-                switch (cin.get()){
+                cin>>inCaseSelection;
+                switch (inCaseSelection){
                     case '1':
                         cout<<"Visualizando Asistencias"<<endl;
                         //for (int i=0;i<sizeof(Listado);i++)
@@ -58,7 +66,8 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                 break;
             case '3':
                 texto("Notas",opcionCases,2);
-                switch (cin.get()){
+                cin>>inCaseSelection;
+                switch (inCaseSelection){
                     case '1':
                         cout<<"Visualizando Notas"<<endl;
                         //verNotas();
@@ -75,7 +84,8 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                 break;
             case '4':
                 texto("Cursos",opcionCases,3);
-                switch(cin.get()){
+                cin>>inCaseSelection;
+                switch(inCaseSelection){
                     case '1':
                         cout<<"Visualizando Cursos";
                         break;
@@ -88,7 +98,8 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                 }
                 break;
             case '5'://anecdotario
-                switch(cin.get()){
+                cin>>inCaseSelection;
+                switch(inCaseSelection){
                     case '1':
                         cout<<"1";
                         break;
@@ -101,7 +112,8 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                 }
                 break;
             case '6'://anecdotario
-                switch(cin.get()){
+                cin>>inCaseSelection;
+                switch(inCaseSelection){
                     case '1':
                         cout<<"1";
                         break;
@@ -113,7 +125,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         break;
                 }
                 break;
-            default:
+            case '7':
                 cout<<"Saliendo de Seccion ... "<<endl;
                 inSeccion=false;
                 break;
@@ -124,7 +136,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
 void seccion::verListadoAlumnos(){
     cout<<"Visualizando listado"<<endl;
     for(int i=0;i<Listado.size();i++)
-        cout<<i+1<<". "<<Listado[i].getApellidos()<<", "<<Listado[i].getNombres()<<endl;
+        cout<<i+1<<". "<<Listado[i].getApellidosNombres()<<endl;
 }
 void seccion::addAlumno(string nombre,string apellido){
     cout<<"Ingrese solo nombres: ";cin>>nombre;
@@ -133,9 +145,17 @@ void seccion::addAlumno(string nombre,string apellido){
 }
 void seccion::deleteAlumno(int n){
     verListadoAlumnos();
-    cout<<"Ingrese el numero del alumno a eliminar"<<endl;
-    //Listado.erase(vec.begin()+(cin.get()-1));
+    cout<<"Ingrese el numero del alumno a eliminar: ";cin>>n;
+    cout<<"Alumno Eliminado "<<Listado[n-1].getApellidosNombres()<<endl;
+    Listado.erase(Listado.begin()+(n-1));
 }
+void seccion::seleccionAlumno(){
+    verListadoAlumnos();
+    cout<<"Ingrese el numero del alumno a seleccionar: ";
+    int n;cin>>n;
+    Listado[n-1].menuSeleccionAlumno();
+}
+
 
 void seccion::verAsistencias(){}
 void seccion::tomarAsistencias(){}
