@@ -14,10 +14,9 @@ Padres::~Padres()
     //dtor
 }
 
-void Padres :: setNombresApellidos(string nombresApellidos,string parentesco,fecha fechaNacimiento){
+void Padres :: setNombresApellidos(string nombresApellidos,string parentesco){
 this -> nombresApellidos=nombresApellidos;
 this -> parentesco=parentesco;
-this -> fechaNacimiento=fechaNacimiento;
 }
 
 void Padres::setDocumentos(int dni){
@@ -60,4 +59,51 @@ void Padres::DatosPadres(){
     cout<<"Grado de Estudios: "<<gradoEstudios<<endl;
     cout<<"Centro de Trabajo: "<<centroDeTrabajo<<endl;
     //cout<<"Direccion de Trabajo: "<<trabajo<<endl;
+}
+
+int Padres::ingresesuSeleccion(){
+    int n;
+    cout<<"Ingrese su seleccion: ";
+    cin>>n;
+    cout<<endl;
+    return n;
+}
+
+void Padres ::ModificarDatosPadres(){
+cout<<"Elija una opcion para modificar o visualizar los datos de los padres u apoderados"<<endl;
+    cout<<"1 -> Datos Personales"<<endl;
+    cout<<"2 -> Mostrar Datos de Contacto"<<endl;
+    cout<<"3 -> Mostrar Daatos de los Padres o Apoderado"<<endl;
+switch(ingresesuSeleccion()){
+case 1:{
+
+    cout<<"Nombres y Apellidos: ";string a;getline(cin,a);
+    cout<<"Parentesco: ";string b;getline(cin,b);
+    cout<<"Fecha:(ingrese dia, mes y año) ";int c,d,e;cin>>c,d,e;
+    fechaNacimiento.setDiaMesAnio(c,d,e);
+    setNombresApellidos(a,b);
+    cout<<"Dni: ";int f;cin>>f;setDocumentos(f);
+    cout<<"Telefono: ";int g; cin>>g;
+    //cout<<"Dirección: "<<direccion h; cin>>g;
+    //setTelefonoDireccion();
+    //cout<<"Direcciónde Trabajo: "<<direccion h; cin>>g;
+    cout<<"Ocupacion: ";string j; getline(cin,j);
+    cout<<"Centro de Trabajo: ";string k;getline(cin,k);
+    cout<<"Grado de Estudios: ";string l; getline(cin,l);
+    //setTrabajo(,j,k,l);
+    cout<<"Religion: ";string m;getline(cin,m);setReligion(m);
+    cout<<"Vive con el niño";bool n;cin>>n;setVivecon(n);
+    break;
+}
+case 2:{
+    getDatosdeContacto();
+    break;
+    }
+case 3:
+    DatosPadres();
+    break;
+default:
+    cout<<"Opción no valida";
+    break;
+}
 }
