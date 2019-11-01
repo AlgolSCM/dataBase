@@ -1,6 +1,7 @@
 #include "expedienteMedico.h"
 #include<iostream>
 #include<string>
+
 using namespace std;
 expedienteMedico::expedienteMedico()
 {
@@ -67,32 +68,33 @@ void expedienteMedico :: LlenarTraumas(string traumas){
 }
 
 void expedienteMedico::MostrarExpediente(){
-
-    cout<<"Se sento: "<<sento<<"meses"<<endl;
-    cout<<"Se paro: "<<paro<<"meses"<<endl;
-    cout<<"Camino: "<<camino<<"meses"<<endl;
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-EXPEDIENTE MÉDICO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+    cout<<endl<<"°.°.°.°.°.°.°.°.°.DATOS DE DESARROLLO°.°.°.°.°.°.°.°.°.°.°."<<endl;
+    cout<<"Se sentó: "<<sento<<"meses"<<endl;
+    cout<<"Se paró: "<<paro<<"meses"<<endl;
+    cout<<"Caminó: "<<camino<<"meses"<<endl;
+    cout<<"Gateó: "<<gateo<<endl;
+    cout<<"Dijo su primera palabra: "<<palabra<<endl;
+    cout<<"Habló con fluidez: "<<hablo<<endl;
     if (controlaEsfinteres==true){
-        cout<<"Controla Esfinteres: Si "<<"Edad: "<<esfinteres<<endl;
+        cout<<"Controla Esfínteres: Si "<<"Edad: "<<esfinteres<<endl;
         }
     else{
-        cout<<"Controla Esfinteres: No "<<"Edad: --- "<<endl;
+        cout<<"Controla Esfínteres: No "<<"Edad: --- "<<endl;
         }
     if (partonatural==true){
-        cout<<"Parto: Natural "<<"Complicacion:--- "<<endl;
+        cout<<"Parto: Natural "<<"Complicación:--- "<<endl;
         }
     else{
-        cout<<"Parto: Complicado"<<"Complicacion: "<<partodescripcion<<endl;
+        cout<<"Parto: Complicado"<<"Complicación: "<<partodescripcion<<endl;
         }
-
-    cout<<"Dijo su primera palabra: "<<palabra<<endl;
-    cout<<"Hablo con fluidez: "<<hablo<<endl;
-    cout<<"Gateo: "<<gateo<<endl;
+    cout<<endl<<"°.°.°.°.°.°.°.°.°.ESTADO DE SALUD°.°.°.°.°.°.°.°.°.°.°."<<endl;
     cout<<"Alergia: "<<alergias<<endl;
     cout<<"Vacunas con las que cuenta: "<<vacunas<<endl;
     cout<<"Experiencias Traumaticas: "<<traumas;
     cout<<"Enfermedades Sufridas: "<<enfermedades<<endl;
     cout<<"Tipo de Sangre: "<<tipoSangre<<endl;
-
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;
 }
 
 int expedienteMedico::ingreseSeleccion(){
@@ -104,13 +106,15 @@ int expedienteMedico::ingreseSeleccion(){
 }
 
 
-void expedienteMedico::ModificarDatos(){
+void expedienteMedico::MenuExpMedico(){
+    cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     cout<<"Elija una opcion para modificar o visualizar los datos medicos del alumno"<<endl;
     cout<<"1 -> Datos de Desarrollo"<<endl;
     cout<<"2 -> Datos del Estado de Salud"<<endl;
     cout<<"3 -> Mostrar Datos Médicos"<<endl;
 switch(ingreseSeleccion()){
 case 1:{
+    cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     cout<<"Los siguientes datos serán ingresados en meses";
     cout<<"Se sentó: ";int a;cin>>a;LlenarSeSento(a);
     cout<<"Se paró: ";int b;cin>>b;LlenarSeParo(b);
@@ -120,22 +124,25 @@ case 1:{
     cout<<"Gateó: ";int f;cin>>f;LlenarGateo(f);
     cout<<"Controló Esfinteres: ";bool g;cin>>g;Esfinteres(g);
     cout<<"Parto: ";bool h;cin>>h;LlenarParto(h);
+    cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     break;
 }
 case 2:{
+    cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     cout<<"Este campo será llenado con palabras";
     cout<<"Tipo de Sangre: ";string i;getline(cin,i);LlenarTipodeSangre(i);
     cout<<"Alergias: ";string j;getline(cin,j);LlenarAlergias(j);
     cout<<"Vacunas: ";string k;getline(cin,k);LlenarVacunas(k);
     cout<<"Enfermedades Sufridas: ";string l;getline(cin,l);LlenarEnfermedades(l);
     cout<<"Experiencias Traumáticas: ";string m;getline(cin,m);LlenarTraumas(m);
+    cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     break;
     }
 case 3:
     MostrarExpediente();
     break;
 default:
-    cout<<"Opcion no valida";
+    cout<<"Opción no valida";
     break;
 }
 
