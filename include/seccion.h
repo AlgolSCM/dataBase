@@ -20,7 +20,7 @@ class seccion
         void verListadoAlumnos();
         void addAlumno(string nombre="",string apellido="");
         void deleteAlumno(int n=0);//solicita el numero de lista del alumno
-
+        void seleccionAlumno();
 
         void verAsistencias();
         void tomarAsistencias();
@@ -71,3 +71,4 @@ class seccion
 };
 
 #endif // SECCION_H
+//https://www.taringa.net/+hazlo_tu_mismo/separadores-ascii-para-tus-posts_12wm4j
