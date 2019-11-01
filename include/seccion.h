@@ -12,13 +12,11 @@ class seccion
     public:
         seccion();
         virtual ~seccion();
+        void setNombreSeccion(string);
 
-
-        int ingreseSeleccion();
-        void imprimirOpcionesSeleccion(bool ver,bool anadir=1,bool eliminar=1,bool modificar=0);
+        void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
         void menuSeleccion(bool inSeleccion=1);//mostrara el menu de las opciones
 
-        void menuAlumnos(bool in=1);
         void verListadoAlumnos();
         void addAlumno(string nombre="",string apellido="");
         void deleteAlumno(int n=0);//solicita el numero de lista del alumno
@@ -51,9 +49,12 @@ class seccion
         //El resto permita selecionar una sola y permita cambiar modelo, estado y demas caracteristicas*/
 
 
+
+
     protected:
 
     private:
+        string nombreSeccion;
         vector <Alumno> Listado;
         vector <cursos> cursosTalleres;
 
@@ -66,7 +67,7 @@ class seccion
         //cambia n objetos en el estado del bool*/
 
         vector <anecdotario> sucesos;
-    
+
 };
 
 #endif // SECCION_H
