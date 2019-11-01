@@ -41,24 +41,30 @@ void Padres :: setVivecon(bool viveCon){
 this->viveCon=viveCon;
 }
 void Padres::getDatosdeContacto(){
+cout<<endl<<"°||°||°||°||°||°||°||°||°DATOS DE CONTACTO||°||°||°||°||°||°||°||°||"<<endl;
 cout<<"Nombres y Apellidos: "<<nombresApellidos<<endl;
 cout<<"Telefono: "<<telefono<<endl;
 }
 
 void Padres::DatosPadres(){
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-DATOS DE LOS PADRES O APODERADO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+    cout<<endl<<"°.°.°.°.°.°.°.°.°.DATOS PERSONALES°.°.°.°.°.°.°.°.°.°.°."<<endl;
     cout<<"Nombres y Apellidos: "<<nombresApellidos<<endl;
     cout<<"Parentesco: "<<parentesco<<endl;
     cout<<(viveCon==true?"si":"no")<<endl;
     cout<<"Fecha de Nacimiento: ";fechaNacimiento.coutDMMAA(1);
+    cout<<endl<<"°.°.°.°.°.°.°.°.°.DOCUMENTOS°.°.°.°.°.°.°.°.°.°.°."<<endl;
     cout<<"DNI: "<<dni<<cout<<endl;
+    cout<<endl<<"°.°.°.°.°.°.°.°.°.CONTACTO°.°.°.°.°.°.°.°.°.°.°."<<endl;
     cout<<"Telefono: "<<telefono<<endl;
     //cout<<"Direccion: "<<domicilio<<endl;
     cout<<"Religion: "<<religion<<endl;
-    cout<<"*************Trabajo*************"<<endl;
+    cout<<endl<<"°.°.°.°.°.°.°.°.°.TRABAJO°.°.°.°.°.°.°.°.°.°.°."<<endl;
     cout<<"Ocupacion: "<<ocupacion<<endl;
     cout<<"Grado de Estudios: "<<gradoEstudios<<endl;
     cout<<"Centro de Trabajo: "<<centroDeTrabajo<<endl;
     //cout<<"Direccion de Trabajo: "<<trabajo<<endl;
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;
 }
 
 int Padres::ingresesuSeleccion(){
@@ -69,20 +75,21 @@ int Padres::ingresesuSeleccion(){
     return n;
 }
 
-void Padres ::ModificarDatosPadres(){
-cout<<"Elija una opcion para modificar o visualizar los datos de los padres u apoderados"<<endl;
+void Padres ::MenuDatosPadres(){
+    cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
+    cout<<"Elija una opcion para modificar o visualizar los datos de los padres u apoderados"<<endl;
     cout<<"1 -> Datos Personales"<<endl;
     cout<<"2 -> Mostrar Datos de Contacto"<<endl;
     cout<<"3 -> Mostrar Daatos de los Padres o Apoderado"<<endl;
 switch(ingresesuSeleccion()){
 case 1:{
-
+    cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     cout<<"Nombres y Apellidos: ";string a;getline(cin,a);
     cout<<"Parentesco: ";string b;getline(cin,b);
     cout<<"Fecha:(ingrese dia, mes y año) ";int c,d,e;cin>>c,d,e;
     fechaNacimiento.setDiaMesAnio(c,d,e);
     setNombresApellidos(a,b);
-    cout<<"Dni: ";int f;cin>>f;setDocumentos(f);
+    cout<<"DNI: ";int f;cin>>f;setDocumentos(f);
     cout<<"Telefono: ";int g; cin>>g;
     //cout<<"Dirección: "<<direccion h; cin>>g;
     //setTelefonoDireccion();
