@@ -50,7 +50,7 @@ void Padres::DatosPadres(){
     cout<<"Nombres y Apellidos: "<<nombresApellidos<<endl;
     cout<<"Parentesco: "<<parentesco<<endl;
     cout<<(viveCon==true?"si":"no")<<endl;
-    //cout<<"Fecha de Nacimiento: "<<fechaNacimiento<<endl;
+    cout<<"Fecha de Nacimiento: ";fechaNacimiento.coutDMMAA(1);
     cout<<"DNI: "<<dni<<cout<<endl;
     cout<<"Telefono: "<<telefono<<endl;
     //cout<<"Direccion: "<<domicilio<<endl;
