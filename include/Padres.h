@@ -10,20 +10,16 @@ class Padres
     public:
         Padres();
         virtual ~Padres();
-        void setNombresApellidos(string nombresApellidos,string parentesco, fecha fechaNacimiento);
+        void setNombresApellidos(string nombresApellidos,string parentesco,fecha fechaNacimiento);
         void setDocumentos(int dni);
-        void setTelefonoDireccion(int telefono, direccion domicilio, direccion trabajo);
-        void setTrabsjo(string ocupacion,string centroDeTrabajo, string gradoEstudios);
+        void setTelefonoDireccion(int telefono, direccion domicilio);
+        void setTrabajo(direccion trabajo,string ocupacion,string centroDeTrabajo, string gradoEstudios);
         void setReligion(string religion);
         void setVivecon(bool viveCon);
         
-        void getDatosImportantes();
-        void getDocumentos();
-        void getTelefonoDireccion();
-        void getTrabajo();
-        void getReligion();
-        void getVivecon();
-
+        void getNombresApellidos();
+        void getTelefono();
+        void DatosPadres();
 //    protected:
 
     private:
