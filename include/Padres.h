@@ -1,4 +1,3 @@
-#ifndef PADRES_H
 #define PADRES_H
 
 #include "fecha.h"
@@ -16,9 +15,8 @@ class Padres
         void setTrabajo(direccion trabajo,string ocupacion,string centroDeTrabajo, string gradoEstudios);
         void setReligion(string religion);
         void setVivecon(bool viveCon);
-        
-        void getNombresApellidos();
-        void getTelefono();
+
+        void getDatosdeContacto();
         void DatosPadres();
 //    protected:
 
