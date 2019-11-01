@@ -1,6 +1,7 @@
 #ifndef EXPEDIENTEMEDICO_H
 #define EXPEDIENTEMEDICO_H
 #include <string>
+
 using namespace std;
 class expedienteMedico
 {
@@ -8,7 +9,7 @@ class expedienteMedico
         expedienteMedico();
         virtual ~expedienteMedico();
         int  ingreseSeleccion();
-        void ModificarDatos();
+        void MenuExpMedico();
 
         void LlenarSeSento(int sento);
         void LlenarSeParo(int paro);
