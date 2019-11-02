@@ -12,9 +12,11 @@ class anecdotario
         anecdotario();
         virtual ~anecdotario();
         anecdotario(int implicadosnumero,string suceso, string descripcionde, fecha acontecimiento);
-        void setAnecdota(string descripcion,string titulo);
-        void getAnecdota();
-
+        void anecdotario::suceso(string titulo);
+        void anecdotario::descripcion(string detalles);
+        void anecdotario::acontecimiento(fecha acontecimiento);
+        void anecdotario::implicados(int numero, string alumnos);
+        void anecdotario::MostrarAnecdota;
     protected:
 
     private:
