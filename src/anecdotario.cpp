@@ -1,6 +1,7 @@
 #include "anecdotario.h"
 #include <iostream>
 #include "fecha.h"
+#include <string>
 using namespace std;
 
 
@@ -36,5 +37,6 @@ void anecdotario::implicados(int numero, string alumnos){
 }
 void anecdotario::MostrarAnecdota()
     cout<<endl<<"=-=-=-=-=-=-=-=-=-ANECDOTARIO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+
 
 
