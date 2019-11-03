@@ -12,16 +12,17 @@ class inventario
     public:
         inventario();
         virtual~inventario();
-        void modificarValores(); //permitirá modificar cualquiera de los valores
+
 
     protected:
 
     private:
-
+        int numeromesas, numerosillas, numeroestantes;
+        int mesasbuenestado,sillasbuenestado,estantesbuenestado;
+        int mesasmalestado,sillasmalestado,estantesmalestado;
         string nombre, color, modelo;
-        bool buenEstado;
-        string descripcion;
-        vector <Alumno> responsable;
+
+
 
 };
 
