@@ -12,9 +12,9 @@ class inventario
     public:
         inventario();
         virtual~inventario();
-        void mesas;
-        void sillas;
-        void estantes;
+        void mesas(int numesas, int buenestadosi, int mesasmalestado);
+        void sillas(int numsillas, int buenestadome);
+        void estantes(int numestantes, int buenestadoes);
 
     protected:
 
