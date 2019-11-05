@@ -4,18 +4,13 @@
 #include <string>
 using namespace std;
 
-
 anecdotario::anecdotario()
 {
-    //ctor
-}
-
-anecdotario::anecdotario(int implicadosnumero,string suceso, string descripcionde, fecha acontecimiento)
-{
-    titulo = suceso;
-    descripcion = descripcionde;
-    fecha dia = acontecimiento;
-    implicados = implicadosnumero;
+    titulo = "";
+    descripcion = "";
+    //fecha ();
+    implicados = 0;
+    alumnos= "";
 }
 anecdotario::~anecdotario()
 {
@@ -25,18 +20,17 @@ anecdotario::~anecdotario()
 void anecdotario::suceso(string titulo){
     this->titulo=titulo;
 }
-void anecdotario::descripcion(string detalles){
-    this->detalles=detalles;
+void anecdotario::describir(string descripcion){
+    this->descripcion=descripcion;
 }
-void anecdotario::acontecimiento(fecha acontecimiento){
-    this->fecha acontecimiento= fecha acontecimiento;
-}
-void anecdotario::implicados(int numero, string alumnos){
-    this->numero=numero;
+/**void anecdotario::acontecimiento(fecha){
+    this->fecha= fecha;
+}*/
+void anecdotario::involucrados(int implicados, string alumnos){
+    this->implicados=implicados;
     this->alumnos=alumnos;
 }
-void anecdotario::MostrarAnecdota()
+void anecdotario::MostrarAnecdota(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-ANECDOTARIO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
-
-
+}
 
