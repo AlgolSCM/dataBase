@@ -12,7 +12,9 @@ class inventario
     public:
         inventario();
         virtual~inventario();
-
+        void mesas;
+        void sillas;
+        void estantes;
 
     protected:
 
