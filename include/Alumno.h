@@ -17,21 +17,17 @@ class Alumno
     public:
         Alumno();//Matriccula
         virtual ~Alumno();
-        Alumno(string nombres,string apellidos);
+        Alumno(string nombres,string apellidos,string sec="ninguna asignada");
 
+        void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
         void menuSeleccionAlumno(bool inAlumno=1);
+        void elegirVisualizarDatos(bool seleccion=1);//visualiza la informacion y pregunta si desea modificar algo
+        //void seleccionarDatoModificar();
 
-        //VISUALIZAR DATOS
-        void elegirVisualizarDatos(bool seleccion=true);
-        //GETS
-        string getSeccion();
-        string getNombres();
-        string getApellidos();
-        string getApellidosNombres();
-        long long getcodigoEstudiante();
+        //VISUALIZAR
+        void verDatos();
+        void verAsistencias(bool tag=1);
 
-        //LLENAR DATOS
-        void llenarTodosDatos();
         //SETS
         void setNombresApellidos(string apellidos, string nombres,char genero='F');
         void setNacimiento(int,int,int);
@@ -40,12 +36,20 @@ class Alumno
         void setcodigoEstudiante(int codigo);
         void setReligion(string religion);
         void setPagoDeuda(int n);//restar el saldo pendiente en n unidades
-        //ASISTENCIAS
+
+        //GETS
+        string getSeccion();
+        string getNombres();
+        string getApellidos();
+        string getApellidosNombres();
+        long long getcodigoEstudiante();
+
+        //ADS
         void addAsistencia();
 
     private:
-        expedienteMedico expediente;
-        string nombres, apellidos,nombreSeccion;
+        string nombres, apellidos;
+        string nombreSeccion;
         int dni, partidaNacimiento;
         int telefonoEmergencia[2];
         long long codigoEstudiante;//codigo otorgado por el siagie
@@ -53,22 +57,20 @@ class Alumno
         fecha nacimiento;
         direccion domicilio;
         string religion;
-        Padres nombrePadres[2];//padre/madre/apoderado
         int codigoMatricula,deuda;
         vector <char> asistencias;
-
-
-        //VER datos por bloque
+        expedienteMedico expediente;
+        //VER
         void verDatosPersonales();
         void verDatosColegio();
-        void verAsistencias(bool tag=1);
-        void verContacto();
+        void verContacto();// telefono y direccion
         void verDocumentos();
         void verMatricula();
         void verOtros();
-
-        void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
-        int contarCaracter(vector <char> asistencias, char caracter);
+        //COUNT
+        int contarCaracter(vector <char> lista, char caracter);
+        //LLENAR DATOS
+        void llenarTodosDatos();
 };
 
 #endif // ALUMNO_H
