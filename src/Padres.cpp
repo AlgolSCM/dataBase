@@ -86,8 +86,8 @@ case 1:{
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     cout<<"Nombres y Apellidos: ";string a;getline(cin,a);
     cout<<"Parentesco: ";string b;getline(cin,b);
-    cout<<"Fecha:(ingrese dia, mes y año) ";int c,d,e;cin>>c,d,e;
-    fechaNacimiento.setDiaMesAnio(c,d,e);
+    //cout<<"Fecha:(ingrese dia, mes y año) ";int c,d,e;cin>>c,d,e;
+    //fechaNacimiento.setDiaMesAnio(c,d,e);
     setNombresApellidos(a,b);
     cout<<"DNI: ";int f;cin>>f;setDocumentos(f);
     cout<<"Telefono: ";int g; cin>>g;
