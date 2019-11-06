@@ -68,7 +68,7 @@ class Alumno
         void verOtros();
 
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
-        int contarCaracter(vector <char> asistencias,char caracter);
+        int contarCaracter(vector <char> asistencias, char caracter);
 };
 
 #endif // ALUMNO_H
