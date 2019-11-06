@@ -20,7 +20,6 @@ void inventario:: mesas (int numeromesas, int buenestadome, int mesasmalestado){
      cout<< "Ingrese el numero de mesas en mal estado: "<<endl;
      this->mesasmalestado=mesasmalestado;
      cin>> mesasmalestado;
-     while (buenestadome+mesasmalestado==numeromesas){
         if ((buenestadome==numeromesas)&& (mesasmalestado==0)){
             cout<<"Gracias, el inventario de mesas fue completado con exito"<<endl;
         }
@@ -38,7 +37,7 @@ void inventario:: mesas (int numeromesas, int buenestadome, int mesasmalestado){
             cin>> material;
             this->modelo=material;
         }
-     }
+     
 }
 
 void inventario:: sillas (int numerosillas, int buenestadosi, int sillasmalestado){
@@ -48,7 +47,6 @@ void inventario:: sillas (int numerosillas, int buenestadosi, int sillasmalestad
      cout<< "Ingrese el numero de sillas en mal estado: "<<endl;
      this->sillasmalestado=sillasmalestado;
      cin>> sillasmalestado;
-     while (buenestadosi+sillasmalestado==numerosillas){
         if ((buenestadosi==numerosillas)&& (sillasmalestado==0)){
             cout<<"Gracias, el inventario de sillas fue completado con exito"<<endl;
         }
@@ -66,7 +64,7 @@ void inventario:: sillas (int numerosillas, int buenestadosi, int sillasmalestad
             cin>> material;
             this->modelo=material;
         }
-     }
+     
 }
 
 void inventario:: estantes (int numeroestantes, int buenestadoes, int estantesmalestado){
@@ -76,7 +74,6 @@ void inventario:: estantes (int numeroestantes, int buenestadoes, int estantesma
      cout<< "Ingrese el numero de estantes en mal estado: "<<endl;
      this->estantesmalestado=estantesmalestado;
      cin>> estantesmalestado;
-     while (buenestadoes+estantesmalestado==numeroestantes){
         if ((buenestadoes==numeroestantes)&& (estantesmalestado==0)){
             cout<<"Gracias, el inventario de estantes fue completado con exito"<<endl;
         }
@@ -94,6 +91,6 @@ void inventario:: estantes (int numeroestantes, int buenestadoes, int estantesma
             cin>> material;
             this->modelo=material;
         }
-     }
+     
 }
 
