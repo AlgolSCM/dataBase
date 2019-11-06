@@ -68,19 +68,19 @@ void expedienteMedico :: LlenarTraumas(string traumas){
 }
 
 void expedienteMedico::MostrarExpediente(){
-    cout<<endl<<"=-=-=-=-=-=-=-=-=-EXPEDIENTE MÉDICO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-EXPEDIENTE MEDICO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
     cout<<endl<<"°.°.°.°.°.°.°.°.°.DATOS DE DESARROLLO°.°.°.°.°.°.°.°.°.°.°."<<endl;
-    cout<<"Se sentó: "<<sento<<"meses"<<endl;
-    cout<<"Se paró: "<<paro<<"meses"<<endl;
-    cout<<"Caminó: "<<camino<<"meses"<<endl;
-    cout<<"Gateó: "<<gateo<<endl;
+    cout<<"Se sento: "<<sento<<"meses"<<endl;
+    cout<<"Se paro: "<<paro<<"meses"<<endl;
+    cout<<"Camino: "<<camino<<"meses"<<endl;
+    cout<<"Gateo: "<<gateo<<endl;
     cout<<"Dijo su primera palabra: "<<palabra<<endl;
-    cout<<"Habló con fluidez: "<<hablo<<endl;
+    cout<<"Hablo con fluidez: "<<hablo<<endl;
     if (controlaEsfinteres==true){
-        cout<<"Controla Esfínteres: Si "<<"Edad: "<<esfinteres<<endl;
+        cout<<"Controla Esfinteres: Si "<<"Edad: "<<esfinteres<<endl;
         }
     else{
-        cout<<"Controla Esfínteres: No "<<"Edad: --- "<<endl;
+        cout<<"Controla Esfinteres: No "<<"Edad: --- "<<endl;
         }
     if (partonatural==true){
         cout<<"Parto: Natural "<<"Complicación:--- "<<endl;
@@ -115,26 +115,26 @@ void expedienteMedico::MenuExpMedico(){
 switch(ingreseSeleccion()){
 case 1:{
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
-    cout<<"Los siguientes datos serán ingresados en meses";
-    cout<<"Se sentó: ";int a;cin>>a;LlenarSeSento(a);
-    cout<<"Se paró: ";int b;cin>>b;LlenarSeParo(b);
-    cout<<"Caminó: ";int c;cin>>c;LlenarCamino(c);
+    cout<<"Los siguientes datos seran ingresados en meses";
+    cout<<"Se sento: ";int a;cin>>a;LlenarSeSento(a);
+    cout<<"Se paro: ";int b;cin>>b;LlenarSeParo(b);
+    cout<<"Camino: ";int c;cin>>c;LlenarCamino(c);
     cout<<"Primera Palabra: ";int d; cin>>d;LlenarPrimeraPalabra(d);
-    cout<<"Habló con fluidez: ";int e;cin>>e;LlenarHabloConFluidez(e);
-    cout<<"Gateó: ";int f;cin>>f;LlenarGateo(f);
-    cout<<"Controló Esfinteres: ";bool g;cin>>g;Esfinteres(g);
+    cout<<"Hablo con fluidez: ";int e;cin>>e;LlenarHabloConFluidez(e);
+    cout<<"Gateo: ";int f;cin>>f;LlenarGateo(f);
+    cout<<"Controlo Esfinteres: ";bool g;cin>>g;Esfinteres(g);
     cout<<"Parto: ";bool h;cin>>h;LlenarParto(h);
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     break;
 }
 case 2:{
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
-    cout<<"Este campo será llenado con palabras";
+    cout<<"Este campo sera llenado con palabras";
     cout<<"Tipo de Sangre: ";string i;getline(cin,i);LlenarTipodeSangre(i);
     cout<<"Alergias: ";string j;getline(cin,j);LlenarAlergias(j);
     cout<<"Vacunas: ";string k;getline(cin,k);LlenarVacunas(k);
     cout<<"Enfermedades Sufridas: ";string l;getline(cin,l);LlenarEnfermedades(l);
-    cout<<"Experiencias Traumáticas: ";string m;getline(cin,m);LlenarTraumas(m);
+    cout<<"Experiencias Traumaticas: ";string m;getline(cin,m);LlenarTraumas(m);
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     break;
     }
@@ -142,7 +142,7 @@ case 3:
     MostrarExpediente();
     break;
 default:
-    cout<<"Opción no valida";
+    cout<<"Opcion no valida";
     break;
 }
 
