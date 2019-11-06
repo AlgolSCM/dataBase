@@ -33,6 +33,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
         cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
         cout<<"Estas en la seccion: "<<nombreSeccion<<endl;
         char inCaseSelection;bool inSubcase=1;
+        verListadoAlumnos();
         texto("Opciones de Seccion",opcionSeleccion,7);
         switch(cin.get()){
             case '1':
@@ -59,8 +60,8 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         break;
                     case '2':
                         cout<<"Llenado de Asistencias"<<endl;
-                        //for (int i=0;i<sizeof(Listado);i++)
-                        //Listado[i].llenarAsistencia;
+                       // for (int i=0;i<Listado.size();i++)
+                        //    Listado[i].llenarAsistencia;
                         break;
                 }
                 break;
