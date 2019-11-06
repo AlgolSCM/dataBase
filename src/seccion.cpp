@@ -28,20 +28,20 @@ void seccion::texto(string label,string texto[],int tam,bool prompt,bool numerac
 
 void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de seccion
     string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","NOTAS","CURSOS","ANECDOTARIO","INVENTARIO","Salir"};
-    string opcionCases[]={"ver","anadir","modificar","eliminar","Salir"};
+    string opcionCases[]={"ver/ordenar","anadir","modificar","eliminar","Salir"};
     while (inSeccion){
         cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
         cout<<"Estas en la seccion: "<<nombreSeccion<<endl;
         char inCaseSelection;bool inSubcase=1;
-        verListadoAlumnos();
         texto("Opciones de Seccion",opcionSeleccion,7);
         switch(cin.get()){
             case '1':
                 while(inSubcase){
-                    texto("Listado de Alumnos",opcionCases,5);
+                    verListadoAlumnos();
+                    texto("OPCIONES Listado de Alumnos",opcionCases,5);
                     cin>>inCaseSelection;
                     switch (inCaseSelection){
-                        case '1':verListadoAlumnos();break;
+                        case '1':ordenarListadoAlumnos();break;
                         case '2':addAlumno();break;
                         case '3':seleccionAlumno();break;
                         case '4':deleteAlumno();break;
@@ -55,17 +55,15 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                 switch (inCaseSelection){
                     case '1':
                         cout<<"Visualizando Asistencias"<<endl;
-                        //for (int i=0;i<sizeof(Listado);i++)
-                        //Listado[i].coutAsistencia;
+                        for (int i=0;i<Listado.size();i++) Listado[i].verAsistencias(0);
                         break;
                     case '2':
                         cout<<"Llenado de Asistencias"<<endl;
-                       // for (int i=0;i<Listado.size();i++)
-                        //    Listado[i].llenarAsistencia;
+                        for (int i=0;i<Listado.size();i++) Listado[i].addAsistencia();
                         break;
                 }
                 break;
-            case '3':
+            case '3'://Ask Sol
                 texto("Notas",opcionCases,2);
                 cin>>inCaseSelection;
                 switch (inCaseSelection){
@@ -135,9 +133,19 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
 }
 
 void seccion::verListadoAlumnos(){
-    cout<<"Visualizando listado"<<endl;
+    cout<<endl<<"=-=-=-=-=-=-=-LISTADO DE ALUMNOS-=-=-=-=-=-=-=-=-="<<endl;
     for(int i=0;i<Listado.size();i++)
         cout<<i+1<<". "<<Listado[i].getApellidosNombres()<<endl;
+}
+void seccion::ordenarListadoAlumnos(char n){
+    if (n==' '){
+        string opcionesOrdenar[]={"Apellidos A-Z","Apellidos Z-A"};
+        texto("Opciones de Ordenamiento",opcionesOrdenar,2);
+        cin>>n;
+    }
+    switch (n){
+        case '1':cout<<"ordenar";break;
+    }
 }
 void seccion::addAlumno(string nombre,string apellido){
     cout<<"Ingrese solo nombres: ";cin>>nombre;
