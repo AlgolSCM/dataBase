@@ -132,8 +132,10 @@ int main()
         cin>>n;
         switch (n){
             case 1:
-                ordenarListaOpciones(n);
-                imprimirAlumnos();
+                //ordenarListaOpciones(n);
+                //imprimirAlumnos();
+                cabecitas.menuSeleccion();
+
                 //cuando se visualize la lista de alumnos permitira ordenarlos y seleccionar algun alumno
                 seleccionAlumno();//cuando el alumno ya esta seleccionado
                 break;
