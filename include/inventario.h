@@ -29,3 +29,4 @@ class inventario
 };
 
 #endif // INVENTARIO_H
+ 
