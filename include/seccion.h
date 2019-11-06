@@ -14,10 +14,10 @@ class seccion
         virtual ~seccion();
         void setNombreSeccion(string);
 
-        void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
         void menuSeleccion(bool inSeleccion=1);//mostrara el menu de las opciones
 
         void verListadoAlumnos();
+        void ordenarListadoAlumnos(char n=' ');//Falta implementar
         void addAlumno(string nombre="",string apellido="");
         void deleteAlumno(int n=0);//solicita el numero de lista del alumno
         void seleccionAlumno();
@@ -67,6 +67,8 @@ class seccion
         //cambia n objetos en el estado del bool*/
 
         vector <anecdotario> sucesos;
+
+        void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
 
 };
 
