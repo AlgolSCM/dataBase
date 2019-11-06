@@ -47,11 +47,8 @@ void Alumno::menuSeleccionAlumno(bool inAlumno){
                 elegirVisualizarDatos();
                 break;}
             case '2':{
-//                texto("Datos que se pueden modificar",datosModificables,3);
-                cin>>subCase;
-                switch(subCase){
-//                     case '1': visualizarDatos(); break;
-                }
+                llenarTodosDatos();
+//
                 break;}
             case '3':
                 inAlumno=false;
