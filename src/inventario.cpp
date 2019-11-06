@@ -24,20 +24,20 @@ void inventario:: mesas (int numeromesas, int buenestadome, int mesasmalestado){
             cout<<"Gracias, el inventario de mesas fue completado con exito"<<endl;
         }
         if (mesasmalestado>0){
-            cout<<"Ingrese el nombre del articulo dañado: "<<endl;
+            cout<<"Ingrese el nombre del articulo danado: "<<endl;
             string articulo;
             cin>> articulo;
             this->nombre=articulo;
-            cout<<"Ingrese el color del articulo dañado: "<<endl;
+            cout<<"Ingrese el color del articulo danado: "<<endl;
             string articulocolor;
             cin>> articulocolor;
             this->color=articulocolor;
-            cout<<"Ingrese el material del articulo dañado: "<<endl;
+            cout<<"Ingrese el material del articulo danado: "<<endl;
             string material;
             cin>> material;
             this->modelo=material;
         }
-     
+
 }
 
 void inventario:: sillas (int numerosillas, int buenestadosi, int sillasmalestado){
@@ -51,20 +51,20 @@ void inventario:: sillas (int numerosillas, int buenestadosi, int sillasmalestad
             cout<<"Gracias, el inventario de sillas fue completado con exito"<<endl;
         }
         if (sillasmalestado>0){
-            cout<<"Ingrese el nombre del articulo dañado: "<<endl;
+            cout<<"Ingrese el nombre del articulo danado: "<<endl;
             string articulo;
             cin>> articulo;
             this->nombre=articulo;
-            cout<<"Ingrese el color del articulo dañado: "<<endl;
+            cout<<"Ingrese el color del articulo danado: "<<endl;
             string articulocolor;
             cin>> articulocolor;
             this->color=articulocolor;
-            cout<<"Ingrese el material del articulo dañado: "<<endl;
+            cout<<"Ingrese el material del articulo danado: "<<endl;
             string material;
             cin>> material;
             this->modelo=material;
         }
-     
+
 }
 
 void inventario:: estantes (int numeroestantes, int buenestadoes, int estantesmalestado){
@@ -78,19 +78,19 @@ void inventario:: estantes (int numeroestantes, int buenestadoes, int estantesma
             cout<<"Gracias, el inventario de estantes fue completado con exito"<<endl;
         }
         if (estantesmalestado>0){
-            cout<<"Ingrese el nombre del articulo dañado: "<<endl;
+            cout<<"Ingrese el nombre del articulo danado: "<<endl;
             string articulo;
             cin>> articulo;
             this->nombre=articulo;
-            cout<<"Ingrese el color del articulo dañado: "<<endl;
+            cout<<"Ingrese el color del articulo danado: "<<endl;
             string articulocolor;
             cin>> articulocolor;
             this->color=articulocolor;
-            cout<<"Ingrese el material del articulo dañado: "<<endl;
+            cout<<"Ingrese el material del articulo danado: "<<endl;
             string material;
             cin>> material;
             this->modelo=material;
         }
-     
+
 }
 
