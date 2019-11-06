@@ -10,10 +10,10 @@ Alumno::Alumno()
     //ctor
 }
 
-Alumno :: Alumno(string nombres,string apellidos,string sec){
+Alumno :: Alumno(string nombres,string apellidos){
     this->apellidos=apellidos;
     this->nombres=nombres;
-    const string nombreSeccion=sec;
+    const string nombreSeccion="Default";
 }
 
 
@@ -134,7 +134,7 @@ void Alumno::llenarTodosDatos(){
     cout<<"Religion"<<": ";cin>>stringLlenar;religion=stringLlenar;
     cout<<"Deuda de matricula"<<": ";cin>>intLlenar;deuda=intLlenar;
     //cout<<"Asistencias"<<": ";cin>>stringLlenar;apellidos=stringLlenar;
-    cout<<"Expediente"<<": ";expediente.ModificarDatos();
+    cout<<"Expediente"<<": ";expediente.MenuExpMedico();
 }
 //SETS
 void Alumno::setNombresApellidos(string apellidos,string nombres,char genero) {
