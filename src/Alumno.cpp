@@ -5,26 +5,19 @@
 #include "expedienteMedico.h"
 using namespace std;
 
-Alumno::Alumno()
-{
+string datosVisualizables[]={"personales","colegio","asistencias","contactos","documentos","matricula","otros"};
+
+Alumno::Alumno(){
     //ctor
 }
-
 Alumno :: Alumno(string nombres,string apellidos){
     this->apellidos=apellidos;
     this->nombres=nombres;
     const string nombreSeccion="Default";
 }
-
-
-
-Alumno::~Alumno()
-{
+Alumno::~Alumno(){
     //dtor
 }
-string datosVisualizables[]={"personales","colegio","asistencias","contactos","documentos","matricula","otros"};
-
-
 
 void Alumno::texto(string label,string texto[],int tam,bool prompt,bool numeracion){
     cout<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
@@ -34,7 +27,6 @@ void Alumno::texto(string label,string texto[],int tam,bool prompt,bool numeraci
         cout<<texto[i]<<endl;}
     if(prompt) cout<<"Ingrese su seleccion: ";
 }
-
 void Alumno::menuSeleccionAlumno(bool inAlumno){
     string opcionesAlumno[]={"Ver Datos completos","Modificar Dato","Salir"};
     int subCase;
@@ -116,7 +108,6 @@ void Alumno::verOtros(){
     cout<<"Religion: "<<religion<<endl;
     expediente.MostrarExpediente();
 }
-
 void Alumno::llenarTodosDatos(){
     string stringLlenar;int intLlenar;char charLlenar;long long long2Llenar;
     cout<<"Nombres"<<": ";cin>>stringLlenar;nombres=stringLlenar;
