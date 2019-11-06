@@ -19,11 +19,19 @@ class Alumno
         virtual ~Alumno();
         Alumno(string nombres,string apellidos);
 
-        void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
         void menuSeleccionAlumno(bool inAlumno=1);
-        void visualizarDatos();//visualiza la informacion y pregunta si desea modificar algo
-        //void seleccionarDatoModificar();
 
+        //VISUALIZAR DATOS
+        void elegirVisualizarDatos(bool seleccion=true);
+        //GETS
+        string getSeccion();
+        string getNombres();
+        string getApellidos();
+        string getApellidosNombres();
+        long long getcodigoEstudiante();
+
+        //LLENAR DATOS
+        void llenarTodosDatos();
         //SETS
         void setNombresApellidos(string apellidos, string nombres,char genero='F');
         void setNacimiento(int,int,int);
@@ -32,17 +40,12 @@ class Alumno
         void setcodigoEstudiante(int codigo);
         void setReligion(string religion);
         void setPagoDeuda(int n);//restar el saldo pendiente en n unidades
-
-        //GETS
-        string getSeccion();
-        string getNombres();
-        string getApellidos();
-        string getApellidosNombres();
-        long long getcodigoEstudiante();
+        //ASISTENCIAS
+        void addAsistencia();
 
     private:
-        string nombres, apellidos;
-        string seccion;
+        expedienteMedico expediente;
+        string nombres, apellidos,nombreSeccion;
         int dni, partidaNacimiento;
         int telefonoEmergencia[2];
         long long codigoEstudiante;//codigo otorgado por el siagie
@@ -50,10 +53,22 @@ class Alumno
         fecha nacimiento;
         direccion domicilio;
         string religion;
-        cursos listaCursos[10];//cursos y talleres
         Padres nombrePadres[2];//padre/madre/apoderado
         int codigoMatricula,deuda;
         vector <char> asistencias;
+
+
+        //VER datos por bloque
+        void verDatosPersonales();
+        void verDatosColegio();
+        void verAsistencias(bool tag=1);
+        void verContacto();
+        void verDocumentos();
+        void verMatricula();
+        void verOtros();
+
+        void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
+        int contarCaracter(vector <char> asistencias,char caracter);
 };
 
 #endif // ALUMNO_H
