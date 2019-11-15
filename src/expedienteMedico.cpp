@@ -129,8 +129,8 @@ case 1:{
 }
 case 2:{
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
-    cout<<"Este campo sera llenado con palabras"<<endl;
-    cout<<"Tipo de Sangre: ";string i;getline(cin,i);LlenarTipodeSangre(i);
+    cout<<"Este campo sera llenado con palabras"<<endl;string i;getline(cin,i);cout<<endl;
+    cout<<"Tipo de Sangre: ";getline(cin,i);LlenarTipodeSangre(i);cout<<endl
     cout<<"Alergias: ";string j;getline(cin,j);LlenarAlergias(j);
     cout<<"Vacunas: ";string k;getline(cin,k);LlenarVacunas(k);
     cout<<"Enfermedades Sufridas: ";string l;getline(cin,l);LlenarEnfermedades(l);
