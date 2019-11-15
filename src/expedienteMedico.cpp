@@ -129,7 +129,7 @@ case 1:{
 }
 case 2:{
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
-    cout<<"Este campo sera llenado con palabras";
+    cout<<"Este campo sera llenado con palabras"<<endl;
     cout<<"Tipo de Sangre: ";string i;getline(cin,i);LlenarTipodeSangre(i);
     cout<<"Alergias: ";string j;getline(cin,j);LlenarAlergias(j);
     cout<<"Vacunas: ";string k;getline(cin,k);LlenarVacunas(k);
