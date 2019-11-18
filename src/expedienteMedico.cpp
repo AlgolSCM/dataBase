@@ -117,24 +117,24 @@ case 1:{
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     cout<<"Los siguientes datos seran ingresados en meses";
     cout<<"Se sento: ";int a;cin>>a;LlenarSeSento(a);
-    cout<<"Se paro: ";int b;cin>>b;LlenarSeParo(b);
-    cout<<"Camino: ";int c;cin>>c;LlenarCamino(c);
-    cout<<"Primera Palabra: ";int d; cin>>d;LlenarPrimeraPalabra(d);
-    cout<<"Hablo con fluidez: ";int e;cin>>e;LlenarHabloConFluidez(e);
-    cout<<"Gateo: ";int f;cin>>f;LlenarGateo(f);
+    cout<<"Se paro: ";cin>>a;LlenarSeParo(a);
+    cout<<"Camino: ";cin>>a;LlenarCamino(a);
+    cout<<"Primera Palabra: ";cin>>a;LlenarPrimeraPalabra(a);
+    cout<<"Hablo con fluidez: ";cin>>a;LlenarHabloConFluidez(a);
+    cout<<"Gateo: ";cin>>a;LlenarGateo(a);
     cout<<"Controlo Esfinteres: ";bool g;cin>>g;Esfinteres(g);
-    cout<<"Parto: ";bool h;cin>>h;LlenarParto(h);
+    cout<<"Parto: ";cin>>g;LlenarParto(g);
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     break;
 }
 case 2:{
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     cout<<"Este campo sera llenado con palabras"<<endl;string i;getline(cin,i);cout<<endl;
-    cout<<"Tipo de Sangre: ";getline(cin,i);LlenarTipodeSangre(i);cout<<endl
-    cout<<"Alergias: ";string j;getline(cin,j);LlenarAlergias(j);
-    cout<<"Vacunas: ";string k;getline(cin,k);LlenarVacunas(k);
-    cout<<"Enfermedades Sufridas: ";string l;getline(cin,l);LlenarEnfermedades(l);
-    cout<<"Experiencias Traumaticas: ";string m;getline(cin,m);LlenarTraumas(m);
+    cout<<"Tipo de Sangre: ";getline(cin,i);LlenarTipodeSangre(i);cout<<endl;
+    cout<<"Alergias: ";getline(cin,i);LlenarAlergias(i);
+    cout<<"Vacunas: ";getline(cin,i);LlenarVacunas(i);
+    cout<<"Enfermedades Sufridas: ";getline(cin,i);LlenarEnfermedades(i);
+    cout<<"Experiencias Traumaticas: ";getline(cin,i);LlenarTraumas(i);
     cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
     break;
     }
