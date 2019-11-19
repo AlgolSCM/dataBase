@@ -7,12 +7,13 @@ class notas
     public:
         notas();
         virtual ~notas();
-        void NotaporItem(string nombreItem,char nota, string comentario);
+        notas(string nombreItem,char nota, string comentario);
         bool CantidadCaracteres(string comentario);
+        void imprimirnota();
     protected:
 
     private:
-        
+
         char nota;
         string comentario,nombreItem;
 };
