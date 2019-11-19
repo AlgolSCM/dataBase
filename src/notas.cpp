@@ -6,7 +6,9 @@ using namespace std;
 
 notas::notas()
 {
-    //ctor
+   this ->nota='A';
+   this ->comentario="Demostraste un buen desempenio";
+   this ->nombreItem="Construye su identidad";
 }
 
 notas::~notas()
@@ -18,16 +20,17 @@ unsigned int tam=comentario.length();
 if( tam>=10 && tam<=350)
     return true;
 else
-    return false;
+    throw invalid_argument("Usted no cumple con la cantidad de caracteres que se necesita");
 }
 
 
-void notas :: NotaporItem(string nombreItem,char nota, string comentario){
+
+void notas ::imprimirnota(){
 if (CantidadCaracteres(comentario)== true){
-    cout<< nombreItem<<endl;
-    cout<<"Nota"<<setw(10)<<"Conclusion Descriptiva"<<endl;
-    cout<<nota<<setw(10)<<comentario<<endl;
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;
+    cout<<"Competencia: "<<nombreItem<<endl;
+    cout<<"Nota: "<<nota<<endl;
+    cout<<"Conclusion Descriptiva: "<<cout<<endl<<comentario<<endl;
+
 }
-else
-    cout<<"No cumple con la cantidad de caracteres solicitada, vuelva a ingresar"<<endl;
 }
