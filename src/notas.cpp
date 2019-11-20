@@ -1,6 +1,7 @@
 #include "notas.h"
 #include<iostream>
 #include<iomanip>
+#include <stdexcept>
 #include<string>
 using namespace std;
 
