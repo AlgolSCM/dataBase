@@ -15,18 +15,13 @@ class inventario
         void mesas(int numesas, int buenestadome, int mesasmalestado);
         void sillas(int numsillas, int buenestadosi,int sillasmalestado);
         void estantes(int numestantes, int buenestadoes, int estantesmalestado);
-
     protected:
-
-    private:
         int numeromesas, numerosillas, numeroestantes;
         int mesasbuenestado,sillasbuenestado,estantesbuenestado;
         int mesasmalestado,sillasmalestado,estantesmalestado;
         string nombre, color, modelo;
-
-
-
+    private:
 };
 
 #endif // INVENTARIO_H
- 
+
