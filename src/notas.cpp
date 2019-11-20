@@ -6,7 +6,7 @@ using namespace std;
 
 notas::notas()
 {
-   this ->nota='A';
+   this ->trimestre=1;
    this ->comentario="Demostraste un buen desempenio";
    this ->nombreItem="Construye su identidad";
 }
@@ -28,8 +28,8 @@ else
 void notas ::imprimirnota(){
 if (CantidadCaracteres(comentario)== true){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;
+    cout<<"Trimestre: "<<trimestre<<endl;
     cout<<"Competencia: "<<nombreItem<<endl;
-    cout<<"Nota: "<<nota<<endl;
     cout<<"Conclusion Descriptiva: "<<endl<<comentario<<endl;
 
 }
