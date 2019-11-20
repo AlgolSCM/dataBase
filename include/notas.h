@@ -1,6 +1,7 @@
 #ifndef NOTAS_H
 #define NOTAS_H
 #include <string>
+#include <stdexcept>
 using namespace std;
 class notas
 {
