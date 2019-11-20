@@ -30,7 +30,7 @@ if (CantidadCaracteres(comentario)== true){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;
     cout<<"Competencia: "<<nombreItem<<endl;
     cout<<"Nota: "<<nota<<endl;
-    cout<<"Conclusion Descriptiva: "<<cout<<endl<<comentario<<endl;
+    cout<<"Conclusion Descriptiva: "<<endl<<comentario<<endl;
 
 }
 }
