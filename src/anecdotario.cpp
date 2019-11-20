@@ -8,7 +8,6 @@ anecdotario::anecdotario()
 {
     titulo = "";
     descripcion = "";
-    //fecha ();
     implicados = 0;
     alumnos= "";
 }
@@ -16,21 +15,20 @@ anecdotario::~anecdotario()
 {
     //dtor
 }
-
-void anecdotario::suceso(string titulo){
-    this->titulo=titulo;
-}
-void anecdotario::describir(string descripcion){
-    this->descripcion=descripcion;
-}
-/**void anecdotario::acontecimiento(fecha){
-    this->fecha= fecha;
-}*/
-void anecdotario::involucrados(int implicados, string alumnos){
+anecdotario::anecdotario(int implicados,string titulo, string descripcion, string alumnos, fecha dia){
     this->implicados=implicados;
+    this->titulo=titulo;
+    this->descripcion=descripcion;
     this->alumnos=alumnos;
+    this->dia=dia;
+    cout<<"Fecha:(ingrese dia, mes y año) ";int c,d,e;cin>>c;cin>>d;cin>>e;
+    dia.setDiaMesAnio(c,d,e);
 }
-void anecdotario::MostrarAnecdota(){
+/**void anecdotario::MostrarAnecdota(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-ANECDOTARIO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+    cout<<titulo<<endl;
+    cout<<descripcion<<endl;
+    cout<<implicados<<endl;
 }
 
+*/
