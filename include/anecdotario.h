@@ -11,7 +11,7 @@ class anecdotario
     public:
         anecdotario();
         virtual ~anecdotario();
-        anecdotario(int implicados,string titulo, string descripcion, string alumnos, fecha dia);
+        anecdotario(int implicados,string titulo, string descripcion, string alumnos, string aula, fecha dia);
         //void MostrarAnecdota();
     protected:
     private:
