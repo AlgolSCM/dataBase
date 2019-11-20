@@ -23,7 +23,8 @@ anecdotario::anecdotario(int implicados,string titulo, string descripcion, strin
     this->alumnos=alumnos;
     this->aula=aula;
     this->dia=dia;
-    cout<<"Fecha:(ingrese dia, mes y año) ";int c,d,e;cin>>c;cin>>d;cin>>e;
+
+    cout<<"Fecha:(ingrese dia, mes y anio) ";int c,d,e;cin>>c;cin>>d;cin>>e;
     dia.setDiaMesAnio(c,d,e);
 }
 /**void anecdotario::MostrarAnecdota(){

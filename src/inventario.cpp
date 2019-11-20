@@ -37,7 +37,6 @@ void inventario:: mesas (int numeromesas, int buenestadome, int mesasmalestado){
             cin>> material;
             this->modelo=material;
         }
-
 }
 
 void inventario:: sillas (int numerosillas, int buenestadosi, int sillasmalestado){
@@ -64,7 +63,6 @@ void inventario:: sillas (int numerosillas, int buenestadosi, int sillasmalestad
             cin>> material;
             this->modelo=material;
         }
-
 }
 
 void inventario:: estantes (int numeroestantes, int buenestadoes, int estantesmalestado){
@@ -91,6 +89,5 @@ void inventario:: estantes (int numeroestantes, int buenestadoes, int estantesma
             cin>> material;
             this->modelo=material;
         }
-
 }
 
