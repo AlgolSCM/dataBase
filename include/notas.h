@@ -7,15 +7,16 @@ class notas
     public:
         notas();
         virtual ~notas();
-        notas(string nombreItem,char nota, string comentario);
+        notas(int trimestre,string nombreItem, string comentario);
         bool CantidadCaracteres(string comentario);
         void imprimirnota();
     protected:
-
+        string comentario,nombreItem;
+        int trimestre;
     private:
 
-        char nota;
-        string comentario,nombreItem;
+        
+
 };
 
 #endif // NOTAS_H
