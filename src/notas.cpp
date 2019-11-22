@@ -12,6 +12,12 @@ notas::notas()
    this ->nombreItem="Construye su identidad";
 }
 
+notas::notas(int trimestre,string nombreItem, string comentario){
+this -> trimestre=trimestre;
+this ->nombreItem=nombreItem;
+this ->comentario=comentario;
+}
+
 notas::~notas()
 {
     //dtor
