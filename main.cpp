@@ -39,7 +39,7 @@ seccion cabecitas;
 int main()
 {
     //cabecitas.menuSeleccion();
-    bool usuarioActivo=true;
+    bool usuarioActivo=false;
     if (!usuarioActivo&&acceder()){
         cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;
         usuarioActivo=true;

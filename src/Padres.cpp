@@ -22,16 +22,16 @@ this -> parentesco=parentesco;
 void Padres::setDocumentos(int dni){
 this->dni=dni;
 }
-void Padres::setTelefonoDireccion(int telefono, direccion domicilio){
+void Padres::setTelefonoDireccion(int telefono, string direccionDomicilio){
 this->telefono=telefono;
-this->domicilio=domicilio;
+this->direccionDomicilio=direccionDomicilio;
 }
 
-void Padres :: setTrabajo(direccion trabajo,string ocupacion,string centroDeTrabajo, string gradoEstudios){
+void Padres :: setTrabajo(string direccionTrabajo,string ocupacion,string centroDeTrabajo, string gradoEstudios){
 this ->centroDeTrabajo=centroDeTrabajo;
 this ->ocupacion=ocupacion;
 this-> gradoEstudios=gradoEstudios;
-this ->trabajo=trabajo;
+this ->direccionTrabajo=direccionTrabajo;
 }
 
 void Padres :: setReligion(string religion){

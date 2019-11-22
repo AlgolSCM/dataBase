@@ -5,7 +5,6 @@
 #include <vector>
 
 #include "fecha.h"
-#include "direccion.h"
 #include "notas.h"
 #include "cursos.h"
 #include "expedienteMedico.h"
@@ -55,7 +54,7 @@ class Alumno
         long long codigoEstudiante;//codigo otorgado por el siagie
         char genero;//M o F
         fecha nacimiento;
-        direccion domicilio;
+        string direccionDomicilio;
         string religion;
         int codigoMatricula,deuda;
         vector <char> asistencias;
