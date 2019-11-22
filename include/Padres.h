@@ -11,7 +11,7 @@ class Padres
         virtual ~Padres();
         void setNombresApellidos(string nombresApellidos,string parentesco);
         void setDocumentos(int dni);
-        void setTelefonoDireccion(int telefono, string direccionDomicilio);
+        void setTelefonoDireccion(int telefono, string direccionDomicilio,string correo);
         void setTrabajo(string direccionTrabajo,string ocupacion,string centroDeTrabajo, string gradoEstudios);
         void setReligion(string religion);
         void setVivecon(bool viveCon);
