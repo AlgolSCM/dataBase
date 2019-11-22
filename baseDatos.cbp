@@ -40,7 +40,6 @@
 		<Unit filename="include/acontecimiento.h" />
 		<Unit filename="include/anecdotario.h" />
 		<Unit filename="include/cursos.h" />
-		<Unit filename="include/direccion.h" />
 		<Unit filename="include/expedienteMedico.h" />
 		<Unit filename="include/fecha.h" />
 		<Unit filename="include/inventario.h" />
@@ -53,7 +52,6 @@
 		<Unit filename="src/acontecimiento.cpp" />
 		<Unit filename="src/anecdotario.cpp" />
 		<Unit filename="src/cursos.cpp" />
-		<Unit filename="src/direccion.cpp" />
 		<Unit filename="src/expedienteMedico.cpp" />
 		<Unit filename="src/fecha.cpp" />
 		<Unit filename="src/inventario.cpp" />
