@@ -45,30 +45,27 @@ bool fecha :: validarFecha(int a,int b,int c){//verifica si la fecha es real, no
     return 0;
 }
 void fecha::coutDMA(bool verAnio){
-    if (fecha::dia<10) cout<<0;
-    cout<<fecha::dia<<"/";
-    if (fecha::mes<10) cout<<0;
-    cout<<fecha::mes;
+    if (dia<10) cout<<0;
+    cout<<dia<<"/";
+    if (mes<10) cout<<0;
+    cout<<mes;
     if (verAnio){
-        if (fecha::anio<10) cout<<0;
-        cout <<"/"<<fecha::anio;
+        cout <<"/"<<anio%100;
     }
     cout<<endl;
 }
 void fecha::coutDMMAA(bool verAnio){
     string meses[]={"enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"};
-    cout<<fecha::dia<<" de "<<meses[(fecha::mes-1)];
+    cout<<dia<<" de "<<meses[(mes-1)];
     if (verAnio){
-        cout <<" del 20";
-        if (fecha::anio<10) cout<<0;
-        cout<<fecha::anio;
+        cout<<anio;
         }
     cout<<endl;
 }
 bool fecha::paso2a3(){//calcula si nacio antes de esta fecha
     int a=31,b=3,c=2019-3;
-    if (fecha::anio<c) return 1;//nacio antes de 2019-3=2016 tiene mas de 3 anios al menos
-    else if (fecha::anio==c)
-        if (fecha::mes<=b) return 1;
+    if (anio<c) return 1;//nacio antes de 2019-3=2016 tiene mas de 3 anios al menos
+    else if (anio==c)
+        if (mes<=b) return 1;
     return 0;
 }
