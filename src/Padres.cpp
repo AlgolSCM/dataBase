@@ -4,7 +4,7 @@
 using namespace std;
 Padres::Padres()
 {
-    nombresApellidos=""; parentesco=""; ocupacion=""; correo=""; religion=""; gradoEstudios=""; centroDeTrabajo="";
+    nombresApellidos=""; parentesco=""; ocupacion=""; correo=""; religion=""; gradoEstudios=""; centroDeTrabajo="";correo="";
     viveCon=true;dni=00000000;telefono=999999999; fechaNacimiento;
 
 }
@@ -22,9 +22,10 @@ this -> parentesco=parentesco;
 void Padres::setDocumentos(int dni){
 this->dni=dni;
 }
-void Padres::setTelefonoDireccion(int telefono, string direccionDomicilio){
+void Padres::setTelefonoDireccion(int telefono, string direccionDomicilio,string correo){
 this->telefono=telefono;
 this->direccionDomicilio=direccionDomicilio;
+this->correo=correo;
 }
 
 void Padres :: setTrabajo(string direccionTrabajo,string ocupacion,string centroDeTrabajo, string gradoEstudios){
@@ -57,13 +58,14 @@ void Padres::DatosPadres(){
     cout<<"DNI: "<<dni<<endl;
     cout<<endl<<"°.°.°.°.°.°.°.°.°.CONTACTO°.°.°.°.°.°.°.°.°.°.°."<<endl;
     cout<<"Telefono: "<<telefono<<endl;
-    //cout<<"Direccion: "<<domicilio<<endl;
+    cout<<"Direccion: "<<direccionDomicilio<<endl;
+    cout<<"Correo electronico: "<<correo<<endl;
     cout<<"Religion: "<<religion<<endl;
     cout<<endl<<"°.°.°.°.°.°.°.°.°.TRABAJO°.°.°.°.°.°.°.°.°.°.°."<<endl;
     cout<<"Ocupacion: "<<ocupacion<<endl;
     cout<<"Grado de Estudios: "<<gradoEstudios<<endl;
     cout<<"Centro de Trabajo: "<<centroDeTrabajo<<endl;
-    //cout<<"Direccion de Trabajo: "<<trabajo<<endl;
+    cout<<"Direccion de Trabajo: "<<direccionTrabajo<<endl;
     cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;
 }
 
