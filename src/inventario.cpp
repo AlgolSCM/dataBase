@@ -1,8 +1,7 @@
-
 #include "inventario.h"
 
 inventario::inventario(){
-    numeromesas=0; numerosillas=0; numeroestantes=0;
+    numeromesas=8; numerosillas=40; numeroestantes=7;
     mesasbuenestado=0;sillasbuenestado=0;estantesbuenestado=0;
     mesasmalestado=0;sillasmalestado=0;estantesmalestado=0;
     nombre=""; color=""; modelo="";
@@ -13,14 +12,15 @@ inventario::~inventario()
     //dtor
 }
 
-void inventario:: mesas (int numeromesas, int buenestadome, int mesasmalestado){
+void inventario:: mesas (int numeromesas, int mesasbuenestado, int mesasmalestado){
      this->numeromesas=numeromesas;
      cout<< "Ingrese el numero de mesas en buen estado:"<<endl;
-     cin>> buenestadome;
+     this->mesasbuenestado=mesasbuenestado;
+     cin>> mesasbuenestado;
      cout<< "Ingrese el numero de mesas en mal estado: "<<endl;
      this->mesasmalestado=mesasmalestado;
      cin>> mesasmalestado;
-        if ((buenestadome==numeromesas)&& (mesasmalestado==0)){
+        if ((mesasbuenestado==numeromesas)&& (mesasmalestado==0)){
             cout<<"Gracias, el inventario de mesas fue completado con exito"<<endl;
         }
         if (mesasmalestado>0){
@@ -39,14 +39,15 @@ void inventario:: mesas (int numeromesas, int buenestadome, int mesasmalestado){
         }
 }
 
-void inventario:: sillas (int numerosillas, int buenestadosi, int sillasmalestado){
+void inventario:: sillas (int numerosillas, int sillasbuenestado, int sillasmalestado){
      this->numerosillas=numerosillas;
      cout<< "Ingrese el numero de sillas en buen estado:"<<endl;
-     cin>> buenestadosi;
+     this->sillasbuenestado=sillasbuenestado;
+     cin>> sillasbuenestado;
      cout<< "Ingrese el numero de sillas en mal estado: "<<endl;
      this->sillasmalestado=sillasmalestado;
      cin>> sillasmalestado;
-        if ((buenestadosi==numerosillas)&& (sillasmalestado==0)){
+        if ((sillasbuenestado==numerosillas)&& (sillasmalestado==0)){
             cout<<"Gracias, el inventario de sillas fue completado con exito"<<endl;
         }
         if (sillasmalestado>0){
@@ -65,14 +66,15 @@ void inventario:: sillas (int numerosillas, int buenestadosi, int sillasmalestad
         }
 }
 
-void inventario:: estantes (int numeroestantes, int buenestadoes, int estantesmalestado){
+void inventario:: estantes (int numeroestantes, int estantesbuenestado, int estantesmalestado){
      this->numeroestantes=numeroestantes;
      cout<< "Ingrese el numero de estantes en buen estado:"<<endl;
-     cin>> buenestadoes;
+     this->estantesbuenestado=estantesbuenestado;
+     cin>> estantesbuenestado;
      cout<< "Ingrese el numero de estantes en mal estado: "<<endl;
      this->estantesmalestado=estantesmalestado;
      cin>> estantesmalestado;
-        if ((buenestadoes==numeroestantes)&& (estantesmalestado==0)){
+        if ((estantesbuenestado==numeroestantes)&& (estantesmalestado==0)){
             cout<<"Gracias, el inventario de estantes fue completado con exito"<<endl;
         }
         if (estantesmalestado>0){
@@ -90,4 +92,3 @@ void inventario:: estantes (int numeroestantes, int buenestadoes, int estantesma
             this->modelo=material;
         }
 }
-
