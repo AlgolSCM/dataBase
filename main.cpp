@@ -36,10 +36,23 @@ void verInvent();
 inventario general;
 seccion cabecitas;
 
+void busquedaAlumno(string aBuscar,seccion salon[]);
+void iniciarSecciones(){
+
+}
+int Alumno::countAlumno=0;
+
 int main()
 {
+    seccion clases[]={seccion("archivos/alumnos/Alumnos3.csv",6),seccion("archivos/alumnos/Alumnos4.csv",16),
+                            seccion("archivos/alumnos/Alumnos5.csv",12),seccion("archivos/alumnos/Alumnos2.csv",6)};
+    clases[0].setNombreSeccion("3anios");
+    clases[1].setNombreSeccion("4anios");
+    clases[2].setNombreSeccion("5anios");
+    clases[3].setNombreSeccion("2anios");
+    busquedaAlumno("Ramos",clases);
     //cabecitas.menuSeleccion();
-    bool usuarioActivo=false;
+    bool usuarioActivo=true;
     if (!usuarioActivo&&acceder()){
         cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;
         usuarioActivo=true;
@@ -70,4 +83,10 @@ void verInvent(){
     general.mesas(0,0,0);
     general.sillas(0,0,0);
     general.estantes(0,0,0);
+}
+void busquedaAlumno(string aBuscar,seccion salon[]){
+    for (int i=0;i<4;i++){
+        salon[i].imprimirBusqueda(aBuscar);
+    }
+    return;
 }

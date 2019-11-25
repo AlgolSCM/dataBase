@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <sstream>
 
 #include "fecha.h"
 #include "notas.h"
@@ -14,9 +15,11 @@
 class Alumno
 {
     public:
+        static int countAlumno;
         Alumno();//Matriccula
         virtual ~Alumno();
         Alumno(string nombres,string apellidos,string sec="ninguna asignada");
+        Alumno(string lineaFichero);
 
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
         void menuSeleccionAlumno(bool inAlumno=1);

@@ -17,11 +17,9 @@ void fecha :: setDiaMesAnio(int a,int b,int c){
         fecha::dia=a;
         fecha::mes=b;
         fecha::anio=c;
-        cout<<"Fecha modificada al: ";
-        fecha::coutDMMAA(1);
+        //fecha::coutDMMAA(1);
         return;
     }
-    cout<<"Fecha no valida"<<endl;
     setDiaMesAnio(1,1,1);
 }
 bool fecha :: validarFecha(int a,int b,int c){//verifica si la fecha es real, no verifica el anio

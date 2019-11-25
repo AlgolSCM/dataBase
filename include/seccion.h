@@ -11,11 +11,14 @@ class seccion
 {
     public:
         seccion();
+        seccion(char nombreArchivo[],int cantidadAlumnos);
+
         virtual ~seccion();
         void setNombreSeccion(string);
 
         void menuSeleccion(bool inSeleccion=1);//mostrara el menu de las opciones
 
+        void imprimirBusqueda(string aBuscar);
         void verListadoAlumnos();
         void ordenarListadoAlumnos(char n=' ');//Falta implementar
         void addAlumno(string nombre="",string apellido="");

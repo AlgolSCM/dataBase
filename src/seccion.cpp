@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <stdio.h>
+#include <fstream>
+
 
 using namespace std;
 seccion::seccion() : nombreSeccion("No tiene nombre"){
@@ -14,8 +16,35 @@ seccion::seccion() : nombreSeccion("No tiene nombre"){
 seccion::~seccion(){
     //dtor
 }
+seccion::seccion(char nombreArchivo[],int cantidadAlumnos){
+    ifstream archivo;
+    string linea;
+    archivo.open(nombreArchivo,ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    for (int i=cantidadAlumnos;i>0;i--){
+        getline(archivo,linea);
+        Listado.push_back(Alumno(linea));
+        cantidadAlumnos++;
+    }
+    archivo.close();
+    this->nombreSeccion=nombreArchivo;
+
+}
 
 void seccion::setNombreSeccion(string nombre){this->nombreSeccion=nombre;}
+
+void seccion::imprimirBusqueda(string aBuscar){
+    size_t foundFirst,foundLast;
+    for (int i=0;i<Listado.size();i++){
+        foundLast =Listado[i].getApellidos().find(aBuscar);
+        foundFirst=Listado[i].getNombres().find(aBuscar);
+        if (foundLast<1000||foundFirst<1000){
+            cout<< Listado[i].getApellidosNombres();
+            cout<<"de la seccion: "<<nombreSeccion<<endl;
+        }
+    }
+
+}
 
 void seccion::texto(string label,string texto[],int tam,bool prompt,bool numeracion){
     cout<<endl<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;

@@ -16,7 +16,23 @@ Alumno :: Alumno(string nombres,string apellidos,string sec){
     const string nombreSeccion=sec;
 }
 
-
+Alumno::Alumno(string lineaFichero){
+    vector <string> fields;
+    stringstream ss(lineaFichero);
+    string actual;
+    while (getline(ss, actual, ','))
+        fields.push_back(actual);
+    nombres=fields[0];
+    apellidos=fields[1];
+    genero=fields[2][0];
+    nacimiento=fecha(stoi(fields[3]),stoi(fields[4]),stoi(fields[5]));
+    direccionDomicilio=fields[6];
+    dni=stoi(fields[7]);
+    codigoEstudiante=stoi(fields[9]);
+    religion=fields[10];
+    codigoMatricula=stoi(fields[11]);
+    deuda=stoi(fields[12]);
+}
 
 Alumno::~Alumno()
 {
