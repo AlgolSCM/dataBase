@@ -21,7 +21,10 @@ void imprimirOpcionesPrincipal(){
     cout << "Elija una opcion"<< endl;
     cout << "1. Ver listado de alumnos"<< endl;
     cout << "2. Ver inventario"<< endl;
-    cout << "3. Salir"<< endl;
+    cout << "3. Ver anecdotario"<< endl;
+    cout << "4. Ver asistencias"<< endl;
+    cout << "5. Ver notas"<< endl;
+    cout << "6. Salir"<< endl;
 }
 
 void salir(){
@@ -32,9 +35,8 @@ void estadoMaterial(){
 cout<<" estadoMaterial"<< endl;
 }
 
-void verInvent();
 inventario general;
-seccion cabecitas;
+
 
 void busquedaAlumno(string aBuscar,seccion salon[]);
 void iniciarSecciones(){
@@ -44,15 +46,15 @@ int Alumno::countAlumno=0;
 
 int main()
 {
-    seccion clases[]={seccion("archivos/alumnos/Alumnos3.csv",6),seccion("archivos/alumnos/Alumnos4.csv",16),
-                            seccion("archivos/alumnos/Alumnos5.csv",12),seccion("archivos/alumnos/Alumnos2.csv",6)};
-    clases[0].setNombreSeccion("3anios");
+    seccion clases[]={seccion("archivos/alumnos/Alumnos5.csv",12),seccion("archivos/alumnos/Alumnos4.csv",16),
+                            seccion("archivos/alumnos/Alumnos3.csv",6),seccion("archivos/alumnos/Alumnos2.csv",6)};
+    clases[0].setNombreSeccion("5anios");
     clases[1].setNombreSeccion("4anios");
-    clases[2].setNombreSeccion("5anios");
+    clases[2].setNombreSeccion("3anios");
     clases[3].setNombreSeccion("2anios");
-    busquedaAlumno("Ramos",clases);
+    busquedaAlumno("Luque",clases);
     //cabecitas.menuSeleccion();
-    bool usuarioActivo=true;
+    bool usuarioActivo=false;
     if (!usuarioActivo&&acceder()){
         cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;
         usuarioActivo=true;
@@ -63,11 +65,11 @@ int main()
         cin>>n;
         switch (n){
             case 1:
-
-                cabecitas.menuSeleccion();
+                for (int i=0;i<4;i++){
+                    clases[i].verListadoAlumnos();
+                }
                 break;
             case 2:
-                verInvent();
                 estadoMaterial();
                 break;
             case 3:
@@ -79,14 +81,9 @@ int main()
 
     return 0;
 }
-void verInvent(){
-    general.mesas(0,0,0);
-    general.sillas(0,0,0);
-    general.estantes(0,0,0);
-}
+
 void busquedaAlumno(string aBuscar,seccion salon[]){
     for (int i=0;i<4;i++){
         salon[i].imprimirBusqueda(aBuscar);
     }
-    return;
 }
