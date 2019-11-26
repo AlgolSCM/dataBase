@@ -72,7 +72,7 @@ int main()
                 break;
             case 3:
                 salir();
-                usuarioActivo=false;
+                //usuarioActivo=false;
                 break;
         }
     }
