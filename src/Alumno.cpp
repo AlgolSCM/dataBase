@@ -32,6 +32,7 @@ Alumno::Alumno(string lineaFichero){
     religion=fields[10];
     codigoMatricula=stoi(fields[11]);
     deuda=stoi(fields[12]);
+    cout<<"Alumno creado: "<<getApellidosNombres()<<endl;
 }
 
 Alumno::~Alumno()

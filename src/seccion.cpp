@@ -21,8 +21,12 @@ seccion::seccion(char nombreArchivo[],int cantidadAlumnos){
     string linea;
     archivo.open(nombreArchivo,ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
-    for (int i=cantidadAlumnos;i>0;i--){
+    /*for (int i=cantidadAlumnos;i>0;i--){
         getline(archivo,linea);
+        Listado.push_back(Alumno(linea));
+        cantidadAlumnos++;
+    }*/
+    while(getline(archivo,linea)){
         Listado.push_back(Alumno(linea));
         cantidadAlumnos++;
     }
