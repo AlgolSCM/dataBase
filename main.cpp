@@ -50,7 +50,8 @@ int main()
     clases[1].setNombreSeccion("4anios");
     clases[2].setNombreSeccion("5anios");
     clases[3].setNombreSeccion("2anios");
-    busquedaAlumno("Ramos",clases);
+
+    busquedaAlumno("Valery",clases);
     //cabecitas.menuSeleccion();
     bool usuarioActivo=true;
     if (!usuarioActivo&&acceder()){

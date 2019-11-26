@@ -44,7 +44,7 @@ void seccion::imprimirBusqueda(string aBuscar){
         foundFirst=Listado[i].getNombres().find(aBuscar);
         if (foundLast<1000||foundFirst<1000){
             cout<< Listado[i].getApellidosNombres();
-            cout<<"de la seccion: "<<nombreSeccion<<endl;
+            cout<<" de la seccion: "<<nombreSeccion<<endl;
         }
     }
 
