@@ -9,9 +9,7 @@
 
 using namespace std;
 seccion::seccion() : nombreSeccion("No tiene nombre"){
-    Listado.push_back(Alumno("Camila","Luque"));
-    Listado.push_back(Alumno("Sol","Velasquez"));
-    Listado.push_back(Alumno("Maria","Cruz"));
+
 }
 seccion::~seccion(){
     //dtor
@@ -21,11 +19,6 @@ seccion::seccion(char nombreArchivo[],int cantidadAlumnos){
     string linea;
     archivo.open(nombreArchivo,ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
-    /*for (int i=cantidadAlumnos;i>0;i--){
-        getline(archivo,linea);
-        Listado.push_back(Alumno(linea));
-        cantidadAlumnos++;
-    }*/
     while(getline(archivo,linea)){
         Listado.push_back(Alumno(linea));
         cantidadAlumnos++;
@@ -38,11 +31,10 @@ seccion::seccion(char nombreArchivo[],int cantidadAlumnos){
 void seccion::setNombreSeccion(string nombre){this->nombreSeccion=nombre;}
 
 void seccion::imprimirBusqueda(string aBuscar){
-    size_t foundFirst,foundLast;
+    size_t foundLast;
     for (int i=0;i<Listado.size();i++){
-        foundLast =Listado[i].getApellidos().find(aBuscar);
-        foundFirst=Listado[i].getNombres().find(aBuscar);
-        if (foundLast<1000||foundFirst<1000){
+        foundLast =Listado[i].getApellidosNombres().find(aBuscar);
+        if (foundLast<1000){
             cout<< Listado[i].getApellidosNombres();
             cout<<" de la seccion: "<<nombreSeccion<<endl;
         }
@@ -166,18 +158,34 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
 }
 
 void seccion::verListadoAlumnos(){
-    cout<<endl<<"=-=-=-=-=-=-=-LISTADO DE ALUMNOS-=-=-=-=-=-=-=-=-="<<endl;
+    cout<<endl<<"ALUMNOS SECCION "<<nombreSeccion<<": "<<endl;
     for(int i=0;i<Listado.size();i++)
         cout<<i+1<<". "<<Listado[i].getApellidosNombres()<<endl;
 }
-void seccion::ordenarListadoAlumnos(char n){
-    if (n==' '){
-        string opcionesOrdenar[]={"Apellidos A-Z","Apellidos Z-A"};
-        texto("Opciones de Ordenamiento",opcionesOrdenar,2);
-        cin>>n;
-    }
-    switch (n){
-        case '1':cout<<"ordenar";break;
+
+void seccion::ordenarListadoAlumnos(){
+    for (int h=Listado.size();h>0;h--){
+        for (int i=0;i<h-1;i++){
+             int actual=static_cast<int> (Listado[i].getApellidos()[0]);
+             int siguiente=static_cast<int> (Listado[i+1].getApellidos()[0]);
+             if (actual>siguiente){//encuentra el mayor y lo manda al final
+                swap(Listado[i],Listado[i+1]);
+             }
+             if (actual==siguiente){//Si tienen la misma letra
+                 int k=0; bool menor=1;
+                 while (k<Listado[i].getApellidos().size()&&k <Listado[i+1].getApellidos().size()){
+                    int ahora=static_cast<int> (Listado[i].getApellidos()[k]);
+                    int futuro=static_cast<int> (Listado[i+1].getApellidos()[k]);
+                    if (ahora>futuro){
+                        swap(Listado[i],Listado[i+1]);
+                        menor=0;
+                        break;
+                    }
+                    k++;
+                 }
+                 if (Listado[i].getApellidos().size() >Listado[i+1].getApellidos().size()&&menor) swap(Listado[i],Listado[i+1]);
+             }
+        }
     }
 }
 void seccion::addAlumno(string nombre,string apellido){

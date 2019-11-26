@@ -20,7 +20,7 @@ class seccion
 
         void imprimirBusqueda(string aBuscar);
         void verListadoAlumnos();
-        void ordenarListadoAlumnos(char n=' ');//Falta implementar
+        void ordenarListadoAlumnos();
         void addAlumno(string nombre="",string apellido="");
         void deleteAlumno(int n=0);//solicita el numero de lista del alumno
         void seleccionAlumno();

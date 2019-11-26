@@ -10,13 +10,13 @@ class notas
         virtual ~notas();
         notas(int trimestre,string nombreItem, string comentario);
         bool CantidadCaracteres(string comentario);
-        void imprimirnota();
+        virtual void imprimirnota();
     protected:
         string comentario,nombreItem;
         int trimestre;
     private:
 
-        
+
 
 };
 

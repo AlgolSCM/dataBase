@@ -18,6 +18,7 @@ this ->nombreItem=nombreItem;
 this ->comentario=comentario;
 }
 
+
 notas::~notas()
 {
     //dtor
@@ -29,7 +30,6 @@ if( tam>=10 && tam<=350)
 //else
 //    throw invalid_argument("Usted no cumple con la cantidad de caracteres que se necesita");
 }
-
 
 
 void notas ::imprimirnota(){

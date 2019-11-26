@@ -52,9 +52,11 @@ int main()
     clases[1].setNombreSeccion("4anios");
     clases[2].setNombreSeccion("3anios");
     clases[3].setNombreSeccion("2anios");
-    busquedaAlumno("Luque",clases);
-    //cabecitas.menuSeleccion();
+
     bool usuarioActivo=false;
+
+    busquedaAlumno("Thi",clases);
+
     if (!usuarioActivo&&acceder()){
         cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;
         usuarioActivo=true;
@@ -83,7 +85,6 @@ int main()
 }
 
 void busquedaAlumno(string aBuscar,seccion salon[]){
-    for (int i=0;i<4;i++){
+    for (int i=0;i<4;i++)
         salon[i].imprimirBusqueda(aBuscar);
-    }
 }

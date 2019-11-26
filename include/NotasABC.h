@@ -10,6 +10,7 @@ class NotasABC: public notas
         NotasABC(int trimestre_,string nombreItem_, string comentario_,char nota_);
         bool validar(char nota);
         virtual ~NotasABC();
+        void imprimirnotas();
 
     protected:
 
