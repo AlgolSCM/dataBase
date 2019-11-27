@@ -3,6 +3,7 @@
 #include <vector>
 #include "fecha.h"
 #include <string>
+#include <sstream>
 using namespace std;
 
 
@@ -12,6 +13,7 @@ class anecdotario
         anecdotario();
         virtual ~anecdotario();
         anecdotario(int implicados,string titulo, string descripcion, string alumnos, string aula, fecha dia);
+        anecdotario(string lineafile);
         //void MostrarAnecdota();
     protected:
     private:
