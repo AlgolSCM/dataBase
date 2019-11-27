@@ -22,7 +22,7 @@ class seccion
         void imprimirBusqueda(string aBuscar);
         void verListadoAlumnos();
         void ordenarListadoAlumnos();
-        void addAlumno(string nombre="",string apellido="");
+        void addAlumno();
         void deleteAlumno(int n=0);//solicita el numero de lista del alumno
         void seleccionAlumno();
         void modificarAlumno(int n);
@@ -44,13 +44,12 @@ class seccion
     protected:
 
     private:
-        string nombreSeccion;
+        string nombreSeccion,nombreArchivo;
         vector <Alumno> Listado;
 
         vector <notas> cursos2;
         vector<NotasABC>cursos345;
         vector <anecdotario> sucesos;
-
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
 
 };

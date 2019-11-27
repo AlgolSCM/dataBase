@@ -48,8 +48,10 @@ class Alumno
         string getNombres();
         string getApellidos();
         string getApellidosNombres();
+
         void leernotas(int dni);
-        long long getcodigoEstudiante();
+        string getcodigoEstudiante();
+
 
         //ADS
         void addAsistencia();
@@ -59,7 +61,7 @@ class Alumno
         string nombreSeccion;
         int dni, partidaNacimiento;
         int telefonoEmergencia[2];
-        long long codigoEstudiante;//codigo otorgado por el siagie
+        string codigoEstudiante;//codigo otorgado por el siagie
         int codigoEnSeccion;
         char genero;//M o F
         fecha nacimiento;
