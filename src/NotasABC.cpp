@@ -4,8 +4,8 @@
 #include <stdexcept>
 #include "notas.h"
 using namespace std;
-NotasABC::NotasABC(int trimestre_,string nombreItem_, string comentario_,char nota_)
-  : notas(trimestre_, nombreItem_, comentario_)
+NotasABC::NotasABC(int trimestre_,string nombreItem_, string comentario_,string curso_,char nota_)
+  : notas(trimestre_, nombreItem_, comentario_, curso_)
 {
     nota=nota_;
 }

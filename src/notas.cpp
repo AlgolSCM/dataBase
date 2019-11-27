@@ -10,12 +10,14 @@ notas::notas()
    this ->trimestre=1;
    this ->comentario="Demostraste un buen desempenio";
    this ->nombreItem="Construye su identidad";
+   this->curso="Matematica";
 }
 
-notas::notas(int trimestre,string nombreItem, string comentario){
+notas::notas(int trimestre,string nombreItem, string comentario, string curso){
 this -> trimestre=trimestre;
 this ->nombreItem=nombreItem;
 this ->comentario=comentario;
+this ->curso=curso;
 }
 
 

@@ -15,8 +15,7 @@ class cursos : public notas
 
     private:
         string  nombreCurso,nombreProfesor;
-        char competencias[50][200];//50 competencias de 200 caracteres cada una
-        notas Alumno[50];
+
 };
 
 #endif // CURSOS_H

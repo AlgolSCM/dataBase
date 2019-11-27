@@ -48,14 +48,14 @@ int main()
 {
     seccion clases[]={seccion("archivos/alumnos/Alumnos5.csv",12),seccion("archivos/alumnos/Alumnos4.csv",16),
                             seccion("archivos/alumnos/Alumnos3.csv",6),seccion("archivos/alumnos/Alumnos2.csv",6)};
-    clases[0].setNombreSeccion("5anios");
-    clases[1].setNombreSeccion("4anios");
-    clases[2].setNombreSeccion("3anios");
-    clases[3].setNombreSeccion("2anios");
+    clases[0].setNombreSeccion("5 anios");
+    clases[1].setNombreSeccion("4 anios");
+    clases[2].setNombreSeccion("3 anios");
+    clases[3].setNombreSeccion("2 anios");
 
     bool usuarioActivo=false;
 
-    busquedaAlumno("Thi",clases);
+    busquedaAlumno("",clases);
 
     if (!usuarioActivo&&acceder()){
         cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;
