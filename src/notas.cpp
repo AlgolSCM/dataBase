@@ -29,8 +29,8 @@ bool notas :: CantidadCaracteres(string comentario){
 unsigned int tam=comentario.length();
 if( tam>=10 && tam<=350)
     return true;
-//else
-//    throw invalid_argument("Usted no cumple con la cantidad de caracteres que se necesita");
+else
+  throw invalid_argument("Usted no cumple con la cantidad de caracteres que se necesita");
 }
 
 
