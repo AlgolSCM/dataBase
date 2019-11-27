@@ -139,11 +139,14 @@ void Alumno::verOtros(){
 
 string Alumno::askModificarDatos(){
     string separador=": ";
+    getline(cin,nombres);//
     cout<<"Nombres"<<separador;getline(cin,nombres);
     cout<<"Apellidos"<<separador;getline(cin,apellidos);
     cout<<"DNI"<<separador;cin>>dni;
     cout<<"No. Partida"<<separador;cin>>partidaNacimiento;
     cout<<"Codigo del Siagie"<<separador;cin>>codigoEstudiante;
+    cout<<"Codigo del colegio"<<separador;cin>>codigoEnSeccion;
+
     cout<<"Genero"<<separador;cin>>genero;
         int dia, mes, anio;
         cout<<"Fecha Nacimiento ";
@@ -151,13 +154,13 @@ string Alumno::askModificarDatos(){
         cout<<"MES: ";cin>>mes;
         cout<<"ANIO: ";cin>>anio;
         nacimiento=fecha(dia,mes,anio);
-    string aux;
-    cout<<"Domicilio"<<separador;getline (cin,aux);getline (cin,aux);direccionDomicilio=aux;
-    cout<<"Religion"<<separador;cin>>religion;
+
+    cout<<"Domicilio"<<separador;getline(cin,direccionDomicilio);cout<<direccionDomicilio<<endl;
+    cout<<"Religion"<<separador;getline(cin,religion);
     cout<<"Deuda de matricula"<<separador;cin>>deuda;
     //cout<<"Expediente"<<separador;expediente.MenuExpMedico();
     string datoAModificar=nombres+","+apellidos+","+genero+","+to_string(dia)+","+to_string(mes)+","+to_string(anio)+",";
-    datoAModificar=datoAModificar+direccionDomicilio+","+to_string(dni)+","+religion+",";
+    datoAModificar=datoAModificar+direccionDomicilio+","+to_string(dni)+","+" ,"+to_string(codigoEnSeccion)+","+religion+",";
     datoAModificar=datoAModificar+to_string(codigoMatricula)+","+to_string(deuda);
     return datoAModificar;
 }

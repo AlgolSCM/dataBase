@@ -20,6 +20,7 @@ class Alumno
         virtual ~Alumno();
         Alumno(string nombres,string apellidos,string sec="ninguna asignada");
         Alumno(string lineaFichero);
+        string lineaFichero;
 
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
         void menuSeleccionAlumno(bool inAlumno=1);
@@ -39,7 +40,7 @@ class Alumno
         void setcodigoEstudiante(int codigo);
         void setReligion(string religion);
         void setPagoDeuda(int n);//restar el saldo pendiente en n unidades
-
+        void setExpediente(expedienteMedico a){expediente=a;}
         //GETS
         string getSeccion();
         string getNombres();
@@ -51,12 +52,12 @@ class Alumno
         void addAsistencia();
 
     private:
-        string lineaFichero;
         string nombres, apellidos;
         string nombreSeccion;
         int dni, partidaNacimiento;
         int telefonoEmergencia[2];
         long long codigoEstudiante;//codigo otorgado por el siagie
+        int codigoEnSeccion;
         char genero;//M o F
         fecha nacimiento;
         string direccionDomicilio;

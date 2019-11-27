@@ -12,7 +12,7 @@ class seccion
 {
     public:
         seccion();
-        seccion(char nombreArchivo[],int cantidadAlumnos);
+        seccion(char nombreArchivo[]);
 
         virtual ~seccion();
         void setNombreSeccion(string);
@@ -25,7 +25,8 @@ class seccion
         void addAlumno(string nombre="",string apellido="");
         void deleteAlumno(int n=0);//solicita el numero de lista del alumno
         void seleccionAlumno();
-
+        void modificarAlumno(int n);
+        string getNombre(){return nombreSeccion;}
         void verAsistencias();
         void tomarAsistencias();
 
@@ -39,27 +40,15 @@ class seccion
         void addAnecdotario(anecdotario anecdota);
 
         void modificarLinea(string lActual,string lReemplazo,string archivo);
-
+        void iniciarExpediente();
     protected:
 
     private:
         string nombreSeccion;
         vector <Alumno> Listado;
-<<<<<<< HEAD
-        vector <cursos> cursosTalleres;
-=======
+
         vector <notas> cursos2;
         vector<NotasABC>cursos345;
-
-        /**vector <objetoInventario> sillas;//son arrays dinamicos de diferentes objetos
-        vector <objetoInventario> estantes;
-        vector <objetoInventario> mesas;
-
-        void cambiarNumeroObjeto(int s,int m,int e);//puede ser negativo o positivo
-        void cambiarEstadoObjeto(int s,int m,int e,bool anadirS,bool anadirM,bool anadirE);
-        //cambia n objetos en el estado del bool*/
-
->>>>>>> f6ad32c6c33e05447c6f0866f81ae00f1852081e
         vector <anecdotario> sucesos;
 
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);

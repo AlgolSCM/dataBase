@@ -14,18 +14,30 @@ seccion::seccion() : nombreSeccion("No tiene nombre"){
 seccion::~seccion(){
     //dtor
 }
-seccion::seccion(char nombreArchivo[],int cantidadAlumnos){
+seccion::seccion(char nombreArchivo[]){
     ifstream archivo;
     string linea;
     archivo.open(nombreArchivo,ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
     while(getline(archivo,linea)){
         Listado.push_back(Alumno(linea));
-        cantidadAlumnos++;
     }
     archivo.close();
     this->nombreSeccion=nombreArchivo;
+}
 
+void seccion::iniciarExpediente(){
+    ifstream archivo;
+    string linea;
+    //string nombreArchivo=nombreArchivo+".csv";
+    archivo.open((nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    int i=0;
+    while(getline(archivo,linea)){
+        Listado[i].setExpediente(expedienteMedico(linea));
+        i++;
+    }
+    archivo.close();
 }
 
 void seccion::setNombreSeccion(string nombre){this->nombreSeccion=nombre;}
@@ -68,7 +80,12 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                     switch (inCaseSelection){
                         case '1':ordenarListadoAlumnos();break;
                         case '2':addAlumno();break;
-                        case '3':seleccionAlumno();break;
+                        case '3':{
+                            int n;
+                            cout<<"Ingrese seleccion: ";
+                            cin>>n;
+                            modificarAlumno(n);
+                            break;}
                         case '4':deleteAlumno();break;
                         case '5':inSubcase=false;break;
                     }
@@ -225,13 +242,17 @@ void seccion::addAnecdotario(anecdotario anecdota){
     sucesos.push_back(anecdota);
 }
 
- void modificarLinea(string lOriginal,string lReemplazo,string nombreArchivo){
+void seccion::modificarAlumno(int n){
+    string nombreArchivo="archivos/alumnos/"+nombreSeccion+".csv";
+    modificarLinea(Listado[n].lineaFichero,Listado[n].askModificarDatos(),nombreArchivo);
+}
+
+ void seccion::modificarLinea(string lOriginal,string lReemplazo,string nombreArchivo){
     ifstream archivo;
-    ofstream tmp;
+    ofstream tmp("tmp.csv");
     string linea;
     archivo.open(nombreArchivo);
-    tmp.open("tmp.csv");
-    if(archivo.fail()||tmp.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    if(tmp.fail()||tmp.fail()){cout<<"Error al cargar la seccion";exit(1);}
     while(getline(archivo,linea)){
         if (linea==lOriginal)
             linea=lReemplazo;
@@ -239,7 +260,15 @@ void seccion::addAnecdotario(anecdotario anecdota){
     }
     archivo.close();
     tmp.close();
-    char nombreArchTmp[nombreArchivo.length()-1];
+    //char nombreArchTmp[nombreArchivo.length()-1];//??
     remove(nombreArchivo.c_str());
     rename("tmp.csv",nombreArchivo.c_str());
+ }
+
+ void seccion::vercursos2(){
+ for(int i=0;i<cursos2.size();i++){
+    cursos2[i].imprimirnota();
+ }
+
+
  }
