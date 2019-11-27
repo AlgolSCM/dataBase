@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <sstream>
 #include "Alumno.h"
 using namespace std;
 
@@ -12,6 +13,8 @@ class inventario
     public:
         inventario();
         virtual~inventario();
+        inventario(string lineafile);
+        inventario(string nombre,string color, string modelo);
         void mesas(int numesas, int buenestadome, int mesasmalestado);
         void sillas(int numsillas, int buenestadosi,int sillasmalestado);
         void estantes(int numestantes, int buenestadoes, int estantesmalestado);
@@ -24,4 +27,3 @@ class inventario
 };
 
 #endif // INVENTARIO_H
-
