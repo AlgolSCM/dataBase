@@ -7,7 +7,6 @@
 #include <vector>
 #include <conio.h>
 
-#include "dataBaseFunciones.h"
 
 using namespace std;
 
@@ -51,9 +50,6 @@ int Alumno::countAlumno=0;
 
 int main()
 {
-
-    Alumno Sol;
-    Sol.askModificarDatos();
     vector <inventario> MAterial;
     seccion clases[]={seccion("archivos/alumnos/Alumnos5.csv",12),seccion("archivos/alumnos/Alumnos4.csv",16),
                             seccion("archivos/alumnos/Alumnos3.csv",6),seccion("archivos/alumnos/Alumnos2.csv",6)};

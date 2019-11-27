@@ -225,8 +225,21 @@ void seccion::addAnecdotario(anecdotario anecdota){
     sucesos.push_back(anecdota);
 }
 
-void seccion::verInventario(){}
-void seccion::addInventario(){}
-void seccion::modificarEstadoInventario(int n){//posicion n del vector inventario
-}
-void seccion::deleteInventario(){}
+ void modificarLinea(string lOriginal,string lReemplazo,string nombreArchivo){
+    ifstream archivo;
+    ofstream tmp;
+    string linea;
+    archivo.open(nombreArchivo);
+    tmp.open("tmp.csv");
+    if(archivo.fail()||tmp.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    while(getline(archivo,linea)){
+        if (linea==lOriginal)
+            linea=lReemplazo;
+        tmp<<linea<<endl;
+    }
+    archivo.close();
+    tmp.close();
+    char nombreArchTmp[nombreArchivo.length()-1];
+    remove(nombreArchivo.c_str());
+    rename("tmp.csv",nombreArchivo.c_str());
+ }
