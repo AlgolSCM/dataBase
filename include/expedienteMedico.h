@@ -10,6 +10,7 @@ class expedienteMedico
         virtual ~expedienteMedico();
         int  ingreseSeleccion();
         void MenuExpMedico();
+        expedienteMedico(string lineFichero);
 
         void LlenarSeSento(int sento);
         void LlenarSeParo(int paro);
@@ -19,6 +20,8 @@ class expedienteMedico
         void LlenarGateo(int gateo);
         void Esfinteres(bool controlaEsfinteres);
         void LlenarParto(bool partonatural);
+        void LlenarEsfin(int esfinteres);
+        void LlenarPartoN(string partodescripcion);
         void LlenarTipodeSangre(string tipoSangre);
         void LlenarAlergias(string alergias);
         void LlenarVacunas(string vacunas);

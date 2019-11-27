@@ -1,6 +1,8 @@
 #include "Padres.h"
 #include<iostream>
 #include<string>
+#include<sstream>
+#include<vector>
 using namespace std;
 Padres::Padres()
 {
@@ -8,7 +10,20 @@ Padres::Padres()
     viveCon=true;dni=00000000;telefono=999999999; fechaNacimiento;
 
 }
-
+Padres::Padres(string lineFichero){
+vector <string> file ;
+    stringstream ss(lineFichero);
+    string actual;
+    while (getline(ss, actual, ','))
+        file.push_back(actual);
+    setNombresApellidos(file[1],file[2]);
+    fechaNacimiento=fecha(stoi(file[3]),stoi(file[4]),stoi(file[5]));
+    setDocumentos(stoi(file[6]));
+    setTelefonoDireccion(stoi(file[7]),file[8],file[15]);
+    setTrabajo(file[11],file[9],file[10],file[12]);
+    setReligion(file[13]);
+    setVivecon(stoi(file[14]));
+}
 Padres::~Padres()
 {
     //dtor

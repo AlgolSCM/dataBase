@@ -8,11 +8,11 @@ class notas
     public:
         notas();
         virtual ~notas();
-        notas(int trimestre,string nombreItem, string comentario);
+        notas(int trimestre,string nombreItem, string comentario, string curso);
         bool CantidadCaracteres(string comentario);
         virtual void imprimirnota();
     protected:
-        string comentario,nombreItem;
+        string comentario,nombreItem,curso;
         int trimestre;
     private:
 

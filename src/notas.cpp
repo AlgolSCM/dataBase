@@ -10,12 +10,14 @@ notas::notas()
    this ->trimestre=1;
    this ->comentario="Demostraste un buen desempenio";
    this ->nombreItem="Construye su identidad";
+   this->curso="Matematica";
 }
 
-notas::notas(int trimestre,string nombreItem, string comentario){
+notas::notas(int trimestre,string nombreItem, string comentario, string curso){
 this -> trimestre=trimestre;
 this ->nombreItem=nombreItem;
 this ->comentario=comentario;
+this ->curso=curso;
 }
 
 
@@ -27,8 +29,8 @@ bool notas :: CantidadCaracteres(string comentario){
 unsigned int tam=comentario.length();
 if( tam>=10 && tam<=350)
     return true;
-//else
-//    throw invalid_argument("Usted no cumple con la cantidad de caracteres que se necesita");
+else
+  throw invalid_argument("Usted no cumple con la cantidad de caracteres que se necesita");
 }
 
 

@@ -158,7 +158,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
 }
 
 void seccion::verListadoAlumnos(){
-    cout<<endl<<"ALUMNOS SECCION "<<nombreSeccion<<": "<<endl;
+    cout<<endl<<"ALUMNOS DE LA SECCION "<<nombreSeccion<<": "<<endl;
     for(int i=0;i<Listado.size();i++)
         cout<<i+1<<". "<<Listado[i].getApellidosNombres()<<endl;
 }
@@ -221,7 +221,9 @@ void seccion::verCursosTalleres(){
 void seccion::asignarCursosTalleres(){}
 
 void seccion::verAnecdotario(){}
-void seccion::addAnecdotario(){}
+void seccion::addAnecdotario(anecdotario anecdota){
+    sucesos.push_back(anecdota);
+}
 
 void seccion::verInventario(){}
 void seccion::addInventario(){}

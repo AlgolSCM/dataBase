@@ -35,12 +35,13 @@ class seccion
         void asignarCursosTalleres();
 
         void verAnecdotario();
-        void addAnecdotario();
+        void addAnecdotario(anecdotario anecdota);
 
         void verInventario();
         void addInventario();
         void modificarEstadoInventario(int n);//posicion n del vector inventario
         void deleteInventario();
+
         /**inventario();
         virtual ~inventario();
         void setEstanteSillaMesa(int sillas,int mesas,int estantes);
