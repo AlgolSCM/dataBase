@@ -3,6 +3,9 @@
 #include <string>
 #include "fecha.h"
 #include "expedienteMedico.h"
+#include "notas.h"
+#include "NotasABC.h"
+#include <fstream>
 using namespace std;
 
 Alumno::Alumno()
@@ -80,7 +83,7 @@ void Alumno::menuSeleccionAlumno(bool inAlumno){
 //VISUALIZAR DATOS
 void Alumno::elegirVisualizarDatos(bool seleccion){
     cout<<"DATOS "<< getApellidosNombres()<<endl;
-    int tam=7;
+    int tam=8;
     //string datosVisualizables[]={"personales","colegio","asistencias","contactos","documentos","matricula","otros"};
     bool siNo[]={1,1};
     if (seleccion)
@@ -95,6 +98,7 @@ void Alumno::elegirVisualizarDatos(bool seleccion){
     if (siNo[4]) verDocumentos();
     if (siNo[5]) verMatricula();
     if (siNo[6]) verOtros();
+    if (siNo[7]) versusNotas();
     cout<<"Puede salir de alumno para visualizar los datos de seccion"<<endl;
 }
 void Alumno::verDatosPersonales(){
@@ -201,3 +205,23 @@ void Alumno::addAsistencia(){
     cin>>n;
     asistencias.push_back(n);
 }
+
+
+void Alumno::leernotas(int dni){
+    ifstream archivo;
+    string linea;
+    archivo.open((dni+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar las notas";exit(1);}
+    while(getline(archivo,linea)){
+        notitas.push_back(NotasABC(linea));
+    }
+    archivo.close();
+}
+
+void Alumno::versusNotas(){
+     leernotas(dni);
+     cout<<endl<<"NOTAS DEL ALUMNO "<<endl;
+     for(int i=0;i<notitas.size();i++){
+        notitas[i].imprimirnotas();
+     }
+ }

@@ -111,9 +111,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                 switch (inCaseSelection){
                     case '1':
                         cout<<"Visualizando Notas"<<endl;
-                        //verNotas();
-                        //for (int i=0;i<sizeof(Listado);i++)
-                        //Listado[i].getNotas;
+                                verNotas();
                         break;
                     case '2':
                         cout<<"Llenado de Notas"<<endl;
@@ -227,7 +225,10 @@ void seccion::seleccionAlumno(){
 void seccion::verAsistencias(){}
 void seccion::tomarAsistencias(){}
 
-void seccion::verNotas(){}
+void seccion::verNotas(){
+
+
+}
 void seccion::addNotas(){}
 
 /*void seccion::verCursosTalleres(){
@@ -265,10 +266,4 @@ void seccion::modificarAlumno(int n){
     rename("tmp.csv",nombreArchivo.c_str());
  }
 
- void seccion::vercursos2(){
- for(int i=0;i<cursos2.size();i++){
-    cursos2[i].imprimirnota();
- }
 
-
- }

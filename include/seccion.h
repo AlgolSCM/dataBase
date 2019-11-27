@@ -33,8 +33,8 @@ class seccion
         void verNotas();
         void addNotas();
 
-        void vercursos2();
-        void vercursos345();
+
+
 
         void verAnecdotario();
         void addAnecdotario(anecdotario anecdota);

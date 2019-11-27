@@ -11,6 +11,8 @@
 #include "expedienteMedico.h"
 #include "Padres.h"
 #include "anecdotario.h"
+#include "notas.h"
+#include"NotasABC.h"
 
 class Alumno
 {
@@ -46,6 +48,7 @@ class Alumno
         string getNombres();
         string getApellidos();
         string getApellidosNombres();
+        void leernotas(int dni);
         long long getcodigoEstudiante();
 
         //ADS
@@ -64,6 +67,7 @@ class Alumno
         string religion;
         int codigoMatricula,deuda;
         vector <char> asistencias;
+        vector<NotasABC> notitas;
         expedienteMedico expediente;
         //VER
         void verDatosPersonales();
@@ -72,6 +76,7 @@ class Alumno
         void verDocumentos();
         void verMatricula();
         void verOtros();
+        void versusNotas();
         //COUNT
         int contarCaracter(vector <char> lista, char caracter);
         //LLENAR DATOS
