@@ -32,6 +32,7 @@ Alumno::Alumno(string lineaFichero){
     religion=fields[10];
     codigoMatricula=stoi(fields[11]);
     deuda=stoi(fields[12]);
+    this->lineaFichero=lineaFichero;
 }
 
 Alumno::~Alumno()
@@ -136,21 +137,29 @@ void Alumno::verOtros(){
     expediente.MostrarExpediente();
 }
 
-void Alumno::llenarTodosDatos(){
-    string stringLlenar;int intLlenar;char charLlenar;long long long2Llenar;
-    cout<<"Nombres"<<": ";cin>>stringLlenar;nombres=stringLlenar;
-    cout<<"Apellidos"<<": ";cin>>stringLlenar;apellidos=stringLlenar;
-    cout<<"DNI"<<": ";cin>>intLlenar;dni=intLlenar;
-    //
-    cout<<"No. Partida"<<": ";cin>>intLlenar;partidaNacimiento=intLlenar;
-    cout<<"Codigo del Siagie"<<": ";cin>>long2Llenar;codigoEstudiante=long2Llenar;
-    cout<<"Genero"<<": ";cin>>charLlenar;genero=charLlenar;
-    //cout<<"Fecha Nacimiento"<<": ";cin>>stringLlenar;apellidos=stringLlenar;
-    //cout<<"Domicilio"<<": ";cin>>stringLlenar;apellidos=stringLlenar;
-    cout<<"Religion"<<": ";cin>>stringLlenar;religion=stringLlenar;
-    cout<<"Deuda de matricula"<<": ";cin>>intLlenar;deuda=intLlenar;
-    //cout<<"Asistencias"<<": ";cin>>stringLlenar;apellidos=stringLlenar;
-    cout<<"Expediente"<<": ";expediente.MenuExpMedico();
+string Alumno::askModificarDatos(){
+    string separador=": ";
+    cout<<"Nombres"<<separador;getline(cin,nombres);
+    cout<<"Apellidos"<<separador;getline(cin,apellidos);
+    cout<<"DNI"<<separador;cin>>dni;
+    cout<<"No. Partida"<<separador;cin>>partidaNacimiento;
+    cout<<"Codigo del Siagie"<<separador;cin>>codigoEstudiante;
+    cout<<"Genero"<<separador;cin>>genero;
+        int dia, mes, anio;
+        cout<<"Fecha Nacimiento ";
+        cout<<"DIA: ";cin>>dia;
+        cout<<"MES: ";cin>>mes;
+        cout<<"ANIO: ";cin>>anio;
+        nacimiento=fecha(dia,mes,anio);
+    string aux;
+    cout<<"Domicilio"<<separador;getline (cin,aux);getline (cin,aux);direccionDomicilio=aux;
+    cout<<"Religion"<<separador;cin>>religion;
+    cout<<"Deuda de matricula"<<separador;cin>>deuda;
+    //cout<<"Expediente"<<separador;expediente.MenuExpMedico();
+    string datoAModificar=nombres+","+apellidos+","+genero+","+to_string(dia)+","+to_string(mes)+","+to_string(anio)+",";
+    datoAModificar=datoAModificar+direccionDomicilio+","+to_string(dni)+","+religion+",";
+    datoAModificar=datoAModificar+to_string(codigoMatricula)+","+to_string(deuda);
+    return datoAModificar;
 }
 //SETS
 void Alumno::setNombresApellidos(string apellidos,string nombres,char genero) {

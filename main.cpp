@@ -6,7 +6,12 @@
 #include <string>
 #include <vector>
 #include <conio.h>
+
+#include "dataBaseFunciones.h"
+
 using namespace std;
+
+void modificarValores(string archivoOrigen,string lineaAnterior,string lineaNueva);
 
 bool acceder(string a="",string b=""){
     string usuario="GMariotti",contra="gaspare";
@@ -46,6 +51,10 @@ int Alumno::countAlumno=0;
 
 int main()
 {
+
+    Alumno Sol;
+    Sol.askModificarDatos();
+    vector <inventario> MAterial;
     seccion clases[]={seccion("archivos/alumnos/Alumnos5.csv",12),seccion("archivos/alumnos/Alumnos4.csv",16),
                             seccion("archivos/alumnos/Alumnos3.csv",6),seccion("archivos/alumnos/Alumnos2.csv",6)};
     clases[0].setNombreSeccion("5anios");
@@ -76,15 +85,19 @@ int main()
                 break;
             case 3:
                 salir();
-                //usuarioActivo=false;
+                usuarioActivo=false;
                 break;
         }
     }
 
     return 0;
 }
+/**
+
+*/
 
 void busquedaAlumno(string aBuscar,seccion salon[]){
     for (int i=0;i<4;i++)
         salon[i].imprimirBusqueda(aBuscar);
 }
+

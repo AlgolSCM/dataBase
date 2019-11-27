@@ -31,6 +31,7 @@ class Alumno
         void verAsistencias(bool tag=1);
 
         //SETS
+        string askModificarDatos();
         void setNombresApellidos(string apellidos, string nombres,char genero='F');
         void setNacimiento(int,int,int);
         void setDocumentos(int dni,int partidaNacimiento=0);
@@ -50,6 +51,7 @@ class Alumno
         void addAsistencia();
 
     private:
+        string lineaFichero;
         string nombres, apellidos;
         string nombreSeccion;
         int dni, partidaNacimiento;
@@ -72,7 +74,6 @@ class Alumno
         //COUNT
         int contarCaracter(vector <char> lista, char caracter);
         //LLENAR DATOS
-        void llenarTodosDatos();
 };
 
 #endif // ALUMNO_H
