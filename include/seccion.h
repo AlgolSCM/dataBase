@@ -6,6 +6,7 @@
 #include "anecdotario.h"
 #include "cursos.h"
 #include "Alumno.h"
+#include "NotasABC.h"
 
 class seccion
 {
@@ -31,8 +32,8 @@ class seccion
         void verNotas();
         void addNotas();
 
-        void verCursosTalleres();
-        void asignarCursosTalleres();
+        void vercursos2();
+        void vercursos345();
 
         void verAnecdotario();
         void addAnecdotario(anecdotario anecdota);
@@ -60,7 +61,8 @@ class seccion
     private:
         string nombreSeccion;
         vector <Alumno> Listado;
-        vector <cursos> cursosTalleres;
+        vector <notas> cursos2;
+        vector<NotasABC>cursos345;
 
         /**vector <objetoInventario> sillas;//son arrays dinamicos de diferentes objetos
         vector <objetoInventario> estantes;

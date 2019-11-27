@@ -213,13 +213,13 @@ void seccion::tomarAsistencias(){}
 void seccion::verNotas(){}
 void seccion::addNotas(){}
 
-void seccion::verCursosTalleres(){
+/*void seccion::verCursosTalleres(){
     cout<<"Cursos Asignados"<<endl;
     //for (int i=0;i<cursosTalleres.size();i++)
         //cout << cursosTalleres[i].getNombreCurso()<<endl;
 }
 void seccion::asignarCursosTalleres(){}
-
+*/
 void seccion::verAnecdotario(){}
 void seccion::addAnecdotario(anecdotario anecdota){
     sucesos.push_back(anecdota);
