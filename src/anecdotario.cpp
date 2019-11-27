@@ -27,6 +27,19 @@ anecdotario::anecdotario(int implicados,string titulo, string descripcion, strin
     cout<<"Fecha:(ingrese dia, mes y anio) ";int c,d,e;cin>>c;cin>>d;cin>>e;
     dia.setDiaMesAnio(c,d,e);
 }
+anecdotario::anecdotario(string lineafile){
+vector <string> fichero;
+    stringstream ss(lineafile);
+    string actual;
+    while (getline(ss, actual, ','))
+        fichero.push_back(actual);
+    titulo=fichero[0];
+    implicados=stoi(fichero[1]);
+    descripcion=fichero[2];
+    aula=fichero[3];
+    dia=fecha(stoi(fichero[4]),stoi(fichero[5]),stoi(fichero[6]));
+}
+
 /**void anecdotario::MostrarAnecdota(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-ANECDOTARIO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
     cout<<titulo<<endl;
