@@ -55,7 +55,7 @@ int main()
 
     bool usuarioActivo=false;
 
-    busquedaAlumno("",clases);
+    busquedaAlumno("Jhoset",clases);
 
     if (!usuarioActivo&&acceder()){
         cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;

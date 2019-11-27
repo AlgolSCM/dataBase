@@ -1,7 +1,8 @@
 #include "expedienteMedico.h"
 #include<iostream>
 #include<string>
-
+#include<vector>
+#include<sstream>
 using namespace std;
 expedienteMedico::expedienteMedico()
 {
@@ -11,6 +12,31 @@ expedienteMedico::expedienteMedico()
 
 }
 
+expedienteMedico ::expedienteMedico(string lineFichero){
+    vector <string> files ;
+    stringstream ss(lineFichero);
+    string actual;
+    while (getline(ss, actual, ','))
+        files.push_back(actual);
+    LlenarSeSento(stoi(files[1]));
+    LlenarSeParo(stoi(files[2]));
+    LlenarCamino(stoi(files[3]));
+    LlenarPrimeraPalabra(stoi(files[4]));
+    LlenarGateo(stoi(files[5]));
+    Esfinteres(stoi(files[6]));
+    LlenarEsfin(stoi(files[7]));
+    LlenarHabloConFluidez(stoi(files[8]));
+    LlenarTipodeSangre(files[9]);
+    LlenarAlergias(files[10]);
+    LlenarVacunas(files[11]);
+    LlenarEnfermedades(files[12]);
+    LlenarTraumas(files[13]);
+    LlenarParto(stoi(files[13]));
+    LlenarPartoN(files[14]);
+
+
+
+}
 expedienteMedico::~expedienteMedico()
 {
     //dtor
@@ -26,6 +52,7 @@ void expedienteMedico::TipodeParto(bool partonatural,string partodescripcion){
     if (partonatural==false){
       cout<<"Ingrese la complicación"<<endl;
       cin>>partodescripcion;
+      this ->partodescripcion=partodescripcion;
     }
 }
 void expedienteMedico :: LlenarSeSento(int sento){
@@ -38,7 +65,7 @@ void expedienteMedico :: LlenarCamino(int camino){
     this -> camino=camino;
 }
 void expedienteMedico :: LlenarPrimeraPalabra(int palabra){
-    this ->palabra;
+    this ->palabra=palabra;
 }
 void expedienteMedico :: LlenarHabloConFluidez(int hablo){
     this -> hablo=hablo;}
@@ -47,9 +74,11 @@ void expedienteMedico :: LlenarGateo(int gateo){
 }
 void expedienteMedico :: Esfinteres(bool controlaEsfinteres){
     this -> controlaEsfinteres=controlaEsfinteres;
+
 }
 void expedienteMedico :: LlenarParto(bool partonatural){
     this -> partonatural=partonatural;
+
 }
 void expedienteMedico :: LlenarTipodeSangre(string tipoSangre){
     this -> tipoSangre=tipoSangre;
@@ -66,7 +95,13 @@ void expedienteMedico :: LlenarEnfermedades(string enfermedades){
 void expedienteMedico :: LlenarTraumas(string traumas){
      this -> traumas=traumas;
 }
+ void expedienteMedico:: LlenarEsfin(int esfinteres){
+    this -> esfinteres=esfinteres;
+ }
 
+ void expedienteMedico:: LlenarPartoN(string partodescripcion){
+    this -> partodescripcion=partodescripcion;
+ }
 void expedienteMedico::MostrarExpediente(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-EXPEDIENTE MEDICO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
     cout<<endl<<"°.°.°.°.°.°.°.°.°.DATOS DE DESARROLLO°.°.°.°.°.°.°.°.°.°.°."<<endl;

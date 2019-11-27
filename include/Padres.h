@@ -8,6 +8,7 @@ class Padres
 {
     public:
         Padres();
+        Padres(string lineFichero);
         virtual ~Padres();
         void setNombresApellidos(string nombresApellidos,string parentesco);
         void setDocumentos(int dni);
