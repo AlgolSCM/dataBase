@@ -28,11 +28,12 @@ Alumno::Alumno(string lineaFichero){
     nacimiento=fecha(stoi(fields[3]),stoi(fields[4]),stoi(fields[5]));
     direccionDomicilio=fields[6];
     dni=stoi(fields[7]);
-    codigoEstudiante=stoi(fields[9]);
+    codigoEstudiante=fields[9];
     religion=fields[10];
     codigoMatricula=stoi(fields[11]);
     deuda=stoi(fields[12]);
     this->lineaFichero=lineaFichero;
+    //cout<<"alumno creado exitosamente"<<endl;
 }
 
 Alumno::~Alumno()
@@ -154,7 +155,7 @@ string Alumno::askModificarDatos(){
         cout<<"MES: ";cin>>mes;
         cout<<"ANIO: ";cin>>anio;
         nacimiento=fecha(dia,mes,anio);
-
+    getline(cin,direccionDomicilio);
     cout<<"Domicilio"<<separador;getline(cin,direccionDomicilio);cout<<direccionDomicilio<<endl;
     cout<<"Religion"<<separador;getline(cin,religion);
     cout<<"Deuda de matricula"<<separador;cin>>deuda;
@@ -162,6 +163,7 @@ string Alumno::askModificarDatos(){
     string datoAModificar=nombres+","+apellidos+","+genero+","+to_string(dia)+","+to_string(mes)+","+to_string(anio)+",";
     datoAModificar=datoAModificar+direccionDomicilio+","+to_string(dni)+","+" ,"+to_string(codigoEnSeccion)+","+religion+",";
     datoAModificar=datoAModificar+to_string(codigoMatricula)+","+to_string(deuda);
+    //cout<<"linea"<<datoAModificar;
     return datoAModificar;
 }
 //SETS
@@ -182,7 +184,7 @@ string Alumno::getSeccion(){return nombreSeccion;}
 string Alumno::getNombres(){return nombres;}
 string Alumno::getApellidos(){return apellidos;}
 string Alumno::getApellidosNombres(){return apellidos+", "+nombres;}
-long long Alumno::getcodigoEstudiante(){return codigoEstudiante;}
+string Alumno::getcodigoEstudiante(){return codigoEstudiante;}
 
 //CONTAR
 int Alumno::contarCaracter(vector <char> lista, char caracter){
