@@ -70,6 +70,7 @@ class Alumno
         int codigoMatricula,deuda;
         vector <char> asistencias;
         vector<NotasABC> notitas;
+        vector<notas> notita;
         expedienteMedico expediente;
         //VER
         void verDatosPersonales();
