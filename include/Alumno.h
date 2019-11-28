@@ -35,14 +35,8 @@ class Alumno
 
         //SETS
         string askModificarDatos();
-        void setNombresApellidos(string apellidos, string nombres,char genero='F');
-        void setNacimiento(int,int,int);
-        void setDocumentos(int dni,int partidaNacimiento=0);
-        void setTelefonos(int,int);//la direccion desde la clase
-        void setcodigoEstudiante(int codigo);
-        void setReligion(string religion);
-        void setPagoDeuda(int n);//restar el saldo pendiente en n unidades
         void setExpediente(expedienteMedico a){expediente=a;}
+
         //GETS
         string getSeccion();
         string getNombres();
@@ -60,7 +54,7 @@ class Alumno
         string nombres, apellidos;
         string nombreSeccion;
         int dni, partidaNacimiento;
-        int telefonoEmergencia[2];
+        //int telefonoEmergencia[2];
         string codigoEstudiante;//codigo otorgado por el siagie
         int codigoEnSeccion;
         char genero;//M o F

@@ -50,7 +50,7 @@ void fecha::coutDMA(bool verAnio){
     if (verAnio){
         cout <<"/"<<anio%100;
     }
-    cout<<endl;
+    //cout<<endl;
 }
 void fecha::coutDMMAA(bool verAnio){
     string meses[]={"enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"};
