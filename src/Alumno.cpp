@@ -198,14 +198,30 @@ void Alumno::addAsistencia(){
 
 
 void Alumno::leernotas(int dni){
+    if(nombreSeccion!="2 anios"){
     ifstream archivo;
     string linea;
-    archivo.open((dni+".csv"),ios::in);//Abre el archivo en modo lectura
-    if(archivo.fail()){cout<<"Error al cargar las notas";exit(1);}
+    archivo.open(("archivos/"+nombreSeccion+"/"+to_string(dni)+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){
+            ofstream archivo("archivos/"+nombreSeccion+"/"+to_string(dni)+".csv");
+            /*cout<<"Error al cargar las notas";exit(1);*/}
     while(getline(archivo,linea)){
         notitas.push_back(NotasABC(linea));
     }
     archivo.close();
+    }
+    else{
+        ifstream archivo;
+    string linea;
+    archivo.open(("archivos/"+nombreSeccion+"/"+to_string(dni)+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){
+            ofstream archivo("archivos/"+nombreSeccion+"/"+to_string(dni)+".csv");
+            /*cout<<"Error al cargar las notas";exit(1);*/}
+    while(getline(archivo,linea)){
+        notita.push_back(notas(linea));
+    }
+    archivo.close();
+    }
 }
 
 void Alumno::versusNotas(){//falta arreglar

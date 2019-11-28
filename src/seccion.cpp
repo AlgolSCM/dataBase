@@ -222,17 +222,12 @@ void seccion::ordenarListadoAlumnos(){
              }
         }
     }
-}/**
-void seccion::addAlumno(string nombre,string apellido){
-    cout<<"Ingrese solo nombres: ";cin>>nombre;
-    cout<<"Ingrese solo apellidos: ";cin>>apellido;
-    Listado.push_back(Alumno(nombre,apellido));
 }
-*/
+
 void seccion::addAlumno(){
     ofstream archivo;
     archivo.open(nombreArchivo, ios::app);//para agregar y no borrar
-    Listado.push_back(Alumno("Jhon,Doe,M,0,0,0,tucasa,0,seccion,0,myreligion,0,0"));
+    Listado.push_back(Alumno("Jhon,Doe,M,0,0,0,tucasa,0,seccion,0,tahuantinsuyo,0,0"));
     string aux=Listado[(Listado.size()-1)].askModificarDatos();
     archivo<<endl<<aux;
     archivo.close();

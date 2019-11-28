@@ -64,6 +64,13 @@ class Alumno
         int codigoMatricula,deuda;
         vector <char> asistencias;
         vector<NotasABC> notitas;
+        vector<notas> notita;
+/*
+<<<<<<< HEAD
+
+=======
+        expedienteMedico expediente;
+>>>>>>> 2df87da567423422da411606e695077f4b5a2ceb/*/
 
         //VER
         void verDatosPersonales();
