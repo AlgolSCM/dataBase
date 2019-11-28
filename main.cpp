@@ -3,6 +3,7 @@
 #include "Alumno.h"
 #include "seccion.h"
 #include "inventario.h"
+#include "Asistencia.h"
 #include <string>
 #include <vector>
 #include <conio.h>
@@ -33,10 +34,10 @@ void imprimirOpcionesPrincipal(){
     cout << "Elija una opcion"<< endl;
     cout << "1. Ver listado de alumnos"<< endl;
     cout << "2. Ingresar a seccion"<< endl;
-    //cout << "3. Ver anecdotario"<< endl;
+    cout << "3. Busqueda de alumno"<< endl;
     //cout << "4. Ver asistencias"<< endl;
     //cout << "5. Ver notas"<< endl;
-    cout << "3. Salir"<< endl;
+    cout << "4. Salir"<< endl;
 }
 
 void salir(){
@@ -55,6 +56,10 @@ void iniciarSecciones(){
 
 }
 int Alumno::countAlumno=0;
+<<<<<<< HEAD
+int main()
+{
+=======
 
 inventario materiales;
 
@@ -86,7 +91,12 @@ int main()
     clases[1].setNombreSeccion("4 anios");
     clases[2].setNombreSeccion("3 anios");
     clases[3].setNombreSeccion("2 anios");
+>>>>>>> 8d216b4102cdebbcdfe04d0332b1e88ee1082e89
 
+    vector <inventario> MAterial;
+    seccion clases[]={seccion("5 anios"),seccion("4 anios"),seccion("3 anios"),seccion("2 anios")};
+    for (int i=0;i<4;i++)
+        clases[i].iniciarArchivos();
     bool usuarioActivo=true;
 
     busquedaAlumno("Jhoset",clases);
@@ -127,7 +137,12 @@ int main()
                 cin >>aux;
                 clases[aux].menuSeleccion();
                 break;}
-            case 3:
+            case 3:{
+                string buscar;
+                cin>>buscar;
+                busquedaAlumno(buscar,clases);
+            break;}
+            case 4:
                 salir();
                 usuarioActivo=false;
                 break;

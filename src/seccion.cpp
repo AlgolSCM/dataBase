@@ -14,25 +14,36 @@ seccion::seccion() : nombreSeccion("No tiene nombre"){
 seccion::~seccion(){
     //dtor
 }
-seccion::seccion(char nombreArchivo[]){
+seccion::seccion(string nombreSeccion){
     ifstream archivo;
     string linea;
+    this->nombreArchivo="archivos/alumnos/"+nombreSeccion+".csv";
     archivo.open(nombreArchivo,ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
-    while(getline(archivo,linea)){
+    while(getline(archivo,linea))
         Listado.push_back(Alumno(linea));
-    }
     archivo.close();
-    this->nombreSeccion=nombreArchivo;
-    this->nombreArchivo=nombreArchivo;
+    this->nombreSeccion=nombreSeccion;
+    cout<<"Seccion Iniciada"<<endl;
 }
 
+void seccion::iniciarArchivos(){
+    iniciarExpediente();
+    cout<<"expediente completo";
+    iniciarAsistencia();
+    cout<<"asistencia completa";
+}
 void seccion::iniciarExpediente(){
     ifstream archivo;
     string linea;
+<<<<<<< HEAD
+    archivo.open("archivos/expediente/"+nombreSeccion+".csv",ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar el expediente medico";exit(1);}
+=======
     //string nombreArchivo=nombreint numeroestantes, int estantesbuenestado, int estantesmalestado+".csv";
     archivo.open((nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+>>>>>>> 8d216b4102cdebbcdfe04d0332b1e88ee1082e89
     int i=0;
     while(getline(archivo,linea)){
         Listado[i].setExpediente(expedienteMedico(linea));
@@ -40,6 +51,18 @@ void seccion::iniciarExpediente(){
     }
     archivo.close();
 }
+void seccion::iniciarAsistencia(){
+    ifstream archivo;
+    string linea;
+    archivo.open(("archivos/asistencias/"+nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    while(getline(archivo,linea)){
+        asistencias.push_back(Asistencia(linea));
+    }
+    archivo.close();
+}
+
+
 
 void seccion::setNombreSeccion(string nombre){this->nombreSeccion=nombre;}
 
@@ -65,13 +88,14 @@ void seccion::texto(string label,string texto[],int tam,bool prompt,bool numerac
 }
 
 void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de seccion
-    string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","NOTAS","CURSOS","ANECDOTARIO","INVENTARIO","Salir"};
+    //string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","NOTAS","CURSOS","ANECDOTARIO","INVENTARIO","Salir"};
+    string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","ANECDOTARIO","Salir"};
     string opcionCases[]={"Seleccionar Alumno (visulizar datos)","Ordenar","Anadir","modificar","eliminar","Salir"};
     while (inSeccion){
         cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
         cout<<"Estas en la seccion: "<<nombreSeccion<<endl;
         char inCaseSelection;bool inSubcase=1;
-        texto("Opciones de Seccion",opcionSeleccion,7);
+        texto("Opciones de Seccion",opcionSeleccion,4);
         switch(cin.get()){
             case '1':
                 while(inSubcase){
@@ -91,6 +115,10 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         case '6':inSubcase=false;break;
                     }
                 }
+                break;
+            case '2':
+                cout<<"asistencia de Seccion ... "<<endl;
+                inSeccion=false;
                 break;
             /**case '2':
                 texto("Asistencias",opcionCases,2);

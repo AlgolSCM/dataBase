@@ -7,12 +7,12 @@
 #include "cursos.h"
 #include "Alumno.h"
 #include "NotasABC.h"
-
+#include "Asistencia.h"
 class seccion
 {
     public:
         seccion();
-        seccion(char nombreArchivo[]);
+        seccion(string nombreArchivo);
 
         virtual ~seccion();
         void setNombreSeccion(string);
@@ -33,25 +33,26 @@ class seccion
         void verNotas();
         void addNotas();
 
-
+        void iniciarArchivos();
 
 
         void verAnecdotario();
         void addAnecdotario(anecdotario anecdota);
 
         void modificarLinea(string lActual,string lReemplazo,string archivo);
-        void iniciarExpediente();
+
     protected:
 
     private:
         string nombreSeccion,nombreArchivo;
         vector <Alumno> Listado;
-
+        vector <Asistencia> asistencias;
         vector <notas> cursos2;
         vector<NotasABC>cursos345;
         vector <anecdotario> sucesos;
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
-
+        void iniciarExpediente();
+        void iniciarAsistencia();
 };
 
 #endif // SECCION_H

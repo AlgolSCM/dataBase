@@ -36,14 +36,14 @@ Alumno::Alumno(string lineaFichero){
     codigoMatricula=stoi(fields[11]);
     deuda=stoi(fields[12]);
     this->lineaFichero=lineaFichero;
-    //cout<<"alumno creado exitosamente"<<endl;
+    cout<<"alumno "<<nombres<<" creado "<<++countAlumno<<endl;
 }
 
 Alumno::~Alumno()
 {
     //dtor
 }
-string datosVisualizables[]={"personales","colegio","asistencias","contactos","documentos","matricula","otros"};
+string datosVisualizables[]={"personales","colegio","asistencias","padres","documentos","matricula","notas","otros"};
 
 
 
@@ -84,7 +84,7 @@ void Alumno::menuSeleccionAlumno(bool inAlumno){
 //VISUALIZAR DATOS
 void Alumno::elegirVisualizarDatos(bool seleccion){
     cout<<"DATOS "<< getApellidosNombres()<<endl;
-    int tam=8;
+    int tam=9;
     //string datosVisualizables[]={"personales","colegio","asistencias","contactos","documentos","matricula","otros"};
     bool siNo[]={1,1};
     if (seleccion)
@@ -98,9 +98,9 @@ void Alumno::elegirVisualizarDatos(bool seleccion){
     if (siNo[3]) verContacto();
     if (siNo[4]) verDocumentos();
     if (siNo[5]) verMatricula();
-    if (siNo[6]) verOtros();
-    if (siNo[7]) versusNotas();
-    cout<<"Puede salir de alumno para visualizar los datos de seccion"<<endl;
+    if (siNo[6]) versusNotas();
+    if (siNo[7]) verOtros();
+
 }
 void Alumno::verDatosPersonales(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-=-DATOS=-=-=-=-=-=-=-=-=-=-=-="<<endl;
@@ -121,8 +121,8 @@ void Alumno::verAsistencias(bool tag){
     cout<<"  ASISTENCIAS "<<contarCaracter(asistencias,'A')<<endl;
 }
 void Alumno::verContacto(){
-    cout<<endl<<"=-=-=-=-=-=-=-=-=-=-CONTACTO=-=-=-=-=-=-=-=-=-=-="<<endl;
-    cout<<"Telefonos de Emergencia"<<telefonoEmergencia[0]<<" "<<telefonoEmergencia[1]<<endl;
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-=-PADRES=-=-=-=-=-=-=-=-=-=-="<<endl;
+    //cout<<"Telefonos de Emergencia"<<telefonoEmergencia[0]<<" "<<telefonoEmergencia[1]<<endl;
     //Llamar a direccion Domicilio cout
     //Imprimir nombres de Padres
 }
@@ -170,18 +170,6 @@ string Alumno::askModificarDatos(){
     //cout<<"linea"<<datoAModificar;
     return datoAModificar;
 }
-//SETS
-void Alumno::setNombresApellidos(string apellidos,string nombres,char genero) {
-    this->apellidos=apellidos;
-    this->nombres=nombres;
-    this->genero=genero;
-}
-void Alumno::setNacimiento(int a,int b,int c){this->nacimiento=fecha(a,b,c);}
-void Alumno::setDocumentos(int dni,int partida){this->dni=dni;partidaNacimiento=partida;}
-void Alumno::setTelefonos(int telefono1,int telefono2){telefonoEmergencia[0]=telefono1;telefonoEmergencia[1]=telefono2;}
-void Alumno::setcodigoEstudiante(int codigo){codigoEstudiante=codigo;}
-void Alumno::setReligion(string religion){this->religion=religion;}
-void Alumno::setPagoDeuda(int n){deuda-=n;}
 
 //GETS
 string Alumno::getSeccion(){return nombreSeccion;}
@@ -236,7 +224,7 @@ void Alumno::leernotas(int dni){
     }
 }
 
-void Alumno::versusNotas(){
+void Alumno::versusNotas(){//falta arreglar
      leernotas(dni);
      cout<<endl<<"NOTAS DEL ALUMNO "<<endl;
      for(int i=0;i<notitas.size();i++){
