@@ -29,7 +29,7 @@ this->color=color;
 this->modelo=modelo;
 }
 
-void inventario:: mesas (int numeromesas, int mesasbuenestado, int mesasmalestado){
+void inventario:: mesas (){
      /**this->numeromesas=numeromesas;
      cout<< "Ingrese el numero de mesas en buen estado:"<<endl;
      this->mesasbuenestado=mesasbuenestado;
@@ -55,7 +55,7 @@ void inventario:: mesas (int numeromesas, int mesasbuenestado, int mesasmalestad
     this->modelo=material;
 }
 
-void inventario:: sillas (int numerosillas, int sillasbuenestado, int sillasmalestado){
+void inventario:: sillas (){
      /**this->numerosillas=numerosillas;
      cout<< "Ingrese el numero de sillas en buen estado:"<<endl;
      this->sillasbuenestado=sillasbuenestado;
@@ -81,7 +81,7 @@ void inventario:: sillas (int numerosillas, int sillasbuenestado, int sillasmale
     this->modelo=material;
 }
 
-void inventario:: estantes (int numeroestantes, int estantesbuenestado, int estantesmalestado){
+void inventario:: estantes (){
      /**this->numeroestantes=numeroestantes;
      cout<< "Ingrese el numero de estantes en buen estado:"<<endl;
      this->estantesbuenestado=estantesbuenestado;

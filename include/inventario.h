@@ -15,13 +15,13 @@ class inventario
         virtual~inventario();
         inventario(string lineafile);
         inventario(string nombre,string color, string modelo);
-        void mesas(int numesas, int buenestadome, int mesasmalestado);
-        void sillas(int numsillas, int buenestadosi,int sillasmalestado);
-        void estantes(int numestantes, int buenestadoes, int estantesmalestado);
+        void mesas();
+        void sillas();
+        void estantes();
     protected:
-        int numeromesas, numerosillas, numeroestantes;
+        /**int numeromesas, numerosillas, numeroestantes;
         int mesasbuenestado,sillasbuenestado,estantesbuenestado;
-        int mesasmalestado,sillasmalestado,estantesmalestado;
+        int mesasmalestado,sillasmalestado,estantesmalestado;*/
         string nombre, color, modelo;
     private:
 };

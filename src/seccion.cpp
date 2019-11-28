@@ -36,8 +36,14 @@ void seccion::iniciarArchivos(){
 void seccion::iniciarExpediente(){
     ifstream archivo;
     string linea;
+<<<<<<< HEAD
     archivo.open("archivos/expediente/"+nombreSeccion+".csv",ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar el expediente medico";exit(1);}
+=======
+    //string nombreArchivo=nombreint numeroestantes, int estantesbuenestado, int estantesmalestado+".csv";
+    archivo.open((nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+>>>>>>> 8d216b4102cdebbcdfe04d0332b1e88ee1082e89
     int i=0;
     while(getline(archivo,linea)){
         Listado[i].setExpediente(expedienteMedico(linea));

@@ -7,7 +7,8 @@
 #include <string>
 #include <vector>
 #include <conio.h>
-
+#include <stdio.h>
+#include <fstream>
 
 using namespace std;
 
@@ -55,8 +56,42 @@ void iniciarSecciones(){
 
 }
 int Alumno::countAlumno=0;
+<<<<<<< HEAD
 int main()
 {
+=======
+
+inventario materiales;
+
+void setInventario(inventario a){materiales=a;}
+
+vector <inventario> Material;
+//Material.push_back(inventario())
+
+void iniciarInventario(){
+    ifstream archivo;
+    string linea;
+    //string nombreArchivo=nombreArchivo+".csv";
+    archivo.open(("archivos/Inventario/Inventario.csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    int i=0;
+    while(getline(archivo,linea)){
+        //Material[i].setInventario(inventario(linea));
+        i++;
+    }
+    archivo.close();
+}
+
+int main()
+{
+
+    seccion clases[]={seccion("archivos/alumnos/5 anios.csv"),seccion("archivos/alumnos/4 anios.csv"),
+                            seccion("archivos/alumnos/3 anios.csv"),seccion("archivos/alumnos/2 anios.csv")};
+    clases[0].setNombreSeccion("5 anios");
+    clases[1].setNombreSeccion("4 anios");
+    clases[2].setNombreSeccion("3 anios");
+    clases[3].setNombreSeccion("2 anios");
+>>>>>>> 8d216b4102cdebbcdfe04d0332b1e88ee1082e89
 
     vector <inventario> MAterial;
     seccion clases[]={seccion("5 anios"),seccion("4 anios"),seccion("3 anios"),seccion("2 anios")};
