@@ -1,5 +1,6 @@
 #include "NotasABC.h"
 #include<string>
+#include"Alumno.h"
 #include<iostream>
 #include <stdexcept>
 #include<sstream>
@@ -35,6 +36,7 @@ bool NotasABC ::validar(string nota){
     throw invalid_argument("Usted no puede ingresar ese caracter");
 
 }
+
 
 void NotasABC:: imprimirnotas(){
 cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;

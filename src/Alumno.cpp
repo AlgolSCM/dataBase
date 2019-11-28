@@ -3,6 +3,9 @@
 #include <string>
 #include "fecha.h"
 #include "expedienteMedico.h"
+#include "notas.h"
+#include "NotasABC.h"
+#include <fstream>
 using namespace std;
 
 Alumno::Alumno()
@@ -28,11 +31,12 @@ Alumno::Alumno(string lineaFichero){
     nacimiento=fecha(stoi(fields[3]),stoi(fields[4]),stoi(fields[5]));
     direccionDomicilio=fields[6];
     dni=stoi(fields[7]);
-    codigoEstudiante=stoi(fields[9]);
+    codigoEstudiante=fields[9];
     religion=fields[10];
     codigoMatricula=stoi(fields[11]);
     deuda=stoi(fields[12]);
     this->lineaFichero=lineaFichero;
+    //cout<<"alumno creado exitosamente"<<endl;
 }
 
 Alumno::~Alumno()
@@ -80,7 +84,7 @@ void Alumno::menuSeleccionAlumno(bool inAlumno){
 //VISUALIZAR DATOS
 void Alumno::elegirVisualizarDatos(bool seleccion){
     cout<<"DATOS "<< getApellidosNombres()<<endl;
-    int tam=7;
+    int tam=8;
     //string datosVisualizables[]={"personales","colegio","asistencias","contactos","documentos","matricula","otros"};
     bool siNo[]={1,1};
     if (seleccion)
@@ -95,6 +99,7 @@ void Alumno::elegirVisualizarDatos(bool seleccion){
     if (siNo[4]) verDocumentos();
     if (siNo[5]) verMatricula();
     if (siNo[6]) verOtros();
+    if (siNo[7]) versusNotas();
     cout<<"Puede salir de alumno para visualizar los datos de seccion"<<endl;
 }
 void Alumno::verDatosPersonales(){
@@ -154,7 +159,7 @@ string Alumno::askModificarDatos(){
         cout<<"MES: ";cin>>mes;
         cout<<"ANIO: ";cin>>anio;
         nacimiento=fecha(dia,mes,anio);
-
+    getline(cin,direccionDomicilio);
     cout<<"Domicilio"<<separador;getline(cin,direccionDomicilio);cout<<direccionDomicilio<<endl;
     cout<<"Religion"<<separador;getline(cin,religion);
     cout<<"Deuda de matricula"<<separador;cin>>deuda;
@@ -162,6 +167,7 @@ string Alumno::askModificarDatos(){
     string datoAModificar=nombres+","+apellidos+","+genero+","+to_string(dia)+","+to_string(mes)+","+to_string(anio)+",";
     datoAModificar=datoAModificar+direccionDomicilio+","+to_string(dni)+","+" ,"+to_string(codigoEnSeccion)+","+religion+",";
     datoAModificar=datoAModificar+to_string(codigoMatricula)+","+to_string(deuda);
+    //cout<<"linea"<<datoAModificar;
     return datoAModificar;
 }
 //SETS
@@ -182,7 +188,7 @@ string Alumno::getSeccion(){return nombreSeccion;}
 string Alumno::getNombres(){return nombres;}
 string Alumno::getApellidos(){return apellidos;}
 string Alumno::getApellidosNombres(){return apellidos+", "+nombres;}
-long long Alumno::getcodigoEstudiante(){return codigoEstudiante;}
+string Alumno::getcodigoEstudiante(){return codigoEstudiante;}
 
 //CONTAR
 int Alumno::contarCaracter(vector <char> lista, char caracter){
@@ -201,3 +207,23 @@ void Alumno::addAsistencia(){
     cin>>n;
     asistencias.push_back(n);
 }
+
+
+void Alumno::leernotas(int dni){
+    ifstream archivo;
+    string linea;
+    archivo.open((dni+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar las notas";exit(1);}
+    while(getline(archivo,linea)){
+        notitas.push_back(NotasABC(linea));
+    }
+    archivo.close();
+}
+
+void Alumno::versusNotas(){
+     leernotas(dni);
+     cout<<endl<<"NOTAS DEL ALUMNO "<<endl;
+     for(int i=0;i<notitas.size();i++){
+        notitas[i].imprimirnotas();
+     }
+ }
