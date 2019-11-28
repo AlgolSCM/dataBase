@@ -3,26 +3,47 @@
 #include<string>
 #include<sstream>
 #include<vector>
+
 using namespace std;
 Padres::Padres()
 {
     nombresApellidos=""; parentesco=""; ocupacion=""; correo=""; religion=""; gradoEstudios=""; centroDeTrabajo="";correo="";
-    viveCon=true;dni=00000000;telefono=999999999; fechaNacimiento;
+    viveCon=true;dni=00000000;telefono=999999999; fechaNacimiento;matricula=0;
 
 }
+int StringToInt(string num){
+    int salida=0;
+    int n;
+    char a;
+    int i=num.length()-1;
+    for (int j=1 ;i>=0; i--,j=j*10){
+        a=num[i];
+        n=static_cast<int>(a)-48;
+        salida+=n*j;
+    }
+    return salida;
+}
 Padres::Padres(string lineFichero){
-vector <string> file ;
+
+    int stoisss=0;
+    vector <string> file ;
     stringstream ss(lineFichero);
     string actual;
     while (getline(ss, actual, ','))
         file.push_back(actual);
+    matricula=StringToInt(file[0]);
     setNombresApellidos(file[1],file[2]);
-    fechaNacimiento=fecha(stoi(file[3]),stoi(file[4]),stoi(file[5]));
+    int a=stoi(file[3]);
+    int b=stoi(file[4]);
+    int c=stoi(file[5]);
+    fechaNacimiento=fecha(a,b,c);
     setDocumentos(stoi(file[6]));
     setTelefonoDireccion(stoi(file[7]),file[8],file[15]);
     setTrabajo(file[11],file[9],file[10],file[12]);
     setReligion(file[13]);
     setVivecon(stoi(file[14]));
+    cout<<"Yo soy tu padreeee"<<endl;
+
 }
 Padres::~Padres()
 {
@@ -131,3 +152,4 @@ default:
     break;
 }
 }
+

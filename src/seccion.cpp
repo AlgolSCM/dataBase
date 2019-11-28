@@ -31,27 +31,7 @@ void seccion::iniciarArchivos(){
     iniciarExpediente();
     iniciarAsistencia();
 }
-void seccion::iniciarExpediente(){
-    ifstream archivo;
-    string linea;
-    archivo.open("archivos/expediente/"+nombreSeccion+".csv",ios::in);//Abre el archivo en modo lectura
-    if(archivo.fail()){cout<<"Error al cargar el expediente medico";exit(1);}
-    getline(archivo,linea);
-    for(int i=0;Listado.size()>i;i++,getline(archivo,linea)){
-        Listado[i].expediente=expedienteMedico(linea);
-    }
-    archivo.close();
-}
-void seccion::iniciarAsistencia(){
-    ifstream archivo;
-    string linea;
-    archivo.open(("archivos/asistencias/"+nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
-    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
-    while(getline(archivo,linea)){
-        asistencias.push_back(Asistencia(linea));
-    }
-    archivo.close();
-}
+
 
 
 
@@ -81,7 +61,7 @@ void seccion::texto(string label,string texto[],int tam,bool prompt,bool numerac
 void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de seccion
     //string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","NOTAS","CURSOS","ANECDOTARIO","INVENTARIO","Salir"};
     string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","ANECDOTARIO","Salir"};
-    string opcionCases[]={"Seleccionar Alumno (visulizar datos)","Ordenar","Anadir","modificar","eliminar","Salir"};
+    string opcionCases[]={"Seleccionar Alumno (visualizar datos)","Ordenar","Anadir","modificar","eliminar","Salir"};
     while (inSeccion){
         cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
         cout<<"Estas en la seccion: "<<nombreSeccion<<endl;
@@ -91,7 +71,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
             case '1':
                 while(inSubcase){
                     verListadoAlumnos();
-                    texto("OPCIONES Listado de Alumnos",opcionCases,5);
+                    texto("OPCIONES Listado de Alumnos",opcionCases,6);
                     cin>>inCaseSelection;
                     switch (inCaseSelection){
                         case '1':{int n;cout<<"Ingrese alumno";cin>>n;Listado[n-1].elegirVisualizarDatos();break;}
@@ -109,6 +89,10 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                 break;
             case '2':
                 cout<<"asistencia de Seccion ... "<<endl;
+                inSeccion=false;
+                break;
+            case '4':
+                cout<<"Saliendo de Seccion ... "<<endl;
                 inSeccion=false;
                 break;
             /**case '2':
@@ -252,13 +236,6 @@ void seccion::deleteAlumno(int n){
     cout<<"Alumno Eliminado "<<Listado[n-1].getApellidosNombres()<<endl;
     Listado.erase(Listado.begin()+(n-1));
 }
-void seccion::seleccionAlumno(){
-    verListadoAlumnos();
-    cout<<"Ingrese el numero del alumno a seleccionar: ";
-    int n;cin>>n;
-    Listado[n-1].menuSeleccionAlumno();
-}
-
 
 void seccion::verAsistencias(){}
 void seccion::tomarAsistencias(){}
@@ -306,4 +283,51 @@ void seccion::modificarAlumno(int n){
     rename("tmp.csv",nombreArchivo.c_str());
  }
 
+void seccion::iniciarExpediente(){
+    ifstream archivo;
+    string linea;
+    archivo.open("archivos/expediente/"+nombreSeccion+".csv",ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar el expediente medico";exit(1);}
+    getline(archivo,linea);
+    for(int i=0;Listado.size()>i;i++,getline(archivo,linea)){
+        Listado[i].expediente=expedienteMedico(linea);
+    }
+    archivo.close();
+}
+void seccion::iniciarAsistencia(){
+    ifstream archivo;
+    string linea;
+    archivo.open(("archivos/asistencias/"+nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    while(getline(archivo,linea)){
+        asistencias.push_back(Asistencia(linea));
+    }
+    archivo.close();
+}
+/*
+void seccion::iniciarPadres(){
+    ifstream archivo;
+    string linea;
+    archivo.open(("archivos/padres/"+nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    int i=0;
+    while(getline(archivo,linea)){
+        ppff.push_back(Padres(linea));
+        cout<<"que la fuerza te acompanie"<<endl;
+        cout<<buscarCodigoMatricula(ppff[i].matricula);
+        int posVector=buscarCodigoMatricula(ppff[i].matricula);
+        Listado[posVector].agregarPadre(ppff[i]);
+
+        i++;
+    }
+    archivo.close();
+}
+
+int seccion::buscarCodigoMatricula(int codigoABuscar){
+    for (int i=0;i<Listado.size();i++){
+        if (Listado[i].codigoMatricula==codigoABuscar) return i;
+        cout<< (Listado[i].codigoMatricula==codigoABuscar);
+    }
+    return 1111111;
+}*/
 

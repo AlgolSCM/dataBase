@@ -1,5 +1,4 @@
-nro matricula,nombres y apellidos,parentesco,dia,mes,anio,dni,telefono,direccion,ocupacion,centro de trabajo,direccion de trabajo,grado de estudios,religion,vive con,correo
-13,Jesus Alberto Alanoca Montes,Padre,16,4,1992,71865463,946722482,Tomasa Tito Condemayta Mz H Lt 18- Miraflores,Tecnico en Enfermeria,,,Superior Incompleto,Catolica,0,
+﻿13,Jesus Alberto Alanoca Montes,Padre,16,4,1992,71865463,946722482,Tomasa Tito Condemayta Mz H Lt 18- Miraflores,Tecnico en Enfermeria,,,Superior Incompleto,Catolica,0,
 13,Noemi Viviana Puma Alvarez,Madre,30,10,1991,47472915,934654311,Tomasa Tito Condemayta J-13-Miraflores,Asistente Contable,Norte Marino,Urbanizacion Lanificio 101- JLB y R,Superior Incompleto,Catolica,1,s_meralda19@hotmail.com
 14,Juan Luis Canaza Vilca,Padre,3,5,1975,29653509,921499526,Calle Daniel Alcides Carrion 317 Miraflores,Taxista,Independiente,,Superior Incompleto,Catolica,1,
 14,Veronica Tunquipa Huamani,Madre,7,8,1979,40340256,940183657,Calle Daniel Alcides Carrion 317 Miraflores,Tecnico en Enfermeria,Clinica Paz Holandesa,Paucarpata,Superior ,Catolica,1,Tuvero20@hotmail.com
@@ -8,7 +7,7 @@ nro matricula,nombres y apellidos,parentesco,dia,mes,anio,dni,telefono,direccion
 16,Ancelmo Alberto Chaynia Laura,Padre,26,3,1973,29626343,940890741,Calle Tacna Y Arica 217-Alto Misti -Mraflores,Tecnico en Enfermeria,SUNARP,,Superior,Catolica,1,
 16,Luz Evangelina Caniapatania Maldonado,Madre,6,10,1977,29724950,973161194,Calle Tacna Y Arica 217-Alto Misti -Mraflores,Nutrcionista,"Centro de Salud ""Mateo Pumacahua""",Mateo Pumacahua Mz E Lt 39,Superior,Catolica,1,ferisabel06@hotmail.com
 17,Jessica Camila Porras Tunqui,Madre,13,1,1995,76343511,951263476,Avenida Tacna y Arica 245 - Miraflores,Tecnico  ,Mall Plaza,Avenida Ejercito ,Superior,Catolica,1,yessicami13195@gmail.com
-18,Antony Alexander Lajo Cuba,Padre,3,3,1991,47887473,,Avenida Los Incas,Albañil,,,Secundaria,Catolica,0,
+18,Antony Alexander Lajo Cuba,Padre,3,3,1991,47887473,0,Avenida Los Incas,Albañil,,,Secundaria,Catolica,0,
 18,Mary Cruz Turpo Nunionca,Madre,17,12,1990,46691533,933510603,Tahuantinsuyo J-7,Independiente,,,Superior,Catolica,1,
 19,Efrain Angel Mamani Yana,Padre,22,11,1978,40230162,997275134,Calle Libertad 401 MIraflores,Tecnico Electricista,Cerro Colorado,,Superior,Catolica,1,
 19,Sandra Valeriano Cari,Madre,17,1,1982,41206211,976763166,Calle Libertad 401 MIraflores,Ama de Casa,,,Superior,Catolica,1,

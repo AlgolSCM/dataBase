@@ -8,6 +8,7 @@
 #include "Alumno.h"
 #include "NotasABC.h"
 #include "Asistencia.h"
+#include "Padres.h"
 class seccion
 {
     public:
@@ -50,9 +51,12 @@ class seccion
         vector <notas> cursos2;
         vector<NotasABC>cursos345;
         vector <anecdotario> sucesos;
+        vector <Padres> ppff;
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
         void iniciarExpediente();
         void iniciarAsistencia();
+        void iniciarPadres();
+        int buscarCodigoMatricula(int j);
 };
 
 #endif // SECCION_H

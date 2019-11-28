@@ -6,6 +6,7 @@
 #include "notas.h"
 #include "NotasABC.h"
 #include <fstream>
+#include "Padres.h"
 using namespace std;
 
 Alumno::Alumno()
@@ -18,7 +19,7 @@ Alumno :: Alumno(string nombres,string apellidos,string sec){
     this->nombres=nombres;
     const string nombreSeccion=sec;
 }
-
+int StringToInts(string num);
 Alumno::Alumno(string lineaFichero){
     vector <string> fields;
     stringstream ss(lineaFichero);
@@ -33,7 +34,7 @@ Alumno::Alumno(string lineaFichero){
     dni=stoi(fields[7]);
     codigoEstudiante=fields[9];
     religion=fields[10];
-    codigoMatricula=stoi(fields[11]);
+    codigoMatricula=StringToInts(fields[11]);
     deuda=stoi(fields[12]);
     this->lineaFichero=lineaFichero;
     //cout<<"alumno "<<nombres<<" creado "<<++countAlumno<<endl;
@@ -54,31 +55,6 @@ void Alumno::texto(string label,string texto[],int tam,bool prompt,bool numeraci
     if(prompt) cout<<"Ingrese su seleccion: ";
 }
 
-void Alumno::menuSeleccionAlumno(bool inAlumno){
-    string opcionesAlumno[]={"Ver Datos completos","Modificar Dato","Salir"};
-    int subCase;
-    while (inAlumno){
-        cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
-        verDatosPersonales();verDatosColegio();
-        texto("Menu seleccion Alumno",opcionesAlumno,3);
-        switch(cin.get()){
-            case '1':{
-                elegirVisualizarDatos();
-                break;}
-            case '2':{
-//                texto("Datos que se pueden modificar",datosModificables,3);
-                cin>>subCase;
-                switch(subCase){
-//                     case '1': visualizarDatos(); break;
-                }
-                break;}
-            case '3':
-                inAlumno=false;
-                break;
-        }
-    }
-}
-
 //VISUALIZAR DATOS
 void Alumno::elegirVisualizarDatos(bool seleccion){
     cout<<"DATOS "<< getApellidosNombres()<<endl;
@@ -87,17 +63,16 @@ void Alumno::elegirVisualizarDatos(bool seleccion){
     bool siNo[8];
     if (seleccion)
         for (int i=0;i<tam;i++){
-            if (i==6) continue;
+            if (i==2) continue;
             cout<<"Datos "<<datosVisualizables[i]<<"-> Ingrese 1(ver) o 0(no ver): ";
             cin>>siNo[i];
         }
     if (siNo[0]) verDatosPersonales();
     if (siNo[1]) verDatosColegio();
-    if (siNo[2]) verAsistencias();
     if (siNo[3]) verContacto();
     if (siNo[4]) verDocumentos();
     if (siNo[5]) verMatricula();
-    //if (siNo[6]) versusNotas();
+    if (siNo[6]) versusNotas();
     if (siNo[7]) verOtros();
 
 }
@@ -112,16 +87,11 @@ void Alumno::verDatosPersonales(){
 void Alumno::verDatosColegio(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-COLEGIO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
     cout<<"Codigo Estudiante: "<<codigoEstudiante<<endl;
-    cout<<"Seccion: "<<nombreSeccion<<endl;
-}
-void Alumno::verAsistencias(bool tag){
-    if (tag) cout<<endl<<"=-=-=-=-=-=-=-=-=-ASISTENCIAS=-=-=-=-=-=-=-=-=-=-"<<endl;
-    cout<<"  FALTAS "<<"Jutificas: "<<contarCaracter(asistencias,'F')<<" Injutificas: "<<contarCaracter(asistencias,'f');
-    cout<<"  TARDANZAS "<<"Jutificas: "<<contarCaracter(asistencias,'T')<<" Injutificas: "<<contarCaracter(asistencias,'t');
-    cout<<"  ASISTENCIAS "<<contarCaracter(asistencias,'A')<<endl;
 }
 void Alumno::verContacto(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-=-PADRES=-=-=-=-=-=-=-=-=-=-="<<endl;
+    for (int i=0;i<apoderados.size();i++)
+        apoderados[i].DatosPadres();
     //cout<<"Telefonos de Emergencia"<<telefonoEmergencia[0]<<" "<<telefonoEmergencia[1]<<endl;
     //Llamar a direccion Domicilio cout
     //Imprimir nombres de Padres
@@ -129,7 +99,6 @@ void Alumno::verContacto(){
 void Alumno::verDocumentos(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-DOCUMENTOS=-=-=-=-=-=-=-=-=-=-="<<endl;
     cout<<"DNI: "<<dni<<endl;
-    cout<<"Nro. Partida Nacimiento: "<<partidaNacimiento<<endl;
 }
 void Alumno::verMatricula(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-MATRICULA=-=-=-=-=-=-=-=-=-=-="<<endl;
@@ -148,7 +117,6 @@ string Alumno::askModificarDatos(){
     cout<<"Nombres"<<separador;getline(cin,nombres);
     cout<<"Apellidos"<<separador;getline(cin,apellidos);
     cout<<"DNI"<<separador;cin>>dni;
-    cout<<"No. Partida"<<separador;cin>>partidaNacimiento;
     cout<<"Codigo del Siagie"<<separador;cin>>codigoEstudiante;
     cout<<"Codigo del colegio"<<separador;cin>>codigoEnSeccion;
 
@@ -163,11 +131,9 @@ string Alumno::askModificarDatos(){
     cout<<"Domicilio"<<separador;getline(cin,direccionDomicilio);cout<<direccionDomicilio<<endl;
     cout<<"Religion"<<separador;getline(cin,religion);
     cout<<"Deuda de matricula"<<separador;cin>>deuda;
-    //cout<<"Expediente"<<separador;expediente.MenuExpMedico();
     string datoAModificar=nombres+","+apellidos+","+genero+","+to_string(dia)+","+to_string(mes)+","+to_string(anio)+",";
     datoAModificar=datoAModificar+direccionDomicilio+","+to_string(dni)+","+" ,"+to_string(codigoEnSeccion)+","+religion+",";
     datoAModificar=datoAModificar+to_string(codigoMatricula)+","+to_string(deuda);
-    //cout<<"linea"<<datoAModificar;
     return datoAModificar;
 }
 
@@ -195,39 +161,88 @@ void Alumno::addAsistencia(){
     cin>>n;
     asistencias.push_back(n);
 }
-
-
-void Alumno::leernotas(int dni){
-    if(nombreSeccion!="2 anios"){
-    ifstream archivo;
+void Alumno::cargarPadre(){
+ ifstream archivo;
     string linea;
-    archivo.open(("archivos/"+nombreSeccion+"/"+to_string(dni)+".csv"),ios::in);//Abre el archivo en modo lectura
-    if(archivo.fail()){
-            ofstream archivo("archivos/"+nombreSeccion+"/"+to_string(dni)+".csv");
-            /*cout<<"Error al cargar las notas";exit(1);*/}
-    while(getline(archivo,linea)){
-        notitas.push_back(NotasABC(linea));
+    archivo.open("archivos/padres/"+nombreSeccion+".csv",ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar los padres";exit(1);}
+    getline(archivo,linea);
+    for(int i=0;apoderados.size()>i;i++,getline(archivo,linea)){
+        Padres tmp(linea);
+        if(tmp.matricula==codigoMatricula)
+            apoderados.push_back(Padres(linea));
     }
     archivo.close();
+}
+
+
+
+
+/**
+void Alumno::leernotas(){
+    int j=0;
+    string suDNI=to_string(dni);
+    cout<<suDNI;
+    if(nombreSeccion!="2 anios"){
+        ifstream archivo;
+        string linea="default";
+        archivo.open(("archivos/notas/"+nombreSeccion+"/"+suDNI+".csv"),ios::in);//Abre el archivo en modo lectura
+        if(archivo.fail()){
+            ofstream aux("archivos/notas/"+nombreSeccion+"/"+suDNI+".csv");
+            aux.close();
+        }
+        archivo.close();
+        archivo.open(("archivos/notas/"+nombreSeccion+"/"+suDNI+".csv"),ios::in);
+        if(archivo.fail()){
+            ofstream aux("archivos/notas/"+nombreSeccion+"/"+suDNI+".csv");
+            exit(1);
+        }
+
+        getline(archivo,linea);
+        for(int i=0;i<17;i++){
+        //while(getline(archivo,linea)){
+            getline(archivo,linea);
+            cout<<linea<<endl;
+            notitas.push_back(NotasABC(linea));
+            cout<<"quieres comida gratis?"<<endl;
+        }
+        archivo.close();
     }
     else{
         ifstream archivo;
     string linea;
-    archivo.open(("archivos/"+nombreSeccion+"/"+to_string(dni)+".csv"),ios::in);//Abre el archivo en modo lectura
+    archivo.open(("archivos/notas/"+nombreSeccion+"/"+suDNI+".csv"),ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){
-            ofstream archivo("archivos/"+nombreSeccion+"/"+to_string(dni)+".csv");
-            /*cout<<"Error al cargar las notas";exit(1);*/}
+            ofstream archivo("archivos/notas/"+nombreSeccion+"/"+suDNI+".csv");
+            cout<<"Error al cargar las notas";exit(1);}
     while(getline(archivo,linea)){
         notita.push_back(notas(linea));
     }
     archivo.close();
     }
-}
+}*/
+//void Alumno::leernotas(){
+
+//h967 s96355555t9
+
 
 void Alumno::versusNotas(){//falta arreglar
-     leernotas(dni);
+//     leernotas();
      cout<<endl<<"NOTAS DEL ALUMNO "<<endl;
      for(int i=0;i<notitas.size();i++){
         notitas[i].imprimirnotas();
      }
- }
+}
+
+int StringToInts(string num){
+    int salida=0;
+    int n;
+    char a;
+    int i=num.length()-1;
+    for (int j=1 ;i>=0; i--,j=j*10){
+        a=num[i];
+        n=static_cast<int>(a)-48;
+        salida+=n*j;
+    }
+    return salida;
+}

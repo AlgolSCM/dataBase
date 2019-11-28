@@ -20,18 +20,19 @@ class Alumno
         static int countAlumno;
         Alumno();//Matriccula
         virtual ~Alumno();
+        int codigoMatricula;
         Alumno(string nombres,string apellidos,string sec="ninguna asignada");
         Alumno(string lineaFichero);
         string lineaFichero;
         expedienteMedico expediente;
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
-        void menuSeleccionAlumno(bool inAlumno=1);
         void elegirVisualizarDatos(bool seleccion=1);//visualiza la informacion y pregunta si desea modificar algo
-        //void seleccionarDatoModificar();
+        void agregarPadre(Padres d){apoderados.push_back(d);}
 
         //VISUALIZAR
         void verDatos();
         void verAsistencias(bool tag=1);
+        void versusNotas();
 
         //SETS
         string askModificarDatos();
@@ -43,7 +44,7 @@ class Alumno
         string getApellidos();
         string getApellidosNombres();
 
-        void leernotas(int dni);
+        void leernotas();
         string getcodigoEstudiante();
 
 
@@ -53,25 +54,18 @@ class Alumno
     private:
         string nombres, apellidos;
         string nombreSeccion;
-        int dni, partidaNacimiento;
-        //int telefonoEmergencia[2];
+        int dni;
         string codigoEstudiante;//codigo otorgado por el siagie
         int codigoEnSeccion;
         char genero;//M o F
         fecha nacimiento;
         string direccionDomicilio;
         string religion;
-        int codigoMatricula,deuda;
+        int deuda;
         vector <char> asistencias;
         vector<NotasABC> notitas;
         vector<notas> notita;
-/*
-<<<<<<< HEAD
-
-=======
-        expedienteMedico expediente;
->>>>>>> 2df87da567423422da411606e695077f4b5a2ceb/*/
-
+        vector<Padres> apoderados;
         //VER
         void verDatosPersonales();
         void verDatosColegio();
@@ -79,9 +73,10 @@ class Alumno
         void verDocumentos();
         void verMatricula();
         void verOtros();
-        void versusNotas();
+        //void versusNotas();
         //COUNT
         int contarCaracter(vector <char> lista, char caracter);
+        void cargarPadre();
         //LLENAR DATOS
 };
 

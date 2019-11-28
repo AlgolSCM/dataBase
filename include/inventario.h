@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <iomanip>
+
 #include "Alumno.h"
 using namespace std;
 
@@ -15,9 +17,8 @@ class inventario
         virtual~inventario();
         inventario(string lineafile);
         inventario(string nombre,string color, string modelo);
-        void mesas();
-        void sillas();
-        void estantes();
+        void invent();
+        void imprimirInventario();
     protected:
         /**int numeromesas, numerosillas, numeroestantes;
         int mesasbuenestado,sillasbuenestado,estantesbuenestado;

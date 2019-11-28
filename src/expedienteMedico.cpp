@@ -94,9 +94,7 @@ void expedienteMedico :: LlenarEnfermedades(string enfermedades){
 void expedienteMedico :: LlenarTraumas(string traumas){
      this -> traumas=traumas;
 }
- void expedienteMedico:: LlenarEsfin(int esfinteres){
-    this -> esfinteres=esfinteres;
- }
+ void expedienteMedico:: LlenarEsfin(int esfinteres){this -> esfinteres=esfinteres;}
 
  void expedienteMedico:: LlenarPartoN(string partodescripcion){
     this -> partodescripcion=partodescripcion;

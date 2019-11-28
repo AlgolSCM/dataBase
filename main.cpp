@@ -24,18 +24,13 @@ bool acceder(string a="",string b=""){
 }
 
 void imprimirOpcionesPrincipal(){
-    /**cout << "Elija una opcion"<< endl;
-    cout << "1. Ver listado de alumnos"<< endl;
-    cout << "2. Ver inventario"<< endl;
-    cout << "3. Ver anecdotario"<< endl;
-    cout << "4. Ver asistencias"<< endl;
-    cout << "5. Ver notas"<< endl;
-    cout << "6. Salir"<< endl;*/
-    cout << "Elija una opcion"<< endl;
+
+    cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
+    cout << "               MENU        "<< endl;
     cout << "1. Ver listado de alumnos"<< endl;
     cout << "2. Ingresar a seccion"<< endl;
     cout << "3. Busqueda de alumno"<< endl;
-    //cout << "4. Ver asistencias"<< endl;
+    cout << "5. Ver inventario"<< endl;
     //cout << "5. Ver notas"<< endl;
     cout << "4. Salir"<< endl;
 }
@@ -52,30 +47,35 @@ inventario general;
 
 
 void busquedaAlumno(string aBuscar,seccion salon[]);
-void iniciarSecciones(){
-
-}
 int Alumno::countAlumno=0;
 void iniciarInventario(vector <inventario> MAterial);
-//void setInventario(inventario a){materiales=a;}
 
 int main()
 {
+    //Alumno prueba("Raphaella,Alarcon Ortega,F,24,2,2014,Urbanizacion Chapi Chico E-16 -Miraflores,78913627,Cabecitas Constructivas,78913627,Catolica,27,0");
     vector <inventario> MAterial;
-    iniciarInventario(MAterial);
-    seccion clases[]={seccion("5 anios"),seccion("4 anios"),seccion("3 anios"),seccion("2 anios")};
-    for (int i=0;i<4;i++){
-        clases[i].iniciarArchivos();
+    //Iniciar inventario
+    ifstream archivo;
+    string linea;
+    archivo.open(("archivos/Inventario/Inventario.csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    while(getline(archivo,linea)){
+        MAterial.push_back(inventario(linea));
     }
-    bool usuarioActivo=true;
+    archivo.close();
 
-    busquedaAlumno("Jhoset",clases);
+
+
+    seccion clases[]={seccion("5 anios"),seccion("4 anios"),seccion("3 anios"),seccion("2 anios")};
+
+    bool usuarioActivo=true;
 
     if (!usuarioActivo&&acceder()){
         cout << "Bienvenido a la Plataforma virtual del Jardin Gaspare Mariotti" << endl;
         usuarioActivo=true;
     }
     int n;
+    bool archivosYaIniciados[]={0,0,0,0};
     while (usuarioActivo){
         imprimirOpcionesPrincipal();//Imprime las opciones del sistema: ver listado de alumnos, ver inventario y salir
         cin>>n;
@@ -91,6 +91,10 @@ int main()
                     cout<<i<<". "<<clases[i].getNombre()<<endl;
                 int aux;
                 cin >>aux;
+                if (!archivosYaIniciados[aux]){
+                    clases[aux].iniciarArchivos();
+                    archivosYaIniciados[aux]=1;
+                }
                 clases[aux].menuSeleccion();
                 break;}
             case 3:{
@@ -102,6 +106,12 @@ int main()
                 salir();
                 usuarioActivo=false;
                 break;
+            case 5:
+                for (int i=0;i<MAterial.size();i++)
+                    MAterial[i].imprimirInventario();
+                break;
+            default:
+                cout<<"die"<<endl;
         }
     }
 
@@ -120,10 +130,8 @@ void iniciarInventario(vector <inventario> MAterial){
     string linea;
     archivo.open(("archivos/Inventario/Inventario.csv"),ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
-    getline(archivo,linea);
-    for(int i=0;i<MAterial.size();getline(archivo,linea)){
+    while(getline(archivo,linea)){
         MAterial.push_back(inventario(linea));
-        i++;
     }
     archivo.close();
 }

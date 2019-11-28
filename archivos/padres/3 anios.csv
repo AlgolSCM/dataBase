@@ -1,11 +1,10 @@
-nro matricula,nombres y apellidos,parentesco,dia,mes,anio,dni,telefono,direccion,ocupacion,centro de trabajo,direccion de trabajo,grado de estudios,religion,vive con,correo
-29,Alipio Laguna,Padre,8,2,1976,40566091,,Calle Jose Carlos Mariategui 334- Cooperativa 14-Miraflores ,Empresario,,Calle Puno 518- Miraflores,Superior,Catolica,0,
+29,Alipio Laguna,Padre,8,2,1976,40566091,0,Calle Jose Carlos Mariategui 334- Cooperativa 14-Miraflores ,Empresario,,Calle Puno 518- Miraflores,Superior,Catolica,0,
 29,Elmora Jackeline Budiel Romero,Madre,2,4,1980,40566091,54324098,Calle Jose Carlos Mariategui 334- Cooperativa 14-Miraflores ,Empresario,,Calle Puno 518- Miraflores,Superior,Catolica,1,
 30,Richard Paul Panca Mamani,Padre,9,11,1980,44413750,956727799,Calle Hipolito Unanue 122- Miraflores,Agente de Seguridad,SEGUROC,Juan Pablo Vizcardo Guzman 02 JLB y R,Secundaria,Cristiana-Evangelica,1,richardraulpancamamani71@gmail.com
 30,Vanessa Lucero Ticona Flores,Madre,5,10,1982,41488370,949256405,Calle Hipolito Unanue 122- Miraflores,Operaria de Limpieza,SERMANSA,Urbanizacion La Castro JLB y R,Superior,Cristiana-Evangelica,1,vanessitag121@hotmail.com
 31,Madami Elizabeth Ayaque Ancco,Madre,13,12,1984,42776203,928430950,,Operaria de Limpieza,,,Superior,Catolica,1,
 32,Ludwing Justo Machaca,Padre,23,1,1991,70296413,957415922,Corazon de Jesus A-1-Miraflores,Ingieneria de Minas,Chala,Mollehuaca,Superior,,1,
-32,Shara Jocabeth Calla Justo,Madre,28,11,1996,73777061,,Corazon de Jesus A-1-Miraflores,Ama de Casa,,,Secundaria,,1,
+32,Shara Jocabeth Calla Justo,Madre,28,11,1996,73777061,0,Corazon de Jesus A-1-Miraflores,Ama de Casa,,,Secundaria,,1,
 33,Kevin Wilbert Salazar Cruz,Padre,15,8,1994,76524275,935477328,Calle Jose Carlos Mariategui 310 -Miraflores,Agente Rentista,Aeropuerto,Aeropuerto,Secundaria,Catolica,1,djkevincruz@gmail.com
 33,Elizabeth Yajaira,Madre,27,9,1997,73020115,54325083,Calle Jose Carlos Mariategui 310 -Miraflores,Estudiante,,,Secundaria,Catolica,1,zaheylilove@gmail.com
 34,Jorge Eduardo Villanueva Gonzales,Padre,26,10,1977,40133395,959280372,Avenida San Martin 2805- Miraflores,Docente,IEP Santisimo Salvador,,Superior,Catolica,1,
