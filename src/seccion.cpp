@@ -24,30 +24,21 @@ seccion::seccion(string nombreSeccion){
         Listado.push_back(Alumno(linea));
     archivo.close();
     this->nombreSeccion=nombreSeccion;
-    cout<<"Seccion Iniciada"<<endl;
+    //cout<<"Seccion Iniciada"<<endl;
 }
 
 void seccion::iniciarArchivos(){
     iniciarExpediente();
-    cout<<"expediente completo";
     iniciarAsistencia();
-    cout<<"asistencia completa";
 }
 void seccion::iniciarExpediente(){
     ifstream archivo;
     string linea;
-<<<<<<< HEAD
     archivo.open("archivos/expediente/"+nombreSeccion+".csv",ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar el expediente medico";exit(1);}
-=======
-    //string nombreArchivo=nombreint numeroestantes, int estantesbuenestado, int estantesmalestado+".csv";
-    archivo.open((nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
-    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
->>>>>>> 8d216b4102cdebbcdfe04d0332b1e88ee1082e89
-    int i=0;
-    while(getline(archivo,linea)){
-        Listado[i].setExpediente(expedienteMedico(linea));
-        i++;
+    getline(archivo,linea);
+    for(int i=0;Listado.size()>i;i++,getline(archivo,linea)){
+        Listado[i].expediente=expedienteMedico(linea);
     }
     archivo.close();
 }

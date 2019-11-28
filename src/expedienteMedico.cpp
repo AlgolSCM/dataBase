@@ -13,6 +13,7 @@ expedienteMedico::expedienteMedico()
 }
 
 expedienteMedico ::expedienteMedico(string lineFichero){
+    int x=0;
     vector <string> files ;
     stringstream ss(lineFichero);
     string actual;
@@ -31,11 +32,9 @@ expedienteMedico ::expedienteMedico(string lineFichero){
     LlenarVacunas(files[11]);
     LlenarEnfermedades(files[12]);
     LlenarTraumas(files[13]);
-    LlenarParto(stoi(files[13]));
-    LlenarPartoN(files[14]);
-
-
-
+    LlenarParto(stoi(files[14]));
+    LlenarPartoN(files[15]);
+    //cout<<"Expediente completo"<<endl;
 }
 expedienteMedico::~expedienteMedico()
 {
@@ -105,28 +104,28 @@ void expedienteMedico :: LlenarTraumas(string traumas){
 void expedienteMedico::MostrarExpediente(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-EXPEDIENTE MEDICO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
     cout<<endl<<"°.°.°.°.°.°.°.°.°.DATOS DE DESARROLLO°.°.°.°.°.°.°.°.°.°.°."<<endl;
-    cout<<"Se sento: "<<sento<<"meses"<<endl;
-    cout<<"Se paro: "<<paro<<"meses"<<endl;
-    cout<<"Camino: "<<camino<<"meses"<<endl;
+    cout<<"Se sento: "<<sento<<" meses"<<endl;
+    cout<<"Se paro: "<<paro<<" meses"<<endl;
+    cout<<"Camino: "<<camino<<" meses"<<endl;
     cout<<"Gateo: "<<gateo<<endl;
-    cout<<"Dijo su primera palabra: "<<palabra<<endl;
-    cout<<"Hablo con fluidez: "<<hablo<<endl;
+    cout<<"Dijo su primera palabra: "<<palabra<<" meses"<<endl;
+    cout<<"Hablo con fluidez: "<<hablo<<" meses"<<endl;
     if (controlaEsfinteres==true){
-        cout<<"Controla Esfinteres: Si "<<"Edad: "<<esfinteres<<endl;
+        cout<<"Controla Esfinteres: Si "<<"Edad: "<<esfinteres<<" meses"<<endl;
         }
     else{
         cout<<"Controla Esfinteres: No "<<"Edad: --- "<<endl;
         }
     if (partonatural==true){
-        cout<<"Parto: Natural "<<"Complicación:--- "<<endl;
+        cout<<"Parto: Natural "<<"Complicacion:--- "<<endl;
         }
     else{
-        cout<<"Parto: Complicado"<<"Complicación: "<<partodescripcion<<endl;
+        cout<<"Parto: Complicado"<<" Complicacion: "<<partodescripcion<<endl;
         }
     cout<<endl<<"°.°.°.°.°.°.°.°.°.ESTADO DE SALUD°.°.°.°.°.°.°.°.°.°.°."<<endl;
     cout<<"Alergia: "<<alergias<<endl;
     cout<<"Vacunas con las que cuenta: "<<vacunas<<endl;
-    cout<<"Experiencias Traumaticas: "<<traumas;
+    cout<<"Experiencias Traumaticas: "<<traumas<<endl;
     cout<<"Enfermedades Sufridas: "<<enfermedades<<endl;
     cout<<"Tipo de Sangre: "<<tipoSangre<<endl;
     cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;

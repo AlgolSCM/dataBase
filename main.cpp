@@ -56,47 +56,17 @@ void iniciarSecciones(){
 
 }
 int Alumno::countAlumno=0;
-<<<<<<< HEAD
-int main()
-{
-=======
-
-inventario materiales;
-
-void setInventario(inventario a){materiales=a;}
-
-vector <inventario> Material;
-//Material.push_back(inventario())
-
-void iniciarInventario(){
-    ifstream archivo;
-    string linea;
-    //string nombreArchivo=nombreArchivo+".csv";
-    archivo.open(("archivos/Inventario/Inventario.csv"),ios::in);//Abre el archivo en modo lectura
-    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
-    int i=0;
-    while(getline(archivo,linea)){
-        //Material[i].setInventario(inventario(linea));
-        i++;
-    }
-    archivo.close();
-}
+void iniciarInventario(vector <inventario> MAterial);
+//void setInventario(inventario a){materiales=a;}
 
 int main()
 {
-
-    seccion clases[]={seccion("archivos/alumnos/5 anios.csv"),seccion("archivos/alumnos/4 anios.csv"),
-                            seccion("archivos/alumnos/3 anios.csv"),seccion("archivos/alumnos/2 anios.csv")};
-    clases[0].setNombreSeccion("5 anios");
-    clases[1].setNombreSeccion("4 anios");
-    clases[2].setNombreSeccion("3 anios");
-    clases[3].setNombreSeccion("2 anios");
->>>>>>> 8d216b4102cdebbcdfe04d0332b1e88ee1082e89
-
     vector <inventario> MAterial;
+    iniciarInventario(MAterial);
     seccion clases[]={seccion("5 anios"),seccion("4 anios"),seccion("3 anios"),seccion("2 anios")};
-    for (int i=0;i<4;i++)
+    for (int i=0;i<4;i++){
         clases[i].iniciarArchivos();
+    }
     bool usuarioActivo=true;
 
     busquedaAlumno("Jhoset",clases);
@@ -109,20 +79,6 @@ int main()
     while (usuarioActivo){
         imprimirOpcionesPrincipal();//Imprime las opciones del sistema: ver listado de alumnos, ver inventario y salir
         cin>>n;
-        /**switch (n){
-            case 1:
-                for (int i=0;i<4;i++){
-                    clases[i].verListadoAlumnos();
-                }
-                break;
-            case 2:
-                estadoMaterial();
-                break;
-            case 3:
-                salir();
-                usuarioActivo=false;
-                break;
-        }*/
         switch (n){
             case 1:
                 for (int i=0;i<4;i++){
@@ -159,4 +115,15 @@ void busquedaAlumno(string aBuscar,seccion salon[]){
     for (int i=0;i<4;i++)
         salon[i].imprimirBusqueda(aBuscar);
 }
-
+void iniciarInventario(vector <inventario> MAterial){
+    ifstream archivo;
+    string linea;
+    archivo.open(("archivos/Inventario/Inventario.csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    getline(archivo,linea);
+    for(int i=0;i<MAterial.size();getline(archivo,linea)){
+        MAterial.push_back(inventario(linea));
+        i++;
+    }
+    archivo.close();
+}

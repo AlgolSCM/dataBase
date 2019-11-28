@@ -1,6 +1,6 @@
 #ifndef ALUMNO_H
 #define ALUMNO_H
-
+#include <iostream>
 #include <string>
 #include <vector>
 #include <sstream>
@@ -13,7 +13,7 @@
 #include "anecdotario.h"
 #include "notas.h"
 #include"NotasABC.h"
-
+using namespace std;
 class Alumno
 {
     public:
@@ -23,7 +23,7 @@ class Alumno
         Alumno(string nombres,string apellidos,string sec="ninguna asignada");
         Alumno(string lineaFichero);
         string lineaFichero;
-
+        expedienteMedico expediente;
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
         void menuSeleccionAlumno(bool inAlumno=1);
         void elegirVisualizarDatos(bool seleccion=1);//visualiza la informacion y pregunta si desea modificar algo
@@ -35,7 +35,7 @@ class Alumno
 
         //SETS
         string askModificarDatos();
-        void setExpediente(expedienteMedico a){expediente=a;}
+        //void setExpediente(expedienteMedico a){cout<<"seteo expediente"<<endl;expediente=a;}
 
         //GETS
         string getSeccion();
@@ -64,7 +64,7 @@ class Alumno
         int codigoMatricula,deuda;
         vector <char> asistencias;
         vector<NotasABC> notitas;
-        expedienteMedico expediente;
+
         //VER
         void verDatosPersonales();
         void verDatosColegio();

@@ -36,7 +36,7 @@ Alumno::Alumno(string lineaFichero){
     codigoMatricula=stoi(fields[11]);
     deuda=stoi(fields[12]);
     this->lineaFichero=lineaFichero;
-    cout<<"alumno "<<nombres<<" creado "<<++countAlumno<<endl;
+    //cout<<"alumno "<<nombres<<" creado "<<++countAlumno<<endl;
 }
 
 Alumno::~Alumno()
@@ -44,8 +44,6 @@ Alumno::~Alumno()
     //dtor
 }
 string datosVisualizables[]={"personales","colegio","asistencias","padres","documentos","matricula","notas","otros"};
-
-
 
 void Alumno::texto(string label,string texto[],int tam,bool prompt,bool numeracion){
     cout<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
@@ -84,11 +82,12 @@ void Alumno::menuSeleccionAlumno(bool inAlumno){
 //VISUALIZAR DATOS
 void Alumno::elegirVisualizarDatos(bool seleccion){
     cout<<"DATOS "<< getApellidosNombres()<<endl;
-    int tam=9;
-    //string datosVisualizables[]={"personales","colegio","asistencias","contactos","documentos","matricula","otros"};
-    bool siNo[]={1,1};
+    //string datosVisualizables[]={"personales","colegio","asistencias","padres","documentos","matricula","notas","otros"};
+    int tam=8;
+    bool siNo[8];
     if (seleccion)
         for (int i=0;i<tam;i++){
+            if (i==6) continue;
             cout<<"Datos "<<datosVisualizables[i]<<"-> Ingrese 1(ver) o 0(no ver): ";
             cin>>siNo[i];
         }
@@ -98,7 +97,7 @@ void Alumno::elegirVisualizarDatos(bool seleccion){
     if (siNo[3]) verContacto();
     if (siNo[4]) verDocumentos();
     if (siNo[5]) verMatricula();
-    if (siNo[6]) versusNotas();
+    //if (siNo[6]) versusNotas();
     if (siNo[7]) verOtros();
 
 }
@@ -107,7 +106,8 @@ void Alumno::verDatosPersonales(){
     cout<<"Apellidos y Nombres: "<<getApellidosNombres()<<endl;
     cout<<"Genero: ";
     cout<<((genero=='M')?"Masculino":"Femenino")<<endl;
-    cout<<"Fecha de Nacimiento: ";//llamar a fecha de nacimiento
+    cout<<"Fecha de Nacimiento: ";
+    nacimiento.coutDMA(1);
 }
 void Alumno::verDatosColegio(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-COLEGIO=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
