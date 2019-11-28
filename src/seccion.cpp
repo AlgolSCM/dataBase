@@ -29,7 +29,7 @@ seccion::seccion(char nombreArchivo[]){
 void seccion::iniciarExpediente(){
     ifstream archivo;
     string linea;
-    //string nombreArchivo=nombreArchivo+".csv";
+    //string nombreArchivo=nombreint numeroestantes, int estantesbuenestado, int estantesmalestado+".csv";
     archivo.open((nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
     int i=0;
