@@ -10,9 +10,11 @@ class Asistencia
 {
     public:
         Asistencia();
+
         Asistencia(string lineaFichero);
         void coutAsistencia();
         void coutTablaHeader();
+        string askmodificarAsistencia();
     protected:
 
     private:

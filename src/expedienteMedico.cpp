@@ -105,7 +105,7 @@ void expedienteMedico::MostrarExpediente(){
     cout<<"Se sento: "<<sento<<" meses"<<endl;
     cout<<"Se paro: "<<paro<<" meses"<<endl;
     cout<<"Camino: "<<camino<<" meses"<<endl;
-    cout<<"Gateo: "<<gateo<<endl;
+    cout<<"Gateo: "<<gateo<<" meses"<<endl;
     cout<<"Dijo su primera palabra: "<<palabra<<" meses"<<endl;
     cout<<"Hablo con fluidez: "<<hablo<<" meses"<<endl;
     if (controlaEsfinteres==true){

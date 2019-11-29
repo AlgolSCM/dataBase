@@ -29,7 +29,7 @@ class seccion
         void modificarAlumno(int n);
         string getNombre(){return nombreSeccion;}
         void verAsistencias();
-        void tomarAsistencias();
+        void addAsistencias();
 
         void verNotas();
         void addNotas();
