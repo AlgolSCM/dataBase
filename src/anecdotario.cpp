@@ -25,17 +25,19 @@ anecdotario::anecdotario(int implicados,string titulo, string descripcion, strin
     cout<<"Fecha:(ingrese dia, mes y anio) ";int c,d,e;cin>>c;cin>>d;cin>>e;
     dia.setDiaMesAnio(c,d,e);
 }
+int toInt(string num);
 anecdotario::anecdotario(string lineafile){
-vector <string> fichero;
+    vector <string> fichero;
     stringstream ss(lineafile);
     string actual;
     while (getline(ss, actual, ','))
         fichero.push_back(actual);
     titulo=fichero[0];
-    implicados=stoi(fichero[1]);
+    implicados=toInt(fichero[1]);
     descripcion=fichero[2];
     aula=fichero[3];
-    dia=fecha(stoi(fichero[4]),stoi(fichero[5]),stoi(fichero[6]));
+    dia=fecha(toInt(fichero[4]),toInt(fichero[5]),toInt(fichero[6]));
+    cout<<"Anecdota correcto"<<endl;
 }
 void anecdotario::anecdota(){
     cout<<"Ingrese el titulo del suceso: "<<endl;
@@ -52,22 +54,34 @@ void anecdotario::anecdota(){
 
 string anecdotario::askModificarAnecdotario(){
     int dias, mes, anio;
-    cout<<"Fecha :";
+    cout<<"Fecha :"<<endl;
     cout<<"DIA: ";cin>>dias;
     cout<<"MES: ";cin>>mes;
     cout<<"ANIO: ";cin>>anio;
     dia=fecha(dias,mes,anio);
+    getline(cin,titulo);
     cout<<"Titulo: ";getline(cin,titulo);
     cout<<"Numero de implicados: ";cin>>implicados;
-    cout<<"Descripcion del suceso: ";getline(cin,descripcion);
+    cout<<"Descripcion del suceso: ";getline(cin,descripcion);getline(cin,descripcion);
     cout<<"Aula del suceso: ";getline(cin,aula);
-    string anecmodificar=to_string(dias)+","+to_string(mes)+","+to_string(anio)+","+titulo+",";
-    anecmodificar=anecmodificar+to_string(implicados)+","+descripcion+",";
-    anecmodificar=anecmodificar+aula;
+    string anecmodificar=titulo+","+to_string(implicados)+","+descripcion+","+aula+",";
+    anecmodificar=anecmodificar+to_string(dias)+","+to_string(mes)+","+to_string(anio)+",";
     return anecmodificar;
 }
 
 void anecdotario::imprimirAnecdotario(){
     cout<<setw(14)<<implicados<<setw(14)<<titulo<<setw(14)<<descripcion<<setw(14)<<aula<<setw(14);
     dia.coutDMA(1);
+}
+int toInt(string num){
+    int salida=0;
+    int n;
+    char a;
+    int i=num.length()-1;
+    for (int j=1 ;i>=0; i--,j=j*10){
+        a=num[i];
+        n=static_cast<int>(a)-48;
+        salida+=n*j;
+    }
+    return salida;
 }

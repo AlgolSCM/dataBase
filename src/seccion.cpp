@@ -30,7 +30,7 @@ seccion::seccion(string nombreSeccion){
 void seccion::iniciarArchivos(){
     iniciarExpediente();
     iniciarAsistencia();
-    //iniciarAnecdotario();
+    iniciarAnecdotario();
     iniciarPadres();
 }
 
@@ -104,8 +104,9 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
             case '3':
                 while(inSubcase){
                     cout<<"OPCIONES Anecdotario de la Seccion"<<endl;
-                    cout<<"1.- Ver Anecdotrio"<<endl;
-                    cout<<"2.- Agregar Anecdotario"<<endl;
+                    cout<<"1.- Agregar Anecdotrio"<<endl;
+                    cout<<"2.- Ver Anecdotario"<<endl;
+                    cout<<"3.- Salir"<<endl;
                     cin>>inCaseSelection;
                     switch (inCaseSelection){
                         case '1':{
@@ -113,12 +114,13 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                             break;
                         }
                         case '2':{
-                            for (int i=0;i<sucesos.size();i++)
-                            sucesos[i].imprimirAnecdotario();
-                            cout<<"¿que sucede? No lo se :("<<endl;
+                            for (int i=0;i<sucesos.size();i++){
+                                sucesos[i].imprimirAnecdotario();
+                                cout<<endl;
+                            }
                             break;
                         }
-                        case '6':{
+                        case '3':{
                             inSubcase=false;
                             break;
                         }
@@ -134,7 +136,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                     for (int i=0;i<ppff.size();i++)
                         cout<<i+1<<" "<<ppff[i].getApellidos()<<endl;
                     switch (inCaseSelection){
-                        int n;cin>>n;
+                        int n;
                         case '1':{
                             int n;cout<<"Ingrese padre: ";cin>>n;
                             ppff[n-1].MenuDatosPadres();
@@ -287,10 +289,12 @@ void seccion::iniciarAsistencia(){
     archivo.close();
 }
 
+//  ESTAS AQUIIII
 void seccion::iniciarAnecdotario(){
+    string nombreArchivo="archivos/Anecdotario/"+ nombreSeccion+".csv";
     ifstream archivo;
     string linea;
-    archivo.open(("archivos/Anecdotario"+ nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
+    archivo.open(nombreArchivo,ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar el anecdotario";exit(1);}
     while(getline(archivo,linea)){
         sucesos.push_back(anecdotario(linea));
