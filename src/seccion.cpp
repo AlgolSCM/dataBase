@@ -28,10 +28,6 @@ seccion::seccion(string nombreSeccion){
 }
 
 void seccion::iniciarArchivos(){
-    iniciarExpediente();
-    iniciarAsistencia();
-    iniciarAnecdotario();
-    iniciarPadres();
 }
 
 void seccion::setNombreSeccion(string nombre){this->nombreSeccion=nombre;}
@@ -67,7 +63,9 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
         char inCaseSelection;bool inSubcase=1;
         texto("Opciones de Seccion",opcionSeleccion,5);
         switch(cin.get()){
-            case '1':
+            case '1':{
+                    iniciarExpediente();
+
                 while(inSubcase){
                     verListadoAlumnos();
                     texto("OPCIONES Listado de Alumnos",opcionCases,6);
@@ -85,9 +83,11 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         case '6':inSubcase=false;break;
                     }
                 }
-                break;
+                break;}
 
-            case '2':
+            case '2':{
+                    iniciarAsistencia();
+
                 while(inSubcase){
                     cout<<"OPCIONES Asistencia de la Seccion"<<endl;
                     cout<<"1.- Ver Asistencia"<<endl;
@@ -99,9 +99,10 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         case '6':inSubcase=false;break;
                     }
                 }
-                break;
+                break;}
 
-            case '3':
+            case '3':{
+                iniciarAnecdotario();
                 while(inSubcase){
                     cout<<"OPCIONES Anecdotario de la Seccion"<<endl;
                     cout<<"1.- Agregar Anecdotrio"<<endl;
@@ -126,27 +127,28 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         }
                     }
                 }
-                break;
-            case '4':
+                break;}
+            case '4':{
+                    iniciarPadres();
+
                 while(inSubcase){
                     cout<<"OPCIONES Padres de la Seccion"<<endl;
                     cout<<"1.- Visualizar datos de padre"<<endl;
                     cout<<"2.- Ordenar Listado"<<endl;
                     cin>>inCaseSelection;
                     for (int i=0;i<ppff.size();i++)
-                        cout<<i+1<<ppff[i].getApellidos()<<endl;
+                        cout<<i+1<<" "<<ppff[i].getApellidos()<<endl;
                     switch (inCaseSelection){
                         int n;
-                        case '1':{
+                        case '1':{int n;cout<<"Ingrese padre";
+                        cin>>n;
+                        ppff[n-1].MenuDatosPadres();
+                        break;}
+                        case '2':{ordenarListado(ppff);
+                        break;}
 
-                            break;}
-                        case '2':{
-                            ordenarListado(ppff);
-                            break;}
-                    }
-
-                }
-                break;
+                    }}
+                break;}
             case '5':{
                 cout<<"Saliendo de Seccion ... "<<endl;
                 inSeccion=false;

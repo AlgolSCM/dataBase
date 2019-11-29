@@ -37,7 +37,7 @@ anecdotario::anecdotario(string lineafile){
     descripcion=fichero[2];
     aula=fichero[3];
     dia=fecha(toInt(fichero[4]),toInt(fichero[5]),toInt(fichero[6]));
-    cout<<"Anecdota correcto"<<endl;
+    //cout<<"Anecdota correcto"<<endl;
 }
 void anecdotario::anecdota(){
     cout<<"Ingrese el titulo del suceso: "<<endl;
