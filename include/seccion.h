@@ -36,10 +36,9 @@ class seccion
 
         void iniciarArchivos();
 
-
-        void verAnecdotario();
-        void addAnecdotario(anecdotario anecdota);
-
+        /*void verAnecdotario();*/
+        void addAnecdotario();
+        void iniciarAnecdotario();
         void modificarLinea(string lActual,string lReemplazo,string archivo);
 
     protected:

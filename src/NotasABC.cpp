@@ -52,9 +52,10 @@ bool NotasABC ::validar(string nota){
 }
 
 
-void NotasABC:: imprimirnotas(){
+void NotasABC:: imprimirnota(){
 cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;
-cout<<"Trimestre"<<trimestre<<endl;
+cout<<"Trimestre: "<<trimestre<<endl;
+cout<<"Curso: "<<curso<<endl;
 cout<<"Competencia: "<<nombreItem<<endl;
 cout<<"Nota: "<<notan<<endl;
 cout<<"Conclusion Descriptiva: "<<comentario<<endl;
@@ -75,3 +76,4 @@ string NotasABC::getString(){
     //cout<<"STRING MANDADA";
     return (to_string(trimestre)+","+to_string(codigo)+","+curso+","+nombreItem+","+notan+","+comentario);
 }
+

@@ -61,6 +61,7 @@ void notas ::imprimirnota(){
     if (CantidadCaracteres(comentario)== true){
         cout<<endl<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="<<endl;
         cout<<"Trimestre: "<<trimestre<<endl;
+        cout<<"Curso: "<<curso<<endl;
         cout<<"Competencia: "<<nombreItem<<endl;
         cout<<"Conclusion Descriptiva: "<<endl<<comentario<<endl;
     }

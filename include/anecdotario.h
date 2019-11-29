@@ -4,6 +4,7 @@
 #include "fecha.h"
 #include <string>
 #include <sstream>
+#include <iomanip>
 using namespace std;
 
 
@@ -12,8 +13,11 @@ class anecdotario
     public:
         anecdotario();
         virtual ~anecdotario();
-        anecdotario(int implicados,string titulo, string descripcion, string alumnos, string aula, fecha dia);
+        anecdotario(int implicados,string titulo, string descripcion, string aula, fecha dia);
         anecdotario(string lineafile);
+        void anecdota();
+        string askModificarAnecdotario();
+        void imprimirAnecdotario();
         //void MostrarAnecdota();
     protected:
     private:

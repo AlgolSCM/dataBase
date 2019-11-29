@@ -30,6 +30,7 @@ seccion::seccion(string nombreSeccion){
 void seccion::iniciarArchivos(){
     iniciarExpediente();
     iniciarAsistencia();
+    iniciarAnecdotario();
 }
 
 
@@ -87,6 +88,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                     }
                 }
                 break;
+
             case '2':
                 while(inSubcase){
                     cout<<"OPCIONES Asistencia de la Seccion"<<endl;
@@ -98,14 +100,43 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         case '2':{addAsistencias();break;}
                         case '6':inSubcase=false;break;
                     }
-
-
-                break;
                 }
-            case '4':
+                break;
+
+            case '3':
+                while(inSubcase){
+                    cout<<"OPCIONES Anecdotario de la Seccion"<<endl;
+                    cout<<"1.- Ver Anecdotrio"<<endl;
+                    cout<<"2.- Agregar Anecdotario"<<endl;
+                    cin>>inCaseSelection;
+                    switch (inCaseSelection){
+                        case '1':{
+                            addAnecdotario();
+                            break;
+                        }
+                        case '2':{
+                            for (int i=0;i<sucesos.size();i++)
+                            sucesos[i].imprimirAnecdotario();
+                            cout<<"¿que sucede?"<<endl;
+                            break;
+                        }
+                        case '6':{
+                            inSubcase=false;
+                            break;
+                        }
+                    }
+                }
+                break;
+
+            case '4':{
                 cout<<"Saliendo de Seccion ... "<<endl;
                 inSeccion=false;
                 break;
+            }
+        }
+    }
+}
+
             /**case '2':
                 texto("Asistencias",opcionCases,2);
                 cin>>inCaseSelection;
@@ -151,34 +182,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         break;
                 }
                 break;
-            case '5'://anecdotario
-                cin>>inCaseSelection;
-                switch(inCaseSelection){
-                    case '1':
-                        cout<<"1";
-                        break;
-                    case '2':
-                        cout<<"2";
-                        break;
-                    case '3':
-                        cout<<"3";
-                        break;
-                }
-                break;
-            case '6'://anecdotario
-                cin>>inCaseSelection;
-                switch(inCaseSelection){
-                    case '1':
-                        cout<<"1";
-                        break;
-                    case '2':
-                        cout<<"2";
-                        break;
-                    case '3':
-                        cout<<"3";
-                        break;
-                }
-                break;*/
+
             case '7':
                 cout<<"Saliendo de Seccion ... "<<endl;
                 inSeccion=false;
@@ -273,10 +277,15 @@ void seccion::addNotas(){}
         //cout << cursosTalleres[i].getNombreCurso()<<endl;
 }
 void seccion::asignarCursosTalleres(){}
-*/
 void seccion::verAnecdotario(){}
-void seccion::addAnecdotario(anecdotario anecdota){
-    sucesos.push_back(anecdota);
+*/
+void seccion::addAnecdotario(){
+    ofstream archivo;
+    archivo.open("archivos/Anecdotario/"+nombreSeccion+".csv", ios::app);//para agregar y no borrar
+    sucesos.push_back(anecdotario("28,11,2019,Caida,1,Raphaella se tropezo,4 anios"));
+    string aux=sucesos[(sucesos.size()-1)].askModificarAnecdotario();
+    archivo<<endl<<aux;
+    archivo.close();
 }
 
 void seccion::modificarAlumno(int n){
@@ -325,6 +334,18 @@ void seccion::iniciarAsistencia(){
     }
     archivo.close();
 }
+
+void seccion::iniciarAnecdotario(){
+    ifstream archivo;
+    string linea;
+    archivo.open(("archivos/Anecdotario"+ nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
+    if(archivo.fail()){cout<<"Error al cargar el anecdotario";exit(1);}
+    while(getline(archivo,linea)){
+        sucesos.push_back(anecdotario(linea));
+    }
+    archivo.close();
+}
+
 void seccion::addAsistencias(){
     ofstream archivo;
     archivo.open("archivos/asistencias/"+nombreSeccion+".csv", ios::app);//para agregar y no borrar
