@@ -105,7 +105,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                 iniciarAnecdotario();
                 while(inSubcase){
                     cout<<"OPCIONES Anecdotario de la Seccion"<<endl;
-                    cout<<"1.- Agregar Anecdotrio"<<endl;
+                    cout<<"1.- Agregar Anecdotario"<<endl;
                     cout<<"2.- Ver Anecdotario"<<endl;
                     cout<<"3.- Salir"<<endl;
                     cin>>inCaseSelection;
@@ -140,6 +140,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         cout<<i+1<<" "<<ppff[i].getApellidos()<<endl;
                     switch (inCaseSelection){
                         int n;
+<<<<<<< HEAD
                         case '1':{int n;cout<<"Ingrese padre";
                         cin>>n;
                         ppff[n-1].MenuDatosPadres();
@@ -149,6 +150,20 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
 
                     }}
                 break;}
+=======
+                        case '1':{
+                            int n;cout<<"Ingrese padre: ";cin>>n;
+                            ppff[n-1].MenuDatosPadres();
+                            break;
+                        }
+                        case '2':{
+                            ordenarListado(ppff);
+                            break;
+                        }
+                    }
+                }
+                break;
+>>>>>>> d52b849f7cf83ca885f5c3ca12d5dade2e6001de
             case '5':{
                 cout<<"Saliendo de Seccion ... "<<endl;
                 inSeccion=false;
