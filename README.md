@@ -1,1 +1,1 @@
-DON'T USE pleaseee
+La presente base de datos, comienza mostrándonos un menú principal, en el cual se nos darán opciones numéricas a escoger, dependiendo de la función deseada, presione un número y luego la tecla "Enter". Cada opción contiene un pequeño menú en su interior, a través del cual podremos acceder a más funciones de la base, donde se nos permitirá visualizar, añadir y modificar.
