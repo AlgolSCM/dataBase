@@ -104,7 +104,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
             case '3':
                 while(inSubcase){
                     cout<<"OPCIONES Anecdotario de la Seccion"<<endl;
-                    cout<<"1.- Agregar Anecdotrio"<<endl;
+                    cout<<"1.- Agregar Anecdotario"<<endl;
                     cout<<"2.- Ver Anecdotario"<<endl;
                     cout<<"3.- Salir"<<endl;
                     cin>>inCaseSelection;
