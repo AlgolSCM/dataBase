@@ -42,8 +42,6 @@ Padres::Padres(string lineFichero){
     setTrabajo(file[11],file[9],file[10],file[12]);
     setReligion(file[13]);
     setVivecon(stoi(file[14]));
-    cout<<"Yo soy tu padreeee"<<endl;
-
 }
 Padres::~Padres()
 {

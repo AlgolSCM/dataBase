@@ -30,11 +30,9 @@ seccion::seccion(string nombreSeccion){
 void seccion::iniciarArchivos(){
     iniciarExpediente();
     iniciarAsistencia();
-    iniciarAnecdotario();
+    //iniciarAnecdotario();
+    iniciarPadres();
 }
-
-
-
 
 void seccion::setNombreSeccion(string nombre){this->nombreSeccion=nombre;}
 
@@ -137,60 +135,6 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
     }
 }
 
-            /**case '2':
-                texto("Asistencias",opcionCases,2);
-                cin>>inCaseSelection;
-                switch (inCaseSelection){
-                    case '1':
-                        cout<<"Visualizando Asistencias"<<endl;
-                        for (int i=0;i<Listado.size();i++) Listado[i].verAsistencias(0);
-                        break;
-                    case '2':
-                        cout<<"Llenado de Asistencias"<<endl;
-                        for (int i=0;i<Listado.size();i++) Listado[i].addAsistencia();
-                        break;
-                }
-                break;
-            case '3'://Ask Sol
-                texto("Notas",opcionCases,2);
-                cin>>inCaseSelection;
-                switch (inCaseSelection){
-                    case '1':
-                        cout<<"Visualizando Notas"<<endl;
-                                verNotas();
-                        break;
-                    case '2':
-                        cout<<"Llenado de Notas"<<endl;
-                        //addNotas();
-                        //for (int i=0;i<sizeof(Listado);i++)
-                        //Listado[i].llenarNotas;
-                        break;
-                }
-                break;
-            case '4':
-                texto("Cursos",opcionCases,3);
-                cin>>inCaseSelection;
-                switch(inCaseSelection){
-                    case '1':
-                        cout<<"Visualizando Cursos";
-                        break;
-                    case '2':
-                        cout<<"Anadir Curso";
-                        break;
-                    case '3':
-                        cout<<"Modificar Cursos";
-                        break;
-                }
-                break;
-
-            case '7':
-                cout<<"Saliendo de Seccion ... "<<endl;
-                inSeccion=false;
-                break;
-        }
-    }
-}
-
 void seccion::verListadoAlumnos(){
     cout<<endl<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
     cout<<endl<<"       ALUMNOS DE LA SECCION "<<nombreSeccion<<": "<<endl;
@@ -254,31 +198,16 @@ void seccion::deleteAlumno(int n){
 }
 
 void seccion::verAsistencias(){
- cout<<endl<<"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"<<endl;
-cout<<endl<<"                   ASISTENCIA DE LA SECCION "<<nombreSeccion<<": "<<endl;
-
-asistencias[0].coutTablaHeader();
-for(int i=0;i<asistencias.size();i++){
-    cout<<i+1<<". ";
-    asistencias[i].coutAsistencia();
+    cout<<endl<<"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"<<endl;
+    cout<<endl<<"                   ASISTENCIA DE LA SECCION "<<nombreSeccion<<": "<<endl;
+    asistencias[0].coutTablaHeader();
+        for(int i=0;i<asistencias.size();i++){
+            cout<<i+1<<". ";
+            asistencias[i].coutAsistencia();
+        }
 }
-}
 
 
-void seccion::verNotas(){
-
-
-}
-void seccion::addNotas(){}
-
-/*void seccion::verCursosTalleres(){
-    cout<<"Cursos Asignados"<<endl;
-    //for (int i=0;i<cursosTalleres.size();i++)
-        //cout << cursosTalleres[i].getNombreCurso()<<endl;
-}
-void seccion::asignarCursosTalleres(){}
-void seccion::verAnecdotario(){}
-*/
 void seccion::addAnecdotario(){
     ofstream archivo;
     archivo.open("archivos/Anecdotario/"+nombreSeccion+".csv", ios::app);//para agregar y no borrar
@@ -355,29 +284,30 @@ void seccion::addAsistencias(){
     archivo.close();
 }
 
-/*
+bool seccion::coincidePadreAlumno(int codigoPadre){
+    for (int i=0;i<Listado.size();i++) if (Listado[i].codigoMatricula==codigoPadre) return 1;
+    return 0;
+}
+int seccion::buscarCodigoMatricula(int codigoABuscar){
+    for (int i=0;i<Listado.size();i++)
+        if (Listado[i].codigoMatricula==codigoABuscar) return i;
+    return 0;
+}
 void seccion::iniciarPadres(){
     ifstream archivo;
     string linea;
     archivo.open(("archivos/padres/"+nombreSeccion+".csv"),ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
-    int i=0;
+    int i=0,aux=0;
     while(getline(archivo,linea)){
         ppff.push_back(Padres(linea));
-        cout<<"que la fuerza te acompanie"<<endl;
-        cout<<buscarCodigoMatricula(ppff[i].matricula);
-        int posVector=buscarCodigoMatricula(ppff[i].matricula);
-        Listado[posVector].agregarPadre(ppff[i]);
-
+        if (coincidePadreAlumno(ppff[i].matricula)){
+            aux=buscarCodigoMatricula(ppff[i].matricula);
+            Listado[aux].agregarPadre(ppff[i]);
+    }
         i++;
     }
     archivo.close();
 }
 
-int seccion::buscarCodigoMatricula(int codigoABuscar){
-    for (int i=0;i<Listado.size();i++){
-        if (Listado[i].codigoMatricula==codigoABuscar) return i;
-        cout<< (Listado[i].codigoMatricula==codigoABuscar);
-    }
-    return 1111111;
-}*/
+

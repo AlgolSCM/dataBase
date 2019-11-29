@@ -31,11 +31,6 @@ void imprimirOpcionesPrincipal(){
     cout << "5. Salir"<< endl;
 }
 
-void salir(){
-
-cout<<"saliendo de la plataforma"<< endl;
-}
-
 void estadoMaterial(){
 cout<<" estadoMaterial"<< endl;
 }
@@ -107,12 +102,12 @@ int main()
                 cout<<endl<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
                 break;}
             case 5:
-                salir();
                 usuarioActivo=false;
                 break;
 
             default:
                 cout<<"die"<<endl;
+                continue;
         }
     }
 

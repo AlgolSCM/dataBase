@@ -56,6 +56,7 @@ class seccion
         void iniciarAsistencia();
         void iniciarPadres();
         int buscarCodigoMatricula(int j);
+        bool coincidePadreAlumno(int codigoPadre);
 };
 
 #endif // SECCION_H
