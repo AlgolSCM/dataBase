@@ -69,7 +69,7 @@ void Alumno::elegirVisualizarDatos(bool seleccion){
     if (siNo[7]) verOtros();
 }
 void Alumno::verDatosPersonales(){
-    cout<<endl<<"=-=-=-=-=-=-=-=-=-=-DATOS=-=-=-=-=-=-=-=-=-=-=-="<<endl;
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-=-DATOS PERSONALES=-=-=-=-=-=-=-=-=-=-=-="<<endl;
     cout<<"Apellidos y Nombres: "<<getApellidosNombres()<<endl;
     cout<<"Genero: ";
     cout<<((genero=='M')?"Masculino":"Femenino")<<endl;

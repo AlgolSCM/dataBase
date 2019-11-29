@@ -90,7 +90,7 @@ int main()
                 }
                 break;
             case 2:{
-                cout<<"ELIJA LA SECCION "<<endl;
+                cout<<"   ELIJA LA SECCION "<<endl;
                 for (int i=0;i<4;i++)
                     cout<<i<<". "<<clases[i].getNombre()<<endl;
                 int aux;
@@ -103,16 +103,23 @@ int main()
                 break;}
             case 3:{
                 string buscar;
+                cout<<"Ingrese su busqueda"<<endl;
                 cin>>buscar;
+                cout<<endl<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
+                cout<<"Resultados de su busqueda: "<<endl;
                 busquedaAlumno(buscar,clases);
+                cout<<endl<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
             break;}
             case 4:
                 salir();
                 usuarioActivo=false;
                 break;
             case 5:
+                cout<<endl<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
+                cout<<endl<<"       -=-=-=-=-=-=-=-INVENTARIO=-=-=-=-=-=-"<<endl;
                 for (int i=0;i<MAterial.size();i++)
                     MAterial[i].imprimirInventario();
+                cout<<endl<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
                 break;
             default:
                 cout<<"die"<<endl;

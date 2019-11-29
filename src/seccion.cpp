@@ -88,9 +88,20 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                 }
                 break;
             case '2':
-                cout<<"asistencia de Seccion ... "<<endl;
-                inSeccion=false;
+                while(inSubcase){
+                    cout<<"OPCIONES Asistencia de la Seccion"<<endl;
+                    cout<<"1.- Ver Asistencia"<<endl;
+                    cout<<"2.- Agregar Asistencia"<<endl;
+                    cin>>inCaseSelection;
+                    switch (inCaseSelection){
+                        case '1':{verAsistencias();break;}
+                        case '2':{addAsistencias();break;}
+                        case '6':inSubcase=false;break;
+                    }
+
+
                 break;
+                }
             case '4':
                 cout<<"Saliendo de Seccion ... "<<endl;
                 inSeccion=false;
@@ -177,11 +188,12 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
 }
 
 void seccion::verListadoAlumnos(){
-    cout<<endl<<"ALUMNOS DE LA SECCION "<<nombreSeccion<<": "<<endl;
+    cout<<endl<<"->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"<<endl;
+    cout<<endl<<"       ALUMNOS DE LA SECCION "<<nombreSeccion<<": "<<endl;
     for(int i=0;i<Listado.size();i++)
-        cout<<i+1<<". "<<Listado[i].getApellidosNombres()<<endl;
-}
+        cout<<"     "<<i+1<<". "<<Listado[i].getApellidosNombres()<<endl;
 
+}
 void seccion::ordenarListadoAlumnos(){
     for (int h=Listado.size();h>0;h--){
         for (int i=0;i<h-1;i++){
@@ -237,8 +249,17 @@ void seccion::deleteAlumno(int n){
     Listado.erase(Listado.begin()+(n-1));
 }
 
-void seccion::verAsistencias(){}
-void seccion::tomarAsistencias(){}
+void seccion::verAsistencias(){
+ cout<<endl<<"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"<<endl;
+cout<<endl<<"                   ASISTENCIA DE LA SECCION "<<nombreSeccion<<": "<<endl;
+
+asistencias[0].coutTablaHeader();
+for(int i=0;i<asistencias.size();i++){
+    cout<<i+1<<". ";
+    asistencias[i].coutAsistencia();
+}
+}
+
 
 void seccion::verNotas(){
 
@@ -304,6 +325,15 @@ void seccion::iniciarAsistencia(){
     }
     archivo.close();
 }
+void seccion::addAsistencias(){
+    ofstream archivo;
+    archivo.open("archivos/asistencias/"+nombreSeccion+".csv", ios::app);//para agregar y no borrar
+    asistencias.push_back(Asistencia("27,11,2019,1,2,3,4,5"));
+    string aux=asistencias[(asistencias.size()-1)].askmodificarAsistencia();
+    archivo<<endl<<aux;
+    archivo.close();
+}
+
 /*
 void seccion::iniciarPadres(){
     ifstream archivo;
@@ -330,4 +360,3 @@ int seccion::buscarCodigoMatricula(int codigoABuscar){
     }
     return 1111111;
 }*/
-
