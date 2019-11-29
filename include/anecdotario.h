@@ -21,7 +21,7 @@ class anecdotario
         //void MostrarAnecdota();
     protected:
     private:
-        string descripcion, titulo,alumnos,aula;
+        string descripcion, titulo, aula;
         int implicados;
         fecha dia;
 };
