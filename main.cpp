@@ -36,6 +36,7 @@ void imprimirOpcionesPrincipal(){
 }
 
 void salir(){
+
 cout<<"saliendo de la plataforma"<< endl;
 }
 
@@ -52,7 +53,10 @@ void iniciarInventario(vector <inventario> MAterial);
 
 int main()
 {
-    //Alumno prueba("Raphaella,Alarcon Ortega,F,24,2,2014,Urbanizacion Chapi Chico E-16 -Miraflores,78913627,Cabecitas Constructivas,78913627,Catolica,27,0");
+    Alumno prueba("Raphaella,Alarcon Ortega,F,24,2,2014,Urbanizacion Chapi Chico E-16 -Miraflores,78913627,Cabecitas Constructivas,78913627,Catolica,27,0","3 anios");
+
+    prueba.leernotas();
+
     vector <inventario> MAterial;
     //Iniciar inventario
     ifstream archivo;

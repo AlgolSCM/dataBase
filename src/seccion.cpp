@@ -21,7 +21,7 @@ seccion::seccion(string nombreSeccion){
     archivo.open(nombreArchivo,ios::in);//Abre el archivo en modo lectura
     if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
     while(getline(archivo,linea))
-        Listado.push_back(Alumno(linea));
+        Listado.push_back(Alumno(linea,nombreSeccion));
     archivo.close();
     this->nombreSeccion=nombreSeccion;
     //cout<<"Seccion Iniciada"<<endl;
@@ -211,7 +211,7 @@ void seccion::ordenarListadoAlumnos(){
 void seccion::addAlumno(){
     ofstream archivo;
     archivo.open(nombreArchivo, ios::app);//para agregar y no borrar
-    Listado.push_back(Alumno("Jhon,Doe,M,0,0,0,tucasa,0,seccion,0,tahuantinsuyo,0,0"));
+    Listado.push_back(Alumno("Jhon,Doe,M,0,0,0,tucasa,0,seccion,0,tahuantinsuyo,0,0",nombreSeccion));
     string aux=Listado[(Listado.size()-1)].askModificarDatos();
     archivo<<endl<<aux;
     archivo.close();

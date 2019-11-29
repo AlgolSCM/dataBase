@@ -21,8 +21,7 @@ class Alumno
         Alumno();//Matriccula
         virtual ~Alumno();
         int codigoMatricula;
-        Alumno(string nombres,string apellidos,string sec="ninguna asignada");
-        Alumno(string lineaFichero);
+        Alumno(string lineaFichero,string nombreSeccion);
         string lineaFichero;
         expedienteMedico expediente;
         void texto(string label,string texto[],int tam,bool prompt=1, bool numeracion=1);
@@ -36,6 +35,7 @@ class Alumno
 
         //SETS
         string askModificarDatos();
+        void setNombreSeccion(string a){nombreSeccion=a;}
         //void setExpediente(expedienteMedico a){cout<<"seteo expediente"<<endl;expediente=a;}
 
         //GETS
@@ -50,6 +50,8 @@ class Alumno
 
         //ADS
         void addAsistencia();
+        //ToPrivate
+        void addNotas(int cantidadNotas=0);
 
     private:
         string nombres, apellidos;

@@ -9,18 +9,11 @@
 #include "Padres.h"
 using namespace std;
 
-Alumno::Alumno()
-{
-    //ctor
-}
+Alumno::Alumno(){}
 
-Alumno :: Alumno(string nombres,string apellidos,string sec){
-    this->apellidos=apellidos;
-    this->nombres=nombres;
-    const string nombreSeccion=sec;
-}
 int StringToInts(string num);
-Alumno::Alumno(string lineaFichero){
+Alumno::Alumno(string lineaFichero,string nombreSeccion){
+    this->nombreSeccion=nombreSeccion;
     vector <string> fields;
     stringstream ss(lineaFichero);
     string actual;
@@ -72,9 +65,8 @@ void Alumno::elegirVisualizarDatos(bool seleccion){
     if (siNo[3]) verContacto();
     if (siNo[4]) verDocumentos();
     if (siNo[5]) verMatricula();
-    if (siNo[6]) versusNotas();
+    if (siNo[6]) leernotas();
     if (siNo[7]) verOtros();
-
 }
 void Alumno::verDatosPersonales(){
     cout<<endl<<"=-=-=-=-=-=-=-=-=-=-DATOS=-=-=-=-=-=-=-=-=-=-=-="<<endl;
@@ -221,17 +213,53 @@ void Alumno::leernotas(){
     archivo.close();
     }
 }*/
-//void Alumno::leernotas(){
 
-//h967 s96355555t9
+///ESTAS AQUIIIII
+void Alumno::leernotas(){
+    cout<<endl<<"NOTAS DEL ALUMNO "<<endl;
+    string linea;
+    string nombreArchivo="archivos/n/"+nombreSeccion+"/"+to_string(dni)+".csv";
+    cout<<nombreArchivo;
+    ifstream archivo;
+    archivo.open(nombreArchivo);
+    if (archivo.fail()){
+        ofstream archivo(nombreArchivo);//si no existe crea uno
+        cout<<"Este alumno no tiene notas"<<endl;
+    }
+    archivo.close();
+    archivo.open(nombreArchivo);
+    NotasABC aux;
+    if (archivo.fail()){cout<<"Error al cargar el archivo"<<endl;exit(1);}
+    while(getline(archivo,linea)){
+        aux=NotasABC(linea);
+        aux.imprimirnotas();
+    }
 
+}
 
-void Alumno::versusNotas(){//falta arreglar
-//     leernotas();
-     cout<<endl<<"NOTAS DEL ALUMNO "<<endl;
-     for(int i=0;i<notitas.size();i++){
-        notitas[i].imprimirnotas();
-     }
+void Alumno::addNotas(int trimestre){
+    string nombreArchivo="archivos/n/"+nombreSeccion+"/"+to_string(dni)+".csv";
+    string linea;//string auxiliar
+    //Archivo por defecto como guia
+    ifstream guia;
+    guia.open("archivos/n/default/"+nombreSeccion+".csv");
+    if (guia.fail()){cout<<"no se pudo abrir por defecto";exit(1);}
+    //Archivo de Salida
+    ofstream archivo;
+    archivo.open(nombreArchivo, ios::app);//solo agrega al final
+    if (archivo.fail()) ofstream archivo(nombreArchivo);//si no existe crea uno}
+    archivo.close();
+    archivo.open(nombreArchivo, ios::app);
+    if (archivo.fail()) {cout<<"no se pudo abrir por defecto";exit(1);
+    }//Si vuelve a fallar cierra el prorama
+    NotasABC aux;
+    while(getline(guia,linea)){
+        aux=NotasABC(linea,trimestre);
+        aux.setNotas();
+        archivo<<aux.getString()<<endl;
+    }
+    archivo.close();
+    guia.close();
 }
 
 int StringToInts(string num){
