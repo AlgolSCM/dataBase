@@ -12,7 +12,7 @@ class NotasABC: public notas
         NotasABC(string lineafile,int trimestre);
         bool validar(string nota);
         virtual ~NotasABC();
-        void imprimirnotas();
+        void imprimirnota();
         void setNotas();
         string getString();
     protected:

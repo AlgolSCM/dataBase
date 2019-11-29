@@ -216,7 +216,8 @@ void Alumno::leernotas(){
 
 ///ESTAS AQUIIIII
 void Alumno::leernotas(){
-    cout<<endl<<"NOTAS DEL ALUMNO "<<endl;
+    if(nombreSeccion!="2 anios"){
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-NOTAS DEL ALUMNO=-=-=-=-=-=-=-=-=-=-="<<endl;
     string linea;
     string nombreArchivo="archivos/n/"+nombreSeccion+"/"+to_string(dni)+".csv";
     cout<<nombreArchivo;
@@ -232,9 +233,35 @@ void Alumno::leernotas(){
     if (archivo.fail()){cout<<"Error al cargar el archivo"<<endl;exit(1);}
     while(getline(archivo,linea)){
         aux=NotasABC(linea);
-        aux.imprimirnotas();
+        aux.imprimirnota();
+    }
     }
 
+    else{
+    cout<<endl<<"=-=-=-=-=-=-=-=-=-NOTAS DEL ALUMNO=-=-=-=-=-=-=-=-=-=-="<<endl;
+    string linea;
+    string nombreArchivo="archivos/n/"+nombreSeccion+"/"+to_string(dni)+".csv";
+    cout<<nombreArchivo;
+    ifstream archivo;
+    archivo.open(nombreArchivo);
+    if (archivo.fail()){
+        ofstream archivo(nombreArchivo);//si no existe crea uno
+        cout<<"Este alumno no tiene notas"<<endl;
+    }
+    archivo.close();
+    archivo.open(nombreArchivo);
+    notas aux;
+    if (archivo.fail()){cout<<"Error al cargar el archivo"<<endl;exit(1);}
+    while(getline(archivo,linea)){
+        aux=notas(linea);
+        aux.imprimirnota();
+    }
+
+
+
+
+
+    }
 }
 
 void Alumno::addNotas(int trimestre){
