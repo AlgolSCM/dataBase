@@ -140,7 +140,7 @@ void iniciarInventario(vector <inventario> MAterial){
     ifstream archivo;
     string linea;
     archivo.open(("archivos/Inventario/Inventario.csv"),ios::in);//Abre el archivo en modo lectura
-    if(archivo.fail()){cout<<"Error al cargar la seccion";exit(1);}
+    if(archivo.fail()){cout<<"Error al cargar el inventario";exit(1);}
     while(getline(archivo,linea)){
         MAterial.push_back(inventario(linea));
     }
