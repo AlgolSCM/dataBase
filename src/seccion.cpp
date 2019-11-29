@@ -59,13 +59,13 @@ void seccion::texto(string label,string texto[],int tam,bool prompt,bool numerac
 
 void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de seccion
     //string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","NOTAS","CURSOS","ANECDOTARIO","INVENTARIO","Salir"};
-    string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","ANECDOTARIO","Salir"};
+    string opcionSeleccion[]={"ALUMNOS","ASISTENCIAS","ANECDOTARIO","PADRES","Salir"};
     string opcionCases[]={"Seleccionar Alumno (visualizar datos)","Ordenar","Anadir","modificar","eliminar","Salir"};
     while (inSeccion){
         cout<<endl<<"=^..^= =^..^= =^..^= =^..^= =^..^= =^..^= =^..^="<<endl;
         cout<<"Estas en la seccion: "<<nombreSeccion<<endl;
         char inCaseSelection;bool inSubcase=1;
-        texto("Opciones de Seccion",opcionSeleccion,4);
+        texto("Opciones de Seccion",opcionSeleccion,5);
         switch(cin.get()){
             case '1':
                 while(inSubcase){
@@ -74,7 +74,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                     cin>>inCaseSelection;
                     switch (inCaseSelection){
                         case '1':{int n;cout<<"Ingrese alumno";cin>>n;Listado[n-1].elegirVisualizarDatos();break;}
-                        case '2':ordenarListadoAlumnos();break;
+                        case '2':ordenarListado(Listado);break;
                         case '3':addAlumno();break;
                         case '4':{int n;
                             cout<<"Ingrese seleccion: ";
@@ -115,7 +115,7 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                         case '2':{
                             for (int i=0;i<sucesos.size();i++)
                             sucesos[i].imprimirAnecdotario();
-                            cout<<"¿que sucede?"<<endl;
+                            cout<<"¿que sucede? No lo se :("<<endl;
                             break;
                         }
                         case '6':{
@@ -125,8 +125,27 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                     }
                 }
                 break;
+            case '4':
+                while(inSubcase){
+                    cout<<"OPCIONES Padres de la Seccion"<<endl;
+                    cout<<"1.- Visualizar datos de padre"<<endl;
+                    cout<<"2.- Ordenar Listado"<<endl;
+                    cin>>inCaseSelection;
+                    for (int i=0;i<ppff.size();i++)
+                        cout<<i+1<<ppff[i].getApellidos()<<endl;
+                    switch (inCaseSelection){
+                        int n;cin>>n;
+                        case '1':{
 
-            case '4':{
+                            break;}
+                        case '2':{
+                            ordenarListado(ppff);
+                            break;}
+                    }
+
+                }
+                break;
+            case '5':{
                 cout<<"Saliendo de Seccion ... "<<endl;
                 inSeccion=false;
                 break;
@@ -142,7 +161,9 @@ void seccion::verListadoAlumnos(){
         cout<<"     "<<i+1<<". "<<Listado[i].getApellidosNombres()<<endl;
 
 }
-void seccion::ordenarListadoAlumnos(){
+
+template <class T>
+void seccion::ordenarListado(vector <T> Listado){
     for (int h=Listado.size();h>0;h--){
         for (int i=0;i<h-1;i++){
              int actual=static_cast<int> (Listado[i].getApellidos()[0]);

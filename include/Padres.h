@@ -21,6 +21,7 @@ class Padres
         void getDatosdeContacto();
         void MenuDatosPadres();
         void DatosPadres();
+        string getApellidos(){return nombresApellidos;}
 
 //    protected:
 

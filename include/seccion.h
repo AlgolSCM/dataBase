@@ -22,7 +22,8 @@ class seccion
 
         void imprimirBusqueda(string aBuscar);
         void verListadoAlumnos();
-        void ordenarListadoAlumnos();
+        template <class T>
+        void ordenarListado(vector <T> Listado);
         void addAlumno();
         void deleteAlumno(int n=0);//solicita el numero de lista del alumno
         void seleccionAlumno();
