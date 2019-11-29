@@ -265,6 +265,7 @@ void Alumno::leernotas(){
 }
 
 void Alumno::addNotas(int trimestre){
+    if(nombreSeccion!="2 anios"){
     string nombreArchivo="archivos/n/"+nombreSeccion+"/"+to_string(dni)+".csv";
     string linea;//string auxiliar
     //Archivo por defecto como guia
@@ -288,7 +289,33 @@ void Alumno::addNotas(int trimestre){
     archivo.close();
     guia.close();
 }
+    else{
+    string nombreArchivo="archivos/n/"+nombreSeccion+"/"+to_string(dni)+".csv";
+    string linea;//string auxiliar
+    //Archivo por defecto como guia
+    ifstream guia;
+    guia.open("archivos/n/default/"+nombreSeccion+".csv");
+    if (guia.fail()){cout<<"no se pudo abrir por defecto";exit(1);}
+    //Archivo de Salida
+    ofstream archivo;
+    archivo.open(nombreArchivo, ios::app);//solo agrega al final
+    if (archivo.fail()) ofstream archivo(nombreArchivo);//si no existe crea uno}
+    archivo.close();
+    archivo.open(nombreArchivo, ios::app);
+    if (archivo.fail()) {cout<<"no se pudo abrir por defecto";exit(1);
+    }//Si vuelve a fallar cierra el prorama
+    notas aux;
+    while(getline(guia,linea)){
+        aux=notas(linea,trimestre);
+        aux.setNotas();
+        archivo<<aux.getString()<<endl;
+    }
+    archivo.close();
+    guia.close();
 
+}
+
+}
 int StringToInts(string num){
     int salida=0;
     int n;
