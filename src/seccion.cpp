@@ -132,17 +132,19 @@ void seccion::menuSeleccion(bool inSeccion){//el bool para mostrar el menu de se
                     cout<<"2.- Ordenar Listado"<<endl;
                     cin>>inCaseSelection;
                     for (int i=0;i<ppff.size();i++)
-                        cout<<i+1<<ppff[i].getApellidos()<<endl;
+                        cout<<i+1<<" "<<ppff[i].getApellidos()<<endl;
                     switch (inCaseSelection){
                         int n;cin>>n;
                         case '1':{
-
-                            break;}
+                            int n;cout<<"Ingrese padre: ";cin>>n;
+                            ppff[n-1].MenuDatosPadres();
+                            break;
+                        }
                         case '2':{
                             ordenarListado(ppff);
-                            break;}
+                            break;
+                        }
                     }
-
                 }
                 break;
             case '5':{
